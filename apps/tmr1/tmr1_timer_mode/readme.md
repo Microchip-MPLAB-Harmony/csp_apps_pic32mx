@@ -55,7 +55,7 @@ The following table shows the target hardware for the application projects.
 
 Following table provides the LED names:
 
- Board      | LED Name |
+| Board      | LED Name |
 | ---------- |--------- |
 | [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | LED1 |
 | [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004) | LED1 |
