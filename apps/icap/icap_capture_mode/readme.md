@@ -41,6 +41,7 @@ The following table shows the target hardware for the application projects.
 
 - Connect mini USB cable to the 'Debug USB' connector(J3) on the board to the computer
 - Install an [USB UART click board](https://www.mikroe.com/usb-uart-click) on to the mikroBUS socket J5
+- Connect the OC3 pin RPG8 (Pin 13 of the J14) to the IC1 pin RPG9 (pin 10 of the J14)
 - Connect mini USB cable between PC and the [USB UART click board](https://www.mikroe.com/usb-uart-click)
   - *Note: Ensure that the series resistors on the mikroBUS headers are of value 0 Ohms*
 
@@ -51,6 +52,7 @@ The following table shows the target hardware for the application projects.
 
 - Connect micro USB cable to the 'Debug USB' connector(J9) on the board to the computer
 - Install an [USB UART click board](https://www.mikroe.com/usb-uart-click) on to the mikroBUS socket J5
+- Connect the OC2 pin RB1 (Pin 5 of the J16) to the IC2 pin RB0 (pin 4 of the J16)
 - Connect mini USB cable between PC and the [USB UART click board](https://www.mikroe.com/usb-uart-click)
 
 ## Running the Application
