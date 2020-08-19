@@ -83,6 +83,8 @@ bool UART1_ReadIsBusy( void );
 
 size_t UART1_ReadCountGet( void );
 
+bool UART1_ReadAbort(void);
+
 bool UART1_WriteIsBusy( void );
 
 size_t UART1_WriteCountGet( void );
