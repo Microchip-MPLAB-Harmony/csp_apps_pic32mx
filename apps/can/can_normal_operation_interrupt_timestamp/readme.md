@@ -52,7 +52,7 @@ The following table shows the target hardware for the application projects.
   - [CAN/LIN PICtail (Plus) Daughter Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC164130-2)
 
 - Install [Microchip CAN Bus Analyzer](http://www.microchip.com/Developmenttools/ProductDetails/APGDT002) software on PC
-Connect J1 connector on board to J1 connector on [Starter Kit I/O Expansion Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320002)
+- Connect J1 connector on board to J1 connector on [Starter Kit I/O Expansion Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320002)
 - Connect J4 connector on [Starter Kit I/O Expansion Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320002) to J7 connector on [CAN/LIN PICtail (Plus) Daughter Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC164130-2)
 - Connect [Microchip CAN Bus Analyzer](http://www.microchip.com/Developmenttools/ProductDetails/APGDT002) to P1 connector on [CAN/LIN PICtail (Plus) Daughter Board](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/AC164130-2) using female to female DB9 serial cable
 - Short (close) Jumper J5 on PIC32MX Ethernet Starter Kit II

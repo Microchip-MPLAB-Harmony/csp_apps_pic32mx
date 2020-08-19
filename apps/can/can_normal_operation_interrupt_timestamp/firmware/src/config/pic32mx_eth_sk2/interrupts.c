@@ -63,7 +63,7 @@ void CAN1_InterruptHandler( void );
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
-void __ISR(_CAN_1_VECTOR, ipl1AUTO) CAN_1_Handler (void)
+void __ISR(_CAN_1_VECTOR, ipl1SOFT) CAN_1_Handler (void)
 {
     CAN1_InterruptHandler();
 }
