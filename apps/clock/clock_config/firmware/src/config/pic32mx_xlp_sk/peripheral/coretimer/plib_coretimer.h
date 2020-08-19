@@ -62,13 +62,13 @@ typedef struct
     uint32_t            period;
 } CORETIMER_OBJECT ;
 
-void CORETIMER_Initialize( void );
+void CORETIMER_Initialize(void);
 void CORETIMER_CallbackSet ( CORETIMER_CALLBACK callback, uintptr_t context );
-uint32_t CORETIMER_FrequencyGet ( void );
-void CORETIMER_PeriodSet ( uint32_t period );
-void CORETIMER_Start();
-void CORETIMER_Stop();
-void CORETIMER_DelayMs ( uint32_t delay_ms);
+uint32_t CORETIMER_FrequencyGet (void);
+void CORETIMER_PeriodSet (uint32_t period);
+void CORETIMER_Start(void);
+void CORETIMER_Stop(void);
+void CORETIMER_DelayMs (uint32_t delay_ms);
 
 
 
