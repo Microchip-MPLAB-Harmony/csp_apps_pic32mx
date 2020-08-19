@@ -36,11 +36,20 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103)
 
-- Connect mini USB cable to the 'Debug USB' connector(J3) on the board to the computer
+- To run the application, following additional hardware are required:
+  - [EEPROM 3 Click board](https://www.mikroe.com/eeprom-3-click)
 
-### Setting up [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004)
+- Connect mini USB cable to the 'Debug USB' connector(J3) on the board to the computer
+- Plug the [EEPROM 3 Click board](https://www.mikroe.com/eeprom-3-click) into the MikroBus socket J5 of the development board
+- *Note: Ensure that the series resistors on the mikroBUS headers are of value 0 Ohms*
+
+### Setting up [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105)
+
+- To run the application, following additional hardware are required:
+  - [EEPROM 3 Click board](https://www.mikroe.com/eeprom-3-click)
 
 - Connect micro USB cable to the 'Debug USB' connector(J7) on the board to the computer
+- Plug the [EEPROM 3 Click board](https://www.mikroe.com/eeprom-3-click) into the MikroBus socket J5 of the development board
 
 ## Running the Application
 
