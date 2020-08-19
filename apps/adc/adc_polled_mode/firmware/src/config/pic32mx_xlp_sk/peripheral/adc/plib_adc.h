@@ -158,8 +158,8 @@ typedef enum
 
 void ADC_Initialize (void);
 
-void ADC_Enable();
-void ADC_Disable();
+void ADC_Enable(void);
+void ADC_Disable(void);
 
 void ADC_SamplingStart(void);
 void ADC_ConversionStart(void);
@@ -167,7 +167,7 @@ void ADC_ConversionStart(void);
 void ADC_InputSelect(ADC_MUX muxType, ADC_INPUT_POSITIVE positiveInput, ADC_INPUT_NEGATIVE negativeInput );
 void ADC_InputScanSelect(ADC_INPUTS_SCAN scanInputs);
 
-bool ADC_ResultIsReady();
+bool ADC_ResultIsReady(void);
 uint32_t ADC_ResultGet(ADC_RESULT_BUFFER bufferNumber);
 
 

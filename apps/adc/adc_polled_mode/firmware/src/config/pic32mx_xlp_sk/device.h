@@ -1,20 +1,22 @@
 /*******************************************************************************
- Debug Console Source file
+  Device Header File
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    xc32_monitor.c
+    device.h
 
   Summary:
-    debug console Source File
+    This file includes the selected device from within the project.
+    The device will provide access to respective device packs.
 
   Description:
     None
 
 *******************************************************************************/
 
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
 * Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
@@ -37,27 +39,9 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+// DOM-IGNORE-END
 
-#include "definitions.h"
+#include <xc.h>
+#include <sys/attribs.h>
+#include "toolchain_specifics.h"
 
-#ifdef __arm__
-/* Declaration of these functions are missing in stdio.h for ARM parts*/
-int _mon_getc(int canblock);
-void _mon_putc(char c);
-#endif //__arm__
-
-int _mon_getc(int canblock)
-{
-   volatile int c = 0;
-   while(UART1_Read((void*)&c, 1) != true);
-   return c;
-}
-
-void _mon_putc(char c)
-{
-   uint8_t size = 0;
-   do
-   {
-       size = UART1_Write((void*)&c, 1);
-   }while (size != 1);
-}

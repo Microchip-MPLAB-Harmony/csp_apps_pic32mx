@@ -49,7 +49,7 @@
 // *****************************************************************************
 
 
-void ADC_Initialize()
+void ADC_Initialize(void)
 {
     AD1CON1CLR = _AD1CON1_ON_MASK;
 
@@ -61,12 +61,12 @@ void ADC_Initialize()
     AD1CON1SET = _AD1CON1_ON_MASK;
 }
 
-void ADC_Enable()
+void ADC_Enable(void)
 {
     AD1CON1SET = _AD1CON1_ON_MASK;
 }
 
-void ADC_Disable()
+void ADC_Disable(void)
 {
     AD1CON1CLR = _AD1CON1_ON_MASK;
 }
@@ -77,7 +77,7 @@ void ADC_SamplingStart(void)
     AD1CON1SET = _AD1CON1_SAMP_MASK;
 }
 
-void ADC_ConversionStart()
+void ADC_ConversionStart(void)
 {
     AD1CON1CLR = _AD1CON1_SAMP_MASK;
 }
@@ -102,7 +102,7 @@ void ADC_InputScanSelect(ADC_INPUTS_SCAN scanInputs)
 }
 
 /*Check if conversion result is available */
-bool ADC_ResultIsReady()
+bool ADC_ResultIsReady(void)
 {
     return AD1CON1bits.DONE;
 }
