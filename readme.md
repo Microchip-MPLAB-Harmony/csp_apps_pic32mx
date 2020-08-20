@@ -52,6 +52,8 @@ The following applications are provided to demonstrate the typical or interestin
 | [SPI EEPROM write read](apps/spi/master/spi_eeprom_write_read/readme.md) | This example application demonstrates how to use the SPI peripheral to write and read from the SPI serial EEPROM memory |
 | [SPI blocking](apps/spi/master/spi_self_loopback_blocking/readme.md) | This example application demonstrates how to use the SPI peripheral to transmit and receive a block of data in a blocking manner |
 | [SPI interrupt](apps/spi/master/spi_self_loopback_interrupt/readme.md) | This example application demonstrates how to use the SPI peripheral to transmit and receive a block of data using interrupt |
+| [SPI Master test app](apps/spi/master/spi_write_read_test_app/readme.md) | This is a SPI Master test application which is provided to demonstrate communication between SPI master and the corresponding SPI slave application available under - apps/spi/slave/spi_write_read/firmware |
+| [SPI Slave read write](apps/spi/slave/spi_write_read/readme.md) | This example application demonstrates how to use the SPI peripheral in slave mode |
 | [TMR periodic interrupt](apps/tmr/tmr_timer_mode/readme.md) | This example demonstrates how to use the TMR module in timer mode to generate periodic interrupt |
 | [TMR1 periodic interrupt](apps/tmr1/tmr1_timer_mode/readme.md) | This example demonstrates how to use the TMR1 module in timer mode to generate periodic interrupt |
 | [UART echo blocking](apps/uart/uart_echo_blocking/readme.md) | This example application demonstrates how to use the UART peripheral to transfer a block of data in a blocking manner |
