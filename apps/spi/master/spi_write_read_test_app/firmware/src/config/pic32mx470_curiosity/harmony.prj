@@ -101,8 +101,8 @@
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">device.h</Name>
           <Security dnOrder="2">NON_SECURE</Security>
-          <LogicalPath dnOrder="3">packs/PIC32MX470F512H_DFP/</LogicalPath>
-          <PhysicalPath dnOrder="4">/../../packs/PIC32MX470F512H_DFP/</PhysicalPath>
+          <LogicalPath dnOrder="3">config/pic32mx470_curiosity/</LogicalPath>
+          <PhysicalPath dnOrder="4">/</PhysicalPath>
           <GeneratedChecksum dnOrder="5">5D5C52527AB1435153DB9B50ADE6B79D</GeneratedChecksum>
           <UserChecksum dnOrder="6">5D5C52527AB1435153DB9B50ADE6B79D</UserChecksum>
         </File>
@@ -130,8 +130,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/pic32mx470_curiosity/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="4">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">D01D163837C6077C14341F53BBA254E4</GeneratedChecksum>
-          <UserChecksum dnOrder="6">D01D163837C6077C14341F53BBA254E4</UserChecksum>
+          <GeneratedChecksum dnOrder="5">2D714A70A7848265BFC39F51CA0A4B42</GeneratedChecksum>
+          <UserChecksum dnOrder="6">2D714A70A7848265BFC39F51CA0A4B42</UserChecksum>
         </File>
         <File dnOrder="14">
           <Type dnOrder="0">HEADER</Type>
@@ -166,7 +166,7 @@
         <Setting category="C32" dnOrder="1" key="generate-16-bit-code" security="NON_SECURE" value="false"/>
         <Setting category="C32-LD" dnOrder="2" key="heap-size" security="NON_SECURE" value="512"/>
         <Setting category="C32-LD" dnOrder="3" key="no-device-startup-code" security="NON_SECURE" value="true"/>
-        <Setting append="true" category="C32-LD" delimiter=";" dnOrder="4" key="preprocessor-macros" security="NON_SECURE" value=""/>
+        <Setting append="true" category="C32-LD" delimiter=";=" dnOrder="4" key="preprocessor-macros" security="NON_SECURE" value=""/>
         <Setting append="true" category="C32CPP" delimiter=";" dnOrder="5" key="extra-include-directories" security="NON_SECURE" value="../src;../src/config/pic32mx470_curiosity;../src/packs/PIC32MX470F512H_DFP;"/>
         <Setting category="C32CPP" dnOrder="6" key="generate-16-bit-code" security="NON_SECURE" value="false"/>
       </Settings>
