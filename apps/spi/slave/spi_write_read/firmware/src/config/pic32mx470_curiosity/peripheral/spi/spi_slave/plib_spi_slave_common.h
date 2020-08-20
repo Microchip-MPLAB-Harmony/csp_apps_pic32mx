@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2018-2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2019-2020 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -54,7 +54,7 @@
 
 #endif
 
-/****************************** SPI${SPI_INDEX?string} Interface *********************************/
+/****************************** SPI Slave Interface *********************************/
 
 /* SPI Slave Errors
 
@@ -143,7 +143,7 @@ typedef struct
     bool                            transferIsBusy;
 
     /* SPI Event handler */
-    SPI_SLAVE_CALLBACK       		callback;
+    SPI_SLAVE_CALLBACK              callback;
 
     /* Context */
     uintptr_t                       context;
@@ -158,12 +158,12 @@ typedef struct
 
     /* Index into the receive buffer where the next received byte will be copied */
     volatile uint32_t               rdInIndex;
-	
-	/* Flag to indicate that the RX interrupt is active (being serviced) */
-	volatile bool					rxInterruptActive;
-	
-	/* Flag to indicate that CS interrupt has delegated callback responsibility to the SPI receive interrupt */
-	volatile bool					csInterruptPending;
+
+    /* Flag to indicate that the RX interrupt is active (being serviced) */
+    volatile bool                   rxInterruptActive;
+
+    /* Flag to indicate that CS interrupt has delegated callback responsibility to the SPI receive interrupt */
+    volatile bool                   csInterruptPending;
 
 } SPI_SLAVE_OBJECT;
 

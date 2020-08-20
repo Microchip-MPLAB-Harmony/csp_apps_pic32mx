@@ -76,8 +76,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/pic32mx470_curiosity/peripheral/spi/spi_slave</LogicalPath>
           <PhysicalPath dnOrder="4">/peripheral/spi/spi_slave/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">EED66A97588387430EA5AB82F96ABA04</GeneratedChecksum>
-          <UserChecksum dnOrder="6">EED66A97588387430EA5AB82F96ABA04</UserChecksum>
+          <GeneratedChecksum dnOrder="5">F6F702C5FC572658F54E1FBB178CD771</GeneratedChecksum>
+          <UserChecksum dnOrder="6">F6F702C5FC572658F54E1FBB178CD771</UserChecksum>
         </File>
         <File dnOrder="8">
           <Type dnOrder="0">SOURCE</Type>
@@ -101,8 +101,8 @@
           <Type dnOrder="0">HEADER</Type>
           <Name dnOrder="1">device.h</Name>
           <Security dnOrder="2">NON_SECURE</Security>
-          <LogicalPath dnOrder="3">packs/PIC32MX470F512H_DFP/</LogicalPath>
-          <PhysicalPath dnOrder="4">/../../packs/PIC32MX470F512H_DFP/</PhysicalPath>
+          <LogicalPath dnOrder="3">config/pic32mx470_curiosity/</LogicalPath>
+          <PhysicalPath dnOrder="4">/</PhysicalPath>
           <GeneratedChecksum dnOrder="5">5D5C52527AB1435153DB9B50ADE6B79D</GeneratedChecksum>
           <UserChecksum dnOrder="6">5D5C52527AB1435153DB9B50ADE6B79D</UserChecksum>
         </File>
@@ -130,8 +130,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/pic32mx470_curiosity/peripheral/gpio/</LogicalPath>
           <PhysicalPath dnOrder="4">/peripheral/gpio/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">00448DDAFEBFA478873CB2365F501F1C</GeneratedChecksum>
-          <UserChecksum dnOrder="6">00448DDAFEBFA478873CB2365F501F1C</UserChecksum>
+          <GeneratedChecksum dnOrder="5">5D8FE3377C6B0C4F76D750E8535DBF34</GeneratedChecksum>
+          <UserChecksum dnOrder="6">5D8FE3377C6B0C4F76D750E8535DBF34</UserChecksum>
         </File>
         <File dnOrder="14">
           <Type dnOrder="0">HEADER</Type>
@@ -139,8 +139,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/pic32mx470_curiosity/peripheral/spi/spi_slave</LogicalPath>
           <PhysicalPath dnOrder="4">/peripheral/spi/spi_slave/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">A388470233F5E45F72D3BB8E8E4BCD38</GeneratedChecksum>
-          <UserChecksum dnOrder="6">A388470233F5E45F72D3BB8E8E4BCD38</UserChecksum>
+          <GeneratedChecksum dnOrder="5">0A46116348DF58DF658E3A9C329954ED</GeneratedChecksum>
+          <UserChecksum dnOrder="6">0A46116348DF58DF658E3A9C329954ED</UserChecksum>
         </File>
         <File dnOrder="15">
           <Type dnOrder="0">HEADER</Type>
@@ -148,8 +148,8 @@
           <Security dnOrder="2">NON_SECURE</Security>
           <LogicalPath dnOrder="3">config/pic32mx470_curiosity/peripheral/spi/spi_slave</LogicalPath>
           <PhysicalPath dnOrder="4">/peripheral/spi/spi_slave/</PhysicalPath>
-          <GeneratedChecksum dnOrder="5">6A5541F8C90C7AB0D086CD607A3CF55B</GeneratedChecksum>
-          <UserChecksum dnOrder="6">6A5541F8C90C7AB0D086CD607A3CF55B</UserChecksum>
+          <GeneratedChecksum dnOrder="5">21DB92874BBFC03926BE5702FD057454</GeneratedChecksum>
+          <UserChecksum dnOrder="6">21DB92874BBFC03926BE5702FD057454</UserChecksum>
         </File>
         <File dnOrder="16">
           <Type dnOrder="0">HEADER</Type>
@@ -166,7 +166,7 @@
         <Setting category="C32" dnOrder="1" key="generate-16-bit-code" security="NON_SECURE" value="false"/>
         <Setting category="C32-LD" dnOrder="2" key="heap-size" security="NON_SECURE" value="512"/>
         <Setting category="C32-LD" dnOrder="3" key="no-device-startup-code" security="NON_SECURE" value="true"/>
-        <Setting append="true" category="C32-LD" delimiter=";" dnOrder="4" key="preprocessor-macros" security="NON_SECURE" value=""/>
+        <Setting append="true" category="C32-LD" delimiter=";=" dnOrder="4" key="preprocessor-macros" security="NON_SECURE" value=""/>
         <Setting append="true" category="C32CPP" delimiter=";" dnOrder="5" key="extra-include-directories" security="NON_SECURE" value="../src;../src/config/pic32mx470_curiosity;../src/packs/PIC32MX470F512H_DFP;"/>
         <Setting category="C32CPP" dnOrder="6" key="generate-16-bit-code" security="NON_SECURE" value="false"/>
       </Settings>

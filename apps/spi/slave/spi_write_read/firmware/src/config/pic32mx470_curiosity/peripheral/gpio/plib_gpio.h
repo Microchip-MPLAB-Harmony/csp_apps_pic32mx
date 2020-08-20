@@ -61,24 +61,26 @@
 // *****************************************************************************
 // *****************************************************************************
 
+
 /*** Macros for GPIO_RB4 pin ***/
 #define GPIO_RB4_Set()               (LATBSET = (1<<4))
 #define GPIO_RB4_Clear()             (LATBCLR = (1<<4))
 #define GPIO_RB4_Toggle()            (LATBINV= (1<<4))
-#define GPIO_RB4_Get()               ((PORTB >> 4) & 0x1)
 #define GPIO_RB4_OutputEnable()      (TRISBCLR = (1<<4))
 #define GPIO_RB4_InputEnable()       (TRISBSET = (1<<4))
+#define GPIO_RB4_Get()               ((PORTB >> 4) & 0x1)
 #define GPIO_RB4_PIN                  GPIO_PIN_RB4
+
 /*** Macros for GPIO_RD4 pin ***/
 #define GPIO_RD4_Set()               (LATDSET = (1<<4))
 #define GPIO_RD4_Clear()             (LATDCLR = (1<<4))
 #define GPIO_RD4_Toggle()            (LATDINV= (1<<4))
-#define GPIO_RD4_Get()               ((PORTD >> 4) & 0x1)
 #define GPIO_RD4_OutputEnable()      (TRISDCLR = (1<<4))
 #define GPIO_RD4_InputEnable()       (TRISDSET = (1<<4))
+#define GPIO_RD4_Get()               ((PORTD >> 4) & 0x1)
+#define GPIO_RD4_PIN                  GPIO_PIN_RD4
 #define GPIO_RD4_InterruptEnable()   (CNENDSET = (1<<4))
 #define GPIO_RD4_InterruptDisable()  (CNENDCLR = (1<<4))
-#define GPIO_RD4_PIN                  GPIO_PIN_RD4
 
 
 // *****************************************************************************

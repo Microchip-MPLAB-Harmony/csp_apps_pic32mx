@@ -1,23 +1,24 @@
 /*******************************************************************************
-  SPI PLIB
+  Device Header File
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_spi1_slave.h
+    device.h
 
   Summary:
-    SPI1 Slave PLIB Header File
+    This file includes the selected device from within the project.
+    The device will provide access to respective device packs.
 
   Description:
-    This file has prototype of all the interfaces provided for particular
-    SPI peripheral.
+    None
 
 *******************************************************************************/
 
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2019-2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -38,39 +39,9 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+// DOM-IGNORE-END
 
-#ifndef PLIB_SPI1_SLAVE_H
-#define PLIB_SPI1_SLAVE_H
+#include <xc.h>
+#include <sys/attribs.h>
+#include "toolchain_specifics.h"
 
-#include "device.h"
-#include "plib_spi_slave_common.h"
-
-/* Provide C++ Compatibility */
-#ifdef __cplusplus
-
-    extern "C" {
-
-#endif
-
-
-/****************************** SPI1 Interface *********************************/
-
-void SPI1_Initialize (void);
-size_t SPI1_Read(void* pRdBuffer, size_t size);
-size_t SPI1_Write(void* pWrBuffer, size_t size );
-size_t SPI1_ReadCountGet(void);
-size_t SPI1_ReadBufferSizeGet(void);
-size_t SPI1_WriteBufferSizeGet(void);
-void SPI1_CallbackRegister(SPI_SLAVE_CALLBACK callBack, uintptr_t context );
-SPI_SLAVE_ERROR SPI1_ErrorGet(void);
-bool SPI1_IsBusy(void);
-void SPI1_Ready(void);
-
-/* Provide C++ Compatibility */
-#ifdef __cplusplus
-
-    }
-
-#endif
-
-#endif // PLIB_SPI1_SLAVE_H
