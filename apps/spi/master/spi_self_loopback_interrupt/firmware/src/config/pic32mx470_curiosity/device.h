@@ -1,23 +1,24 @@
 /*******************************************************************************
-  SPI PLIB
+  Device Header File
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    plib_spi1.h
+    device.h
 
   Summary:
-    SPI1 PLIB Header File
+    This file includes the selected device from within the project.
+    The device will provide access to respective device packs.
 
   Description:
-    This file has prototype of all the interfaces provided for particular
-    SPI peripheral.
+    None
 
 *******************************************************************************/
 
+// DOM-IGNORE-BEGIN
 /*******************************************************************************
-* Copyright (C) 2018-2019 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -38,42 +39,9 @@
 * ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
+// DOM-IGNORE-END
 
-#ifndef PLIB_SPI1_H
-#define PLIB_SPI1_H
+#include <xc.h>
+#include <sys/attribs.h>
+#include "toolchain_specifics.h"
 
-#include "device.h"
-#include "plib_spi_common.h"
-
-/* Provide C++ Compatibility */
-#ifdef __cplusplus
-
-    extern "C" {
-
-#endif
-
-
-/****************************** SPI1 Interface *********************************/
-
-void SPI1_Initialize ( void );
-
-bool SPI1_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, size_t rxSize);
-
-bool SPI1_Write(void* pTransmitData, size_t txSize);
-
-bool SPI1_Read(void* pReceiveData, size_t rxSize);
-
-bool SPI1_TransferSetup (SPI_TRANSFER_SETUP *setup, uint32_t spiSourceClock);
-
-bool SPI1_IsBusy(void);
-
-void SPI1_CallbackRegister(SPI_CALLBACK callback, uintptr_t context);
-
-/* Provide C++ Compatibility */
-#ifdef __cplusplus
-
-    }
-
-#endif
-
-#endif // PLIB_SPI1_H
