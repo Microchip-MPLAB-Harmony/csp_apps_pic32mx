@@ -63,7 +63,7 @@ void RTCC_InterruptHandler( void );
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
-void __ISR(_RTCC_VECTOR, ipl1AUTO) RTCC_Handler (void)
+void __ISR(_RTCC_VECTOR, ipl1SOFT) RTCC_Handler (void)
 {
     RTCC_InterruptHandler();
 }
