@@ -319,7 +319,7 @@ bool GPIO_PinInterruptCallbackRegister(
 
 // *****************************************************************************
 /* Function:
-    void CHANGE_NOTICE_D_InterruptHandler()
+    void CHANGE_NOTICE_D_InterruptHandler(void)
 
   Summary:
     Interrupt Handler for change notice interrupt for channel D.
@@ -327,7 +327,7 @@ bool GPIO_PinInterruptCallbackRegister(
   Remarks:
 	It is an internal function, user should not call it directly.
 */
-void CHANGE_NOTICE_D_InterruptHandler()
+void CHANGE_NOTICE_D_InterruptHandler(void)
 {
     uint8_t i;
     uint32_t status;
@@ -349,7 +349,7 @@ void CHANGE_NOTICE_D_InterruptHandler()
 }
 
 /* Function:
-    void CHANGE_NOTICE_InterruptHandler()
+    void CHANGE_NOTICE_InterruptHandler(void)
 
   Summary:
     Interrupt Handler for change notice interrupt.
@@ -357,7 +357,7 @@ void CHANGE_NOTICE_D_InterruptHandler()
   Remarks:
 	It is an internal function called from ISR, user should not call it directly.
 */
-void CHANGE_NOTICE_InterruptHandler()
+void CHANGE_NOTICE_InterruptHandler(void)
 {
     if(IFS1bits.CNDIF)
     {
