@@ -61,37 +61,41 @@
 // *****************************************************************************
 // *****************************************************************************
 
+
 /*** Macros for EEPROM_HOLD pin ***/
 #define EEPROM_HOLD_Set()               (LATBSET = (1<<14))
 #define EEPROM_HOLD_Clear()             (LATBCLR = (1<<14))
 #define EEPROM_HOLD_Toggle()            (LATBINV= (1<<14))
-#define EEPROM_HOLD_Get()               ((PORTB >> 14) & 0x1)
 #define EEPROM_HOLD_OutputEnable()      (TRISBCLR = (1<<14))
 #define EEPROM_HOLD_InputEnable()       (TRISBSET = (1<<14))
+#define EEPROM_HOLD_Get()               ((PORTB >> 14) & 0x1)
 #define EEPROM_HOLD_PIN                  GPIO_PIN_RB14
+
 /*** Macros for EEPROM_CS pin ***/
 #define EEPROM_CS_Set()               (LATDSET = (1<<4))
 #define EEPROM_CS_Clear()             (LATDCLR = (1<<4))
 #define EEPROM_CS_Toggle()            (LATDINV= (1<<4))
-#define EEPROM_CS_Get()               ((PORTD >> 4) & 0x1)
 #define EEPROM_CS_OutputEnable()      (TRISDCLR = (1<<4))
 #define EEPROM_CS_InputEnable()       (TRISDSET = (1<<4))
+#define EEPROM_CS_Get()               ((PORTD >> 4) & 0x1)
 #define EEPROM_CS_PIN                  GPIO_PIN_RD4
+
 /*** Macros for EEPROM_WP pin ***/
 #define EEPROM_WP_Set()               (LATESET = (1<<3))
 #define EEPROM_WP_Clear()             (LATECLR = (1<<3))
 #define EEPROM_WP_Toggle()            (LATEINV= (1<<3))
-#define EEPROM_WP_Get()               ((PORTE >> 3) & 0x1)
 #define EEPROM_WP_OutputEnable()      (TRISECLR = (1<<3))
 #define EEPROM_WP_InputEnable()       (TRISESET = (1<<3))
+#define EEPROM_WP_Get()               ((PORTE >> 3) & 0x1)
 #define EEPROM_WP_PIN                  GPIO_PIN_RE3
+
 /*** Macros for LED1 pin ***/
 #define LED1_Set()               (LATESET = (1<<4))
 #define LED1_Clear()             (LATECLR = (1<<4))
 #define LED1_Toggle()            (LATEINV= (1<<4))
-#define LED1_Get()               ((PORTE >> 4) & 0x1)
 #define LED1_OutputEnable()      (TRISECLR = (1<<4))
 #define LED1_InputEnable()       (TRISESET = (1<<4))
+#define LED1_Get()               ((PORTE >> 4) & 0x1)
 #define LED1_PIN                  GPIO_PIN_RE4
 
 
@@ -230,42 +234,42 @@ void GPIO_PortOutputEnable(GPIO_PORT port, uint32_t mask);
 
 static inline void GPIO_PinWrite(GPIO_PIN pin, bool value)
 {
-    GPIO_PortWrite(pin>>4, (uint32_t)(0x1) << (pin & 0xF), (uint32_t)(value) << (pin & 0xF));
+    GPIO_PortWrite((GPIO_PORT)(pin>>4), (uint32_t)(0x1) << (pin & 0xF), (uint32_t)(value) << (pin & 0xF));
 }
 
 static inline bool GPIO_PinRead(GPIO_PIN pin)
 {
-    return (bool)(((GPIO_PortRead(pin>>4)) >> (pin & 0xF)) & 0x1);
+    return (bool)(((GPIO_PortRead((GPIO_PORT)(pin>>4))) >> (pin & 0xF)) & 0x1);
 }
 
 static inline bool GPIO_PinLatchRead(GPIO_PIN pin)
 {
-    return (bool)((GPIO_PortLatchRead(pin>>4) >> (pin & 0xF)) & 0x1);
+    return (bool)((GPIO_PortLatchRead((GPIO_PORT)(pin>>4)) >> (pin & 0xF)) & 0x1);
 }
 
 static inline void GPIO_PinToggle(GPIO_PIN pin)
 {
-    GPIO_PortToggle(pin>>4, 0x1 << (pin & 0xF));
+    GPIO_PortToggle((GPIO_PORT)(pin>>4), 0x1 << (pin & 0xF));
 }
 
 static inline void GPIO_PinSet(GPIO_PIN pin)
 {
-    GPIO_PortSet(pin>>4, 0x1 << (pin & 0xF));
+    GPIO_PortSet((GPIO_PORT)(pin>>4), 0x1 << (pin & 0xF));
 }
 
 static inline void GPIO_PinClear(GPIO_PIN pin)
 {
-    GPIO_PortClear(pin>>4, 0x1 << (pin & 0xF));
+    GPIO_PortClear((GPIO_PORT)(pin>>4), 0x1 << (pin & 0xF));
 }
 
 static inline void GPIO_PinInputEnable(GPIO_PIN pin)
 {
-    GPIO_PortInputEnable(pin>>4, 0x1 << (pin & 0xF));
+    GPIO_PortInputEnable((GPIO_PORT)(pin>>4), 0x1 << (pin & 0xF));
 }
 
 static inline void GPIO_PinOutputEnable(GPIO_PIN pin)
 {
-    GPIO_PortOutputEnable(pin>>4, 0x1 << (pin & 0xF));
+    GPIO_PortOutputEnable((GPIO_PORT)(pin>>4), 0x1 << (pin & 0xF));
 }
 
 
