@@ -69,8 +69,15 @@ void RCON_ResetCauseClear( RCON_RESET_CAUSE cause )
     RCONCLR = cause;
 }
 
-void RCON_SoftwareReset( void )
+void __attribute__((noreturn)) RCON_SoftwareReset( void )
 {
+    __builtin_disable_interrupts();
+    
+    /* Unlock System */
+    SYSKEY = 0x00000000;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+
     RSWRSTSET = _RSWRST_SWRST_MASK;
 
     /* Read RSWRST register to trigger reset */
