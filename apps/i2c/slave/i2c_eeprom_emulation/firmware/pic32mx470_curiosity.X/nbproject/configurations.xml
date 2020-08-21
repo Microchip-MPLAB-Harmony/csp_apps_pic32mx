@@ -1,7 +1,9 @@
-<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <configurationDescriptor version="65">
   <logicalFolder name="root" displayName="root" projectFiles="true">
-    <logicalFolder name="HeaderFiles" displayName="Header Files" projectFiles="true">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="pic32mx470_curiosity" projectFiles="true">
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
@@ -23,17 +25,30 @@
           </logicalFolder>
           <itemPath>../src/config/pic32mx470_curiosity/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/pic32mx470_curiosity/definitions.h</itemPath>
-        </logicalFolder>
-      </logicalFolder>
-      <logicalFolder name="f2" displayName="packs" projectFiles="true">
-        <logicalFolder name="f1" displayName="PIC32MX470F512H_DFP" projectFiles="true">
-          <itemPath>../src/packs/PIC32MX470F512H_DFP/device.h</itemPath>
+          <itemPath>../src/config/pic32mx470_curiosity/device.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
-    <logicalFolder name="LinkerScript" displayName="Linker Files" projectFiles="true">
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="true">
+      <itemPath>Makefile</itemPath>
+      <itemPath>../src/config/pic32mx470_curiosity/harmony.prj</itemPath>
+      <itemPath>../src/config/pic32mx470_curiosity/pic32mx470_curiosity.xml</itemPath>
+      <itemPath>../../../../../../../mhc/../csp_apps_pic32mx/apps/i2c/slave/i2c_eeprom_emulation/firmware/src/config/pic32mx470_curiosity/pic32mx470_curiosity.xml</itemPath>
     </logicalFolder>
-    <logicalFolder name="SourceFiles" displayName="Source Files" projectFiles="true">
+    <logicalFolder name="LinkerScript"
+                   displayName="Linker Files"
+                   projectFiles="true">
+      <logicalFolder name="f1" displayName="config" projectFiles="true">
+        <logicalFolder name="f1" displayName="pic32mx470_curiosity" projectFiles="true">
+          <itemPath>../src/config/pic32mx470_curiosity/p32MX470F512H.ld</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="pic32mx470_curiosity" projectFiles="true">
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
@@ -62,11 +77,6 @@
       </logicalFolder>
       <itemPath>../src/main.c</itemPath>
     </logicalFolder>
-    <logicalFolder name="ExternalFiles" displayName="Important Files" projectFiles="false">
-      <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/pic32mx470_curiosity/harmony.prj</itemPath>
-      <itemPath>../src/config/pic32mx470_curiosity/pic32mx470_curiosity.xml</itemPath>
-    </logicalFolder>
   </logicalFolder>
   <sourceRootList>
     <Elem>../src</Elem>
@@ -77,11 +87,11 @@
       <toolsSet>
         <developmentServer>localhost</developmentServer>
         <targetDevice>PIC32MX470F512H</targetDevice>
-        <targetHeader/>
-        <targetPluginBoard/>
+        <targetHeader></targetHeader>
+        <targetPluginBoard></targetPluginBoard>
         <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>2.41</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -99,16 +109,16 @@
         <loading>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
           <parseOnProdLoad>false</parseOnProdLoad>
-          <alternateLoadableFile/>
+          <alternateLoadableFile></alternateLoadableFile>
         </loading>
         <subordinates>
         </subordinates>
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
-        <makeCustomizationPreStep/>
+        <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
-        <makeCustomizationPostStep/>
+        <makeCustomizationPostStep></makeCustomizationPostStep>
         <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
@@ -121,7 +131,8 @@
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories" value="../src;../src/config/pic32mx470_curiosity;../src/packs/PIC32MX470F512H_DFP"/>
+        <property key="extra-include-directories"
+                  value="../src;../src/config/pic32mx470_curiosity;../src/packs/PIC32MX470F512H_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -138,7 +149,7 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
-      <appendMe value="-Wformat=2 -Werror-implicit-function-declaration -Wfloat-equal -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Winline -Wlong-long -Wunreachable-code -Wmissing-noreturn"/>
+        <appendMe value="-Wformat=2 -Werror-implicit-function-declaration -Wfloat-equal -Wundef -Wshadow -Wpointer-arith -Wbad-function-cast -Wwrite-strings -Waggregate-return -Wstrict-prototypes -Wmissing-format-attribute -Wno-deprecated-declarations -Wpacked -Wredundant-decls -Wnested-externs -Winline -Wlong-long -Wunreachable-code -Wmissing-noreturn"/>
       </C32>
       <C32-AR>
         <property key="additional-options-chop-files" value="false"/>
@@ -217,7 +228,8 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories" value=""/>
+        <property key="extra-include-directories"
+                  value="../src;../src/config/pic32mx470_curiosity;../src/packs/PIC32MX470F512H_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -278,7 +290,8 @@
         <property key="TIMER3" value="true"/>
         <property key="TIMER4" value="true"/>
         <property key="TIMER5" value="true"/>
-        <property key="ToolFirmwareFilePath" value="Press to browse for a specific firmware version"/>
+        <property key="ToolFirmwareFilePath"
+                  value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="UART1" value="true"/>
         <property key="UART2" value="true"/>
@@ -310,7 +323,8 @@
       <PKOBSKDEPlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
-        <property key="ToolFirmwareFilePath" value="Press to browse for a specific firmware version"/>
+        <property key="ToolFirmwareFilePath"
+                  value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
@@ -324,7 +338,8 @@
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges" value=""/>
         <property key="programoptions.preserveeeprom" value="false"/>
-        <property key="programoptions.preserveeeprom.ranges" value="${memories.eedata.default}"/>
+        <property key="programoptions.preserveeeprom.ranges"
+                  value="${memories.eedata.default}"/>
         <property key="programoptions.preserveprogram.ranges" value=""/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>

@@ -55,6 +55,8 @@
 // Section: Global Data
 // *****************************************************************************
 // *****************************************************************************
+#define I2C1_SLAVE_DATA_SETUP_TIME_CORE_TIMER_CNTS          4
+#define I2C1_SLAVE_RISE_TIME_CORE_TIMER_CNTS                14
 
 static I2C_SLAVE_OBJ i2c1Obj;
 
@@ -62,31 +64,11 @@ void I2C1_Initialize(void)
 {
     /* Turn off the I2C module */
     I2C1CONCLR = _I2C1CON_ON_MASK;
-	
-	/* Disable the I2C Slave interrupt */
-    IEC1CLR = _IEC1_I2C1SIE_MASK;
 
-    /* Disable the I2C Bus collision interrupt */
-    IEC1CLR = _IEC1_I2C1BIE_MASK; 
+    I2C1CON = (_I2C1CON_STREN_MASK );
 
-    
-        
-
-	/* Continue in idle mode */
-    I2C1CONCLR = _I2C1CON_SIDL_MASK;
-
-	/* Slew rate control enabled for 400 kHz mode */
-    I2C1CONCLR = _I2C1CON_DISSLW_MASK;
-
-	/* SMBUS input level disabled */
-    I2C1CONCLR = _I2C1CON_SMEN_MASK;
-
-    
-    /* Enable clock stretch */
-    I2C1CONSET = _I2C1CON_STREN_MASK;
-    
     I2C1ADD = 0x54;
-    
+
     I2C1MSK = 0x00;
 
     /* Clear slave interrupt flag */
@@ -94,78 +76,107 @@ void I2C1_Initialize(void)
 
     /* Clear fault interrupt flag */
     IFS1CLR = _IFS1_I2C1BIF_MASK;
-    
+
     /* Enable the I2C Slave interrupt */
     IEC1SET = _IEC1_I2C1SIE_MASK;
 
     /* Enable the I2C Bus collision interrupt */
-    IEC1SET = _IEC1_I2C1BIE_MASK;  
+    IEC1SET = _IEC1_I2C1BIE_MASK;
+
+    i2c1Obj.callback = NULL;
 
     /* Turn on the I2C module */
-    I2C1CONSET = _I2C1CON_ON_MASK;    		        
+    I2C1CONSET = _I2C1CON_ON_MASK;
+}
+
+static void I2C1_RiseAndSetupTime(uint8_t sdaState)
+{
+    uint32_t startCount, endCount;
+
+    if (sdaState == 0)
+    {
+        endCount = I2C1_SLAVE_DATA_SETUP_TIME_CORE_TIMER_CNTS;
+    }
+    else
+    {
+        endCount = I2C1_SLAVE_DATA_SETUP_TIME_CORE_TIMER_CNTS + I2C1_SLAVE_RISE_TIME_CORE_TIMER_CNTS;
+    }
+
+    startCount =_CP0_GET_COUNT();
+
+    while((_CP0_GET_COUNT()- startCount) < endCount);
 }
 
 /* I2C slave state machine */
 static void I2C1_TransferSM(void)
-{	
-    uint32_t i2c_addr;                  
-	
-	/* ACK the slave interrupt */
-	IFS1CLR = _IFS1_I2C1SIF_MASK;
+{
+    uint32_t i2c_addr;
+    uint8_t sdaValue = 0;
 
-	if ((I2C1STAT & _I2C1STAT_D_A_MASK) == 0)
+    /* ACK the slave interrupt */
+    IFS1CLR = _IFS1_I2C1SIF_MASK;
+
+    if ((I2C1STAT & _I2C1STAT_D_A_MASK) == 0)
     {
-		if (I2C1STAT & _I2C1STAT_RBF_MASK)
+        if (I2C1STAT & _I2C1STAT_RBF_MASK)
         {
             /* Received I2C address must be read out */
             i2c_addr = I2C1RCV;
             (void)i2c_addr;
-        }
-		if (i2c1Obj.callback != NULL)
-		{
-			/* Notify that a address match event has occurred */
-			i2c1Obj.callback(I2C_SLAVE_TRANSFER_EVENT_ADDR_MATCH, i2c1Obj.context);
-			
-			if (I2C1STAT & _I2C1STAT_R_W_MASK)
-			{
-				/* I2C master wants to read */
-				if (!(I2C1STAT & _I2C1STAT_TBF_MASK))
-				{
-					/* In the callback, slave must write to transmit register by calling I2Cx_WriteByte() */
-					(void)i2c1Obj.callback(I2C_SLAVE_TRANSFER_EVENT_TX_READY, i2c1Obj.context);                                                
-				}                
-			}
-		}
+
+            if (i2c1Obj.callback != NULL)
+            {
+                /* Notify that a address match event has occurred */
+                i2c1Obj.callback(I2C_SLAVE_TRANSFER_EVENT_ADDR_MATCH, i2c1Obj.context);
+
+                if (I2C1STAT & _I2C1STAT_R_W_MASK)
+                {
+                    /* I2C master wants to read */
+                    if (!(I2C1STAT & _I2C1STAT_TBF_MASK))
+                    {
+                        /* In the callback, slave must write to transmit register by calling I2Cx_WriteByte() */
+                        (void)i2c1Obj.callback(I2C_SLAVE_TRANSFER_EVENT_TX_READY, i2c1Obj.context);
+
+                        sdaValue = (i2c1Obj.lastByteWritten & 0x80);
+                        I2C1_RiseAndSetupTime(sdaValue);
+                    }
+                }
+            }
         /* Data written by the application; release the clock stretch */
         I2C1CONSET = _I2C1CON_SCLREL_MASK;
-    }         
+        }
+    }
     else
     {
         /* Master reads from slave, slave transmits */
         if (I2C1STAT & _I2C1STAT_R_W_MASK)
         {
-            if (!(I2C1STAT & _I2C1STAT_TBF_MASK))
+            if ((!(I2C1STAT & _I2C1STAT_TBF_MASK)) && (!(I2C1STAT & _I2C1STAT_ACKSTAT_MASK)))
             {
-				if (i2c1Obj.callback != NULL)
-				{
-					/* I2C master wants to read. In the callback, slave must write to transmit register */
-					(void)i2c1Obj.callback(I2C_SLAVE_TRANSFER_EVENT_TX_READY, i2c1Obj.context);
-				}
+                if (i2c1Obj.callback != NULL)
+                {
+                    /* I2C master wants to read. In the callback, slave must write to transmit register */
+                    (void)i2c1Obj.callback(I2C_SLAVE_TRANSFER_EVENT_TX_READY, i2c1Obj.context);
+
+                    sdaValue = (i2c1Obj.lastByteWritten & 0x80);
+                }
+
+                I2C1_RiseAndSetupTime(sdaValue);
 
                 /* Data written by the application; release the clock stretch */
                 I2C1CONSET = _I2C1CON_SCLREL_MASK;
-            }            
+            }
         }
         /* Master writes to slave, slave receives */
         else
         {
             if (I2C1STAT & _I2C1STAT_RBF_MASK)
             {
-				if (i2c1Obj.callback != NULL)
-				{
-					/* I2C master wants to write. In the callback, slave must read data by calling I2Cx_ReadByte()  */
-					(void)i2c1Obj.callback(I2C_SLAVE_TRANSFER_EVENT_RX_READY, i2c1Obj.context);
-				}
+                if (i2c1Obj.callback != NULL)
+                {
+                    /* I2C master wants to write. In the callback, slave must read data by calling I2Cx_ReadByte()  */
+                    (void)i2c1Obj.callback(I2C_SLAVE_TRANSFER_EVENT_RX_READY, i2c1Obj.context);
+                }
                 /* Data read by the application; release the clock stretch */
                 I2C1CONSET = _I2C1CON_SCLREL_MASK;
             }
@@ -206,6 +217,7 @@ void I2C1_WriteByte(uint8_t wrByte)
     if (!(I2C1STAT & _I2C1STAT_TBF_MASK))
     {
         I2C1TRN = wrByte;
+        i2c1Obj.lastByteWritten = wrByte;
     }
 }
 
@@ -235,7 +247,7 @@ static void I2C1_BUS_InterruptHandler(void)
     I2C1STATCLR = _I2C1STAT_BCL_MASK;
 
     /* ACK the bus interrupt */
-    IFS1CLR = _IFS1_I2C1BIF_MASK;    
+    IFS1CLR = _IFS1_I2C1BIF_MASK;
 
     i2c1Obj.error = I2C_SLAVE_ERROR_BUS_COLLISION;
 
