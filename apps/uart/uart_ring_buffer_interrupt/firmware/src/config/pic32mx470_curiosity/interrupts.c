@@ -63,7 +63,7 @@ void UART_1_InterruptHandler( void );
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
-void __ISR(_UART_1_VECTOR, ipl1AUTO) UART_1_Handler (void)
+void __ISR(_UART_1_VECTOR, ipl1SOFT) UART_1_Handler (void)
 {
     UART_1_InterruptHandler();
 }
