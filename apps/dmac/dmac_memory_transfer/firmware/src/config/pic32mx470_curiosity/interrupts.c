@@ -63,7 +63,7 @@ void DMA_0_InterruptHandler( void );
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
-void __ISR(_DMA_0_VECTOR, ipl1AUTO) DMA_0_Handler (void)
+void __ISR(_DMA_0_VECTOR, ipl1SOFT) DMA_0_Handler (void)
 {
     DMA_0_InterruptHandler();
 }
