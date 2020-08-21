@@ -5,10 +5,10 @@
     Microchip Technology Inc.
 
   File Name:
-    plib_spi1.c
+    plib_spi1_master.c
 
   Summary:
-    SPI1 Source File
+    SPI1 Master Source File
 
   Description:
     This file has implementation of all the interfaces provided for particular
@@ -39,7 +39,7 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#include "plib_spi1.h"
+#include "plib_spi1_master.h"
 
 // *****************************************************************************
 // *****************************************************************************
