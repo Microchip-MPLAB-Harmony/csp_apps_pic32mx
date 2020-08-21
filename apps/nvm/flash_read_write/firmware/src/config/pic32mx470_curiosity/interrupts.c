@@ -63,7 +63,7 @@ void NVM_InterruptHandler( void );
 
 
 /* All the handlers are defined here.  Each will call its PLIB-specific function. */
-void __ISR(_FCE_VECTOR, ipl1AUTO) FCE_Handler (void)
+void __ISR(_FCE_VECTOR, ipl1SOFT) FCE_Handler (void)
 {
     NVM_InterruptHandler();
 }
