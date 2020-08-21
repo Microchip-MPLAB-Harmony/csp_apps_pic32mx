@@ -6,10 +6,10 @@
     Microchip Technology Inc.
 
   File Name:
-    plib_i2c1.c
+    plib_i2c1_master.c
 
   Summary:
-    I2C PLIB Implementation file
+    I2C PLIB Master Mode Implementation file
 
   Description:
     This file defines the interface to the I2C peripheral library.
@@ -49,7 +49,7 @@
 // *****************************************************************************
 
 #include "device.h"
-#include "plib_i2c1.h"
+#include "plib_i2c1_master.h"
 
 // *****************************************************************************
 // *****************************************************************************

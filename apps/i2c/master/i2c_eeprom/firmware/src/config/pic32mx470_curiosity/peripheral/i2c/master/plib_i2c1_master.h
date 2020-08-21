@@ -6,10 +6,10 @@
     Microchip Technology Inc.
 
   File Name:
-    plib_i2c1_i2c.h
+    plib_i2c1_master.h
 
   Summary:
-    I2C PLIB Header file
+    I2C PLIB Master Mode Header file
 
   Description:
     This file defines the interface to the I2C peripheral library. This
@@ -41,8 +41,8 @@
 *******************************************************************************/
 // DOM-IGNORE-END
 
-#ifndef PLIB_I2C1_H
-#define PLIB_I2C1_H
+#ifndef PLIB_I2C1_MASTER_H
+#define PLIB_I2C1_MASTER_H
 
 // *****************************************************************************
 // *****************************************************************************
@@ -52,7 +52,7 @@
 /* This section lists the other files that are included in this file.
 */
 
-#include "plib_i2c_master.h"
+#include "plib_i2c_master_common.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus // Provide C++ Compatibility
@@ -507,7 +507,7 @@ bool I2C1_TransferSetup(I2C_TRANSFER_SETUP* setup, uint32_t srcClkFreq );
 #endif
 // DOM-IGNORE-END
 
-#endif /* PLIB_I2C1_H */
+#endif /* PLIB_I2C1_MASTER_H */
 
 
 
