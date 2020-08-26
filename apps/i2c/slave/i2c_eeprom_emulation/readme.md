@@ -1,3 +1,10 @@
+---
+parent: Harmony 3 peripheral library application examples for PIC32MX family
+title: I2C EEPROM emulation (I2C slave) 
+has_children: false
+has_toc: false
+---
+
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
 # I2C EEPROM emulation (I2C slave)

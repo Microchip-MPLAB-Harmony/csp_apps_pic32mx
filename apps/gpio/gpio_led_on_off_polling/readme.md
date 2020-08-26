@@ -1,3 +1,10 @@
+---
+parent: Harmony 3 peripheral library application examples for PIC32MX family
+title: GPIO Polling 
+has_children: false
+has_toc: false
+---
+
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
 # GPIO Polling
@@ -10,9 +17,8 @@ This application uses the GPIO Peripheral library to read the GPIO pin connected
 
 ## Downloading and building the application
 
-To download or clone this application from Github, go to the [top level of the repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_pic32mx) and click
-
-![clone](../../../docs/images/clone.png)
+To clone or download this application from Github, go to the [main page of this repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_pic32mx) and then click **Clone** button to clone this repository or download as zip file.
+This content can also be downloaded using content manager by following these [instructions](https://github.com/Microchip-MPLAB-Harmony/contentmanager/wiki).
 
 Path of the application within the repository is **apps/gpio/gpio_led_on_off_polling/firmware** .
 

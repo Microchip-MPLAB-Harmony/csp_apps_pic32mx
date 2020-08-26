@@ -11,3 +11,4 @@
 *.exe binary
 *.chm binary
 *.png binary
+*.svg binary

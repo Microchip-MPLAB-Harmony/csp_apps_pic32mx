@@ -15,13 +15,13 @@
 # in the templates via {{ site.myvariable }}.
 
 name: Microchip Technology
-title: Microchip MPLAB Harmony %package% help
+title: Harmony 3 peripheral library application examples for PIC32MX family
 lang: en-US
 timezone: America/Phoenix
 
-description: Harmony 3 %package% package
+description: Harmony 3 peripheral library application examples for PIC32MX family
 url: "https://microchip-mplab-harmony.github.io"
-baseurl: "/%package%"
+baseurl: "/csp_apps_pic32mx"
 remote_theme: "Microchip-MPLAB-Harmony/just-the-docs@mchp-harmony"
 
 # Build settings
@@ -80,6 +80,7 @@ exclude:
   - "*.ld"
   - "*.jar"
   - "*.prj"
+  - "*.yml"
 
 # Aux links for the upper right navigation
 aux_links:

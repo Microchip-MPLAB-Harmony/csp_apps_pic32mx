@@ -1,3 +1,10 @@
+---
+parent: Harmony 3 peripheral library application examples for PIC32MX family
+title: SPI Master read write test application 
+has_children: false
+has_toc: false
+---
+
 [![MCHP](https://www.microchip.com/ResourcePackages/Microchip/assets/dist/images/logo.png)](https://www.microchip.com)
 
 # SPI Master read write test application

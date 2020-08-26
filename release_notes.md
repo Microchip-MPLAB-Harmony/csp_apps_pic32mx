@@ -1,28 +1,45 @@
-﻿![Microchip logo](https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/Microchip-MPLAB-Harmony.github.io/images/microchip_logo.png)
+---
+title: Release notes
+nav_order: 99
+---
+
+![Microchip logo](https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/Microchip-MPLAB-Harmony.github.io/images/microchip_logo.png)
 ![Harmony logo small](https://raw.githubusercontent.com/wiki/Microchip-MPLAB-Harmony/Microchip-MPLAB-Harmony.github.io/images/microchip_mplab_harmony_logo_small.png)
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
-## Harmony 3 peripheral library application examples for SAM E70/S70/V70/V71 family v3.8.0
+## Harmony 3 peripheral library application examples for PIC32MX family v3.0.0
+
+### Development kit and demo application support
+
+Following table provides number of peripheral library examples available for different development kits.
+
+|                                              Development Kits                                                | Number of applications |
+| -------------------------------------------------------------------------------------------------------------| -- |
+| [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004)      | 9  |
+| [PIC32 USB Starter Kit III](https://www.microchip.com/Developmenttools/ProductDetails/dm320003-3)            | 1  |
+| [MPLAB Starter Kit for PIC32MX1XX/2XX](https://www.microchip.com/Developmenttools/ProductDetails/DM320013)   | 1  |
+| [PIC32MX1/2/5 Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/dm320100)               | 3  |
+| [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105)             | 20 |
+| [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | 27 |
+|||
 
 ### New Features
 
-- **Development kit and demo application support** - The following table provides number of peripheral library application available for different development kits
+New features added in this release are as follows:
 
-    | Development Kits                                                                                                                               | Number of applications |
-    | ---                                                                                                                                            | --- |
-    | [SAM D21 Xplained Pro Evaluation Kit](https://www.microchip.com/DevelopmentTools/ProductDetails.aspx?PartNO=ATSAMD21-XPRO)                     | 8 |
+- Applications migrated from csp repository to this new application repository for PIC32MX family development boards
 
+    
 ### Known Issues
 
 The current known issues are as follows:
 
-- <fill me>
+- None
 
 ### Development Tools
 
 - [MPLAB® X IDE v5.40](https://www.microchip.com/mplab/mplab-x-ide)
-- [MPLAB® XC32 C/C++ Compiler v2.40](https://www.microchip.com/mplab/compilers)
-- [IAR Embedded Workbench® for ARM® (v8.32 or above)](https://www.iar.com/iar-embedded-workbench/#!?architecture=Arm)
+- [MPLAB® XC32 C/C++ Compiler v2.41](https://www.microchip.com/mplab/compilers)
 - MPLAB® X IDE plug-ins:
-  - MPLAB® Harmony Configurator (MHC) v3.3.0.0 and above.
+  - MPLAB® Harmony Configurator (MHC) v3.6.0
