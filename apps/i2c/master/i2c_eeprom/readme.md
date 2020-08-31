@@ -68,6 +68,6 @@ Following table provides LED names:
 
 | Board      | LED Name |
 | ---------- |--------- |
-| [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | LED2 |
+| [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | LED1 |
 |  [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105)  | LED1 (RED)  |
 ||||

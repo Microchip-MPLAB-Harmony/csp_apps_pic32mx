@@ -69,3 +69,11 @@ Hardware setup requires two boards, one acting as the I2C Master and the other a
 
     - The LED is turned ON when the value read from the I2C slave matches with the written value
     - The LED is turned OFF when the value read from the I2C slave did not match with the written value
+	
+Following table provides LED names on I2C master board:
+
+| Board      | LED Name |
+| ---------- |--------- |
+| [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | LED1 |
+|||
+	
