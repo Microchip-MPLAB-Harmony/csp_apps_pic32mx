@@ -91,7 +91,7 @@ uint8_t EEPROM_EmulationBuffer[EEPROM_SIZE_BYTES] =
     0xf0,0xf1,0xf2,0xf3,0xf4,0xf5,0xf6,0xf7,0xf8,0xf9,0xfa,0xfb,0xfc,0xfd,0xfe,0xff
 };
 
-bool APP_SERCOM_I2C_Callback ( I2C_SLAVE_TRANSFER_EVENT event, uintptr_t contextHandle )
+bool APP_I2C_SLAVE_Callback ( I2C_SLAVE_TRANSFER_EVENT event, uintptr_t contextHandle )
 {
     bool isSuccess = true;
 
@@ -144,7 +144,7 @@ int main ( void )
     /* Initialize all modules */
     SYS_Initialize ( NULL );
 
-    I2C1_CallbackRegister(APP_SERCOM_I2C_Callback, 0);
+    I2C1_CallbackRegister(APP_I2C_SLAVE_Callback, 0);
 
     while ( true )
     {
