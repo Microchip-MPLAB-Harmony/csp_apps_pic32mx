@@ -1,0 +1,16 @@
+<Configuration>
+  <Configurator>
+    <Name dnOrder="0" value="pic32mx_sk"/>
+    <Harmony dnOrder="1" path="../../../.." version="null"/>
+    <Processor dnOrder="2" value="PIC32MX360F512L"/>
+    <Settings dnOrder="4">
+      <Setting dnOrder="0" key="FORCE_OPTIMIZATION" value="false"/>
+      <Setting dnOrder="1" key="GENERATE_BACKUP" value="true"/>
+      <Setting dnOrder="2" key="MERGE_STRATEGY" value="USER_ALL"/>
+      <Setting dnOrder="3" key="DFPPath" value=".\dev_packs\Microchip\PIC32MX_DFP\1.4.241\atdf\PIC32MX360F512L.atdf"/>
+      <Setting dnOrder="4" key="CMSISPath" value=".\dev_packs\arm\CMSIS\5.7.0"/>
+      <Setting dnOrder="5" key="PackageFilter" value=""/>
+      <Setting dnOrder="6" key="TRUSTZONE" value="false"/>
+    </Settings>
+  </Configurator>
+</Configuration>
