@@ -28,6 +28,7 @@ To build the application, refer to the following table and open the project usin
 | ----------------- | ---------------------------------------------- |
 | pic32mx470_curiosity.X | MPLABX project for [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) |
 | pic32mx_xlp_sk.X | MPLABX project for [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) |
+| pic32mx_sk.X | MPLABX project for [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) |
 |||
 
 ## Setting up the hardware
@@ -38,6 +39,7 @@ The following table shows the target hardware for the application projects.
 |:---------|:---------:|
 | pic32mx470_curiosity.X | [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) |
 | pic32mx_xlp_sk.X | [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) |
+| pic32mx_sk.X | [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) |
 |||
 
 ### Setting up [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103)
@@ -58,6 +60,10 @@ The following table shows the target hardware for the application projects.
 - Connect micro USB cable to the 'Debug USB' connector(J9) on the board to the computer
 - Install an [USB UART click board](https://www.mikroe.com/usb-uart-click) on to the mikroBUS socket J5
 - Connect mini USB cable between PC and the [USB UART click board](https://www.mikroe.com/usb-uart-click)
+
+### Setting up [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001)
+
+- Connect mini USB cable to the 'Debug USB' connector(J1) on the board to the computer
 
 ## Running the Application
 
@@ -82,4 +88,7 @@ Following table provides LED names:
 | ---------- |--------- |
 |  [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | LED1 |
 |  [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) | LED1 (RED) |
+| [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) | LED3 (GREEN) |
 ||||
+
+**Note**: For [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001), console output is not applicable
