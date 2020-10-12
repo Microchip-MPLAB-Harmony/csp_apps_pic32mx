@@ -1,6 +1,6 @@
 ---
 parent: Harmony 3 peripheral library application examples for PIC32MX family
-title: GPIO Polling 
+title: GPIO Polling
 has_children: false
 has_toc: false
 ---
@@ -28,6 +28,7 @@ To build the application, refer to the following table and open the project usin
 | ----------------- | ---------------------------------------------- |
 | pic32mx470_curiosity.X | MPLABX project for [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) |
 | pic32mx_eth_sk2.X | MPLABX project for [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004) |
+| pic32mx_sk.X | MPLABX project for [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) |
 |||
 
 ## Setting up the hardware
@@ -38,6 +39,7 @@ The following table shows the target hardware for the application projects.
 |:---------|:---------:|
 | pic32mx470_curiosity.X | [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) |
 | pic32mx_eth_sk2.X | [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004) |
+| pic32mx_sk.X | [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) |
 |||
 
 ### Setting up [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103)
@@ -46,7 +48,10 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004)
 
-- Connect micro USB cable to the 'Debug USB' connector(J7) on the board to the computer
+- Connect mini USB cable to the 'Debug USB' connector(J7) on the board to the computer
+
+### Setting up [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001)
+- Connect mini USB cable to the 'Debug USB' connector(J1) on the board to the computer
 
 ## Running the Application
 
@@ -59,4 +64,5 @@ The following table provides the switch and the LED name:
 | -------- | ----------- | ------- |
 | [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | S1 | LED1 |
 | [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004) | SW1 | LED1 |
+| [PIC32MX Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320001) | SW1 | LED3 |
 |||
