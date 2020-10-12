@@ -32,6 +32,7 @@ To build the application, refer to the following table and open the project usin
 | pic32mx_eth_sk2.X | MPLABX project for [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004) |
 | pic32mx_usb_sk3.X | MPLABX project for [PIC32 USB Starter Kit III](https://www.microchip.com/Developmenttools/ProductDetails/dm320003-3) |
 | pic32mx_xlp_sk.X | MPLABX project for [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) |
+| pic32mx_sk.X | MPLABX project for [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) |
 |||
 
 ## Setting up the hardware
@@ -46,6 +47,7 @@ The following table shows the target hardware for the application projects.
 | pic32mx_eth_sk2.X | [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004) |
 | pic32mx_usb_sk3.X | [PIC32 USB Starter Kit III](https://www.microchip.com/Developmenttools/ProductDetails/dm320003-3) |
 | pic32mx_xlp_sk.X | [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) |
+| pic32mx_sk.X | [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) |
 |||
 
 ### Setting up [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103)
@@ -62,7 +64,7 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004)
 
-- Connect micro USB cable to the 'Debug USB' connector(J7) on the board to the computer
+- Connect mini USB cable to the 'Debug USB' connector(J7) on the board to the computer
 
 ### Setting up [PIC32 USB Starter Kit III](https://www.microchip.com/Developmenttools/ProductDetails/dm320003-3)
 
@@ -71,6 +73,10 @@ The following table shows the target hardware for the application projects.
 ### Setting up [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105)
 
 - Connect micro USB cable to the 'Debug USB' connector(J9) on the board to the computer
+
+### Setting up [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001)
+
+- Connect mini USB cable to the 'Debug USB' connector(J1) on the board to the computer
 
 ## Running the Application
 
@@ -85,6 +91,6 @@ Following table provides the LED names:
 | [PIC32MX1/2/5 Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/dm320100) | LED1 |
 | [MPLAB Starter Kit for PIC32MX1XX/2XX](https://www.microchip.com/Developmenttools/ProductDetails/DM320013) | LED(D1) |
 | [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004) | LED1 |
-| [PIC32 USB Starter Kit III](https://www.microchip.com/Developmenttools/ProductDetails/dm320003-3) | LED1 |
-| [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) | LED1(RED) |
+| [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) | LED1 (RED) |
+| [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) | LED3 (GREEN) |
 |||
