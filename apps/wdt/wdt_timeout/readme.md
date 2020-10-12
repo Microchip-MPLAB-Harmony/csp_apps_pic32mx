@@ -27,6 +27,7 @@ To build the application, refer to the following table and open the project usin
 | Project Name      | Description                                    |
 | ----------------- | ---------------------------------------------- |
 | pic32mx470_curiosity.X | MPLABX project for [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) |
+| pic32mx_sk.X | MPLABX project for [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) |
 |||
 
 ## Setting up the hardware
@@ -36,11 +37,16 @@ The following table shows the target hardware for the application projects.
 | Project Name| Board|
 |:---------|:---------:|
 | pic32mx470_curiosity.X | [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) |
+| pic32mx_sk.X | [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) |
 |||
 
 ### Setting up [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103)
 
 - Connect the Debug USB port on the board to the computer using a micro USB cable
+
+### Setting up [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001)
+
+- Connect mini USB cable to the 'Debug USB' connector(J1) on the board to the computer
 
 ## Running the Application
 
@@ -68,4 +74,7 @@ Refer the table below for details of switch and LED:
 | Board      | Switch Name| LED Name |
 | ---------- |--------- | --------- |
 |  [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | S1 |LED1 |
+| [PIC32MX Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320001) | SW1 | LED3 |
 |||
+
+**Note**: For [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001), console output is not applicable
