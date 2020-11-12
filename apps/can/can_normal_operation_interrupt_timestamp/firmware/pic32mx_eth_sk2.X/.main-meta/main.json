@@ -1,0 +1,76 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_conf_sk2_can_normal_operation_interrupt_timestamp",
+		"version": "3.0.1",
+		"displayName": "CAN interrupt Example for PIC32MX Family",
+		"projectName": "can_normal_operation_interrupt_timestamp_pic32mx_eth_sk2",
+		"shortDescription": "This example application shows how to use the CAN module to transmit and receive normal CAN messages in interrupt mode.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=5.40.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=2.40.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32MX_DFP",
+			"semverRange": "^1.3.231"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.5.1"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32MX795F512L",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit", "PIC32 Ethernet Starter Kit"
+			],
+			[
+				"Harmony", "Peripherals", "CAN"
+			],
+			[
+				"Peripherals", "CAN"
+			]
+		],
+		"peripherals": [
+			"CAN"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32MX795F512L",
+			"PIC32MX Family",
+			"CAN",
+			"Control Area Network",
+			"Communicaiton",
+			"Serial communication"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}
