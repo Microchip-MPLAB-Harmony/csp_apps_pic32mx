@@ -91,6 +91,7 @@ void GPIO_Initialize ( void )
 
     /* PPS Input Remapping */
     SDI1R = 0;
+    SS1R = 4;
 
     /* PPS Output Remapping */
     RPD5R = 8;
