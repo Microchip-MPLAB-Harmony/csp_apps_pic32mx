@@ -1,0 +1,75 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_dmac_crc32_generate",
+		"version": "3.0.1",
+		"displayName": "DMAC CRC-32 Generate Example for PIC32MX Family",
+		"projectName": "dmac_crc32_generate_pic32mx470_curiosity",
+		"shortDescription": "This example application demonstrates how to use the DMAC peripheral to compute 32-bit Cyclic Redundancy Checksum (CRC).",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=5.40.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=2.40.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32MX_DFP",
+			"semverRange": "^1.3.231"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.5.1"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32MX470F512H",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit", "Curiosity PIC32MX470 Development Board"
+			],
+			[
+				"Harmony", "Peripherals", "DMAC"
+			],
+			[
+				"Peripherals", "DMAC"
+			]
+		],
+		"peripherals": [
+			"DMAC"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32MX470F512H",
+			"PIC32MX Family",
+			"DMA",
+			"DMA Controller",
+			"CRC"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}
