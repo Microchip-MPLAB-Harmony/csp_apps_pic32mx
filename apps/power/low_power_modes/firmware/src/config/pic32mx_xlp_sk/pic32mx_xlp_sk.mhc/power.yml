@@ -1,0 +1,36 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: power}
+children:
+- type: Symbols
+  children:
+  - type: Hex
+    attributes: {id: DSCON_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: power, value: '12544'}
+  - type: Boolean
+    attributes: {id: DS_EXTENDED_REG_ENABLE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'true'}
+  - type: Boolean
+    attributes: {id: DS_RTCC_ENABLE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'false'}
+  - type: Boolean
+    attributes: {id: DS_RTCC_WAKEUP_DISABLE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'false'}
+- type: ElementPosition
+  attributes: {x: '320', y: '20', id: power}
