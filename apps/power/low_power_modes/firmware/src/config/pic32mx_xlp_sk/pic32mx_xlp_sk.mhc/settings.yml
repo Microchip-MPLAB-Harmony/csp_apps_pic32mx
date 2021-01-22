@@ -11,4 +11,4 @@ settings:
   TRUSTZONE: 'false'
   CMSISPath: .\dev_packs\arm\CMSIS\5.7.0
   MERGE_STRATEGY: USER_ALL
-  DFPPath: .\dev_packs\Microchip\PIC32MX_DFP\1.4.250\atdf\PIC32MX274F256D.atdf
+  DFPPath: .\dev_packs\Microchip\PIC32MX_DFP\1.4.257\atdf\PIC32MX274F256D.atdf

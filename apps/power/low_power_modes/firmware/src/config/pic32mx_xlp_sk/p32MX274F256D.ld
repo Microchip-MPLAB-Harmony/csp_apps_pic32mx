@@ -1,8 +1,8 @@
 /*--------------------------------------------------------------------------
  * MPLAB XC Compiler -  PIC32MX274F256D linker script
- * Build date : Nov 12 2020
+ * Build date : Jan 13 2021
  * 
- * Copyright (c) 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+ * Copyright (c) 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
  * All rights reserved.
  * 
  * This software is developed by Microchip Technology Inc. and its
