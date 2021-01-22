@@ -81,53 +81,54 @@ typedef enum {
 
 typedef enum
 {
-    POWER_DS_WAKEUP_SOURCE_DSMCLR = _DSWAKE_DSMCLR_MASK,
+    POWER_WAKEUP_SOURCE_DSMCLR = _DSWAKE_DSMCLR_MASK,
 
-    POWER_DS_WAKEUP_SOURCE_DSRTC = _DSWAKE_DSRTC_MASK,
+    POWER_WAKEUP_SOURCE_DSRTC = _DSWAKE_DSRTC_MASK,
 
-    POWER_DS_WAKEUP_SOURCE_DSWDT = _DSWAKE_DSWDT_MASK,
+    POWER_WAKEUP_SOURCE_DSWDT = _DSWAKE_DSWDT_MASK,
 
-    POWER_DS_WAKEUP_SOURCE_DSFLT = _DSWAKE_DSFLT_MASK,
+    POWER_WAKEUP_SOURCE_DSFLT = _DSWAKE_DSFLT_MASK,
 
-    POWER_DS_WAKEUP_SOURCE_DSINT0 = _DSWAKE_DSINT0_MASK,
+    POWER_WAKEUP_SOURCE_DSINT0 = _DSWAKE_DSINT0_MASK,
 
-} POWER_DS_WAKEUP_SOURCE;
+} POWER_WAKEUP_SOURCE;
 
 typedef enum
 {
-    POWER_DS_GPR_1,
-    POWER_DS_GPR_2,
-    POWER_DS_GPR_3,
-    POWER_DS_GPR_4,
-    POWER_DS_GPR_5,
-    POWER_DS_GPR_6,
-    POWER_DS_GPR_7,
-    POWER_DS_GPR_8,
-    POWER_DS_GPR_9,
-    POWER_DS_GPR_10,
-    POWER_DS_GPR_11,
-    POWER_DS_GPR_12,
-    POWER_DS_GPR_13,
-    POWER_DS_GPR_14,
-    POWER_DS_GPR_15,
-    POWER_DS_GPR_16,
-    POWER_DS_GPR_17,
-    POWER_DS_GPR_18,
-    POWER_DS_GPR_19,
-    POWER_DS_GPR_20,
-    POWER_DS_GPR_21,
-    POWER_DS_GPR_22,
-    POWER_DS_GPR_23,
-    POWER_DS_GPR_24,
-    POWER_DS_GPR_25,
-    POWER_DS_GPR_26,
-    POWER_DS_GPR_27,
-    POWER_DS_GPR_28,
-    POWER_DS_GPR_29,
-    POWER_DS_GPR_30,
-    POWER_DS_GPR_31,
-    POWER_DS_GPR_32,
-} POWER_DS_GPR;
+    POWER_DSGPR0,
+    POWER_DSGPR1,
+    POWER_DSGPR2,
+    POWER_DSGPR3,
+    POWER_DSGPR4,
+    POWER_DSGPR5,
+    POWER_DSGPR6,
+    POWER_DSGPR7,
+    POWER_DSGPR8,
+    POWER_DSGPR9,
+    POWER_DSGPR10,
+    POWER_DSGPR11,
+    POWER_DSGPR12,
+    POWER_DSGPR13,
+    POWER_DSGPR14,
+    POWER_DSGPR15,
+    POWER_DSGPR16,
+    POWER_DSGPR17,
+    POWER_DSGPR18,
+    POWER_DSGPR19,
+    POWER_DSGPR20,
+    POWER_DSGPR21,
+    POWER_DSGPR22,
+    POWER_DSGPR23,
+    POWER_DSGPR24,
+    POWER_DSGPR25,
+    POWER_DSGPR26,
+    POWER_DSGPR27,
+    POWER_DSGPR28,
+    POWER_DSGPR29,
+    POWER_DSGPR30,
+    POWER_DSGPR31,
+    POWER_DSGPR32,
+} POWER_DSGPR;
 // *****************************************************************************
 // *****************************************************************************
 // Section: Interface
@@ -136,13 +137,12 @@ typedef enum
 
 void POWER_LowPowerModeEnter( POWER_LOW_POWER_MODE mode );
 void POWER_Initialize( void );
-POWER_DS_WAKEUP_SOURCE POWER_DS_WakeupSourceGet( void );
-void POWER_DS_SoftwareRestore(void);
-void POWER_DS_WakeupSourceClear( POWER_DS_WAKEUP_SOURCE wakeupSource );
-void POWER_DS_GPR0Write(uint32_t sema1Value);
-uint32_t POWER_DS_GPR0Read(void);
-void POWER_DS_GPRnWrite(POWER_DS_GPR xsema, uint32_t xsemaValue);
-uint32_t POWER_DS_GPRnRead(POWER_DS_GPR xsema);
+POWER_WAKEUP_SOURCE POWER_WakeupSourceGet( void );
+void POWER_ReleaseGPIO(void);
+void POWER_WakeupSourceClear( POWER_WAKEUP_SOURCE wakeupSource );
+void POWER_DSGPR_Write(POWER_DSGPR gprNumb, uint32_t gprValue);
+uint32_t POWER_DSGPR_Read(POWER_DSGPR gprNumb);
+
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
 
