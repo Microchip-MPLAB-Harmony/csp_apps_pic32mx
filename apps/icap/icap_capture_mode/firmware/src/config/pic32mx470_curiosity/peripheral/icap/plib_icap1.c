@@ -60,7 +60,6 @@ void ICAP1_Initialize (void)
     IC1CON = 0x81;
 
 
-
 }
 
 
