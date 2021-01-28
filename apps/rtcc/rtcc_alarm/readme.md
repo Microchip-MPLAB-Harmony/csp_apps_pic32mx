@@ -69,6 +69,8 @@ The following table shows the target hardware for the application projects.
     - Stop : 1 Bit
     - Flow Control : None
 3. Build and Program the application project using its IDE
-4. Console output will be as given below, after the alarm is triggered:
+4. Console output will be as given below in the beginning:
+    ![initial](images/rtcc_alarm_initial.png)
+5. Once alarm triggers, following will be console output:
 
-    ![output](images/ouput_rtcc_alarm.png)
+    ![output](images/rtcc_alarm_output.png)
