@@ -1,0 +1,36 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: cmp}
+children:
+- type: Symbols
+  children:
+  - type: Hex
+    attributes: {id: CM1CON_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: cmp, value: '81'}
+  - type: KeyValueSet
+    attributes: {id: CMP_CM1CON_CCH}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '1'}
+  - type: KeyValueSet
+    attributes: {id: CMP_CM1CON_CREF}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '1'}
+  - type: KeyValueSet
+    attributes: {id: CMP_CM1CON_EVPOL}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '1'}
+- type: ElementPosition
+  attributes: {x: '340', y: '20', id: cmp}

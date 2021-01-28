@@ -1,0 +1,22 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: cvr}
+children:
+- type: Symbols
+  children:
+  - type: Hex
+    attributes: {id: CVRCON_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: cvr, value: '15'}
+  - type: Integer
+    attributes: {id: CVR_CVRCON_CVR}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '15'}
+- type: ElementPosition
+  attributes: {x: '500', y: '20', id: cvr}
