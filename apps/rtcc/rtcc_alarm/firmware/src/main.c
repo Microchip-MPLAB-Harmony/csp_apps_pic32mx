@@ -72,15 +72,15 @@ int main ( void )
     /* Initialize all modules */
     SYS_Initialize ( NULL );
 
-    printf("\r\nRTCC Alarm demo. Alarm triggered once in a day\r\n");
+    printf("\r\nRTCC Alarm demo. Alarm will trigger once in a day\r\n");
 
     struct tm sys_time;
     struct tm alarm_time;
 
-    // Time setting 31-12-2018 23:59:58 Monday
+    // Time setting 31-12-2018 23:59:55 Monday
     sys_time.tm_hour = 23;
     sys_time.tm_min = 59;
-    sys_time.tm_sec = 58;
+    sys_time.tm_sec = 55;
 
     sys_time.tm_year = 18;
     sys_time.tm_mon = 12;
@@ -98,7 +98,7 @@ int main ( void )
     alarm_time.tm_wday = 2;
 
     RTCC_CallbackRegister(RTCC_Callback, (uintptr_t) NULL);
-
+            
     if (RTCC_TimeSet(&sys_time) == false)
     {
         /* Error setting up time */
@@ -111,20 +111,20 @@ int main ( void )
         while(1);
     }
 
-    printf("\r\nAlarm set for Hour:Min:Sec %d:%d:%d\r\n", alarm_time.tm_hour, alarm_time.tm_min, alarm_time.tm_sec);
+    printf("\r\nAlarm set for Hour:Min:Sec %02d:%02d:%02d\r\n\r\n", alarm_time.tm_hour, alarm_time.tm_min, alarm_time.tm_sec);
 
     while ( true )
     {
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
-
+        
+        RTCC_TimeGet(&sys_time);
+        printf("System Date and Time is: DD:MM:YY %02d-%02d-%04d ", sys_time.tm_mday, sys_time.tm_mon, sys_time.tm_year);
+        printf(" %02d:%02d:%02d \r",sys_time.tm_hour, sys_time.tm_min, sys_time.tm_sec);
         if(rtcc_alarm)
         {
             rtcc_alarm = false;
-            RTCC_TimeGet(&sys_time);
-            printf("\r\nAlarm triggered\r\n");
-            printf("\r\nDD:MM:YY %d-%d-%d\r\n", sys_time.tm_mday, sys_time.tm_mon, sys_time.tm_year);
-            printf("\r\nHour:Min:Sec %d:%d:%d\r\n", sys_time.tm_hour, sys_time.tm_min, sys_time.tm_sec);
+            printf("\r\nAlarm triggered!!\r\n\r\n");
         }
     }
 

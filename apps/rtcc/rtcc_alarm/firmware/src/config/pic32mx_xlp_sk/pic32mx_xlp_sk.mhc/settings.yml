@@ -1,0 +1,13 @@
+configName: pic32mx_xlp_sk
+folderName: ''
+format_version: v1.0
+frameworkPath: ../../../..
+processor: PIC32MX274F256D
+projectName: ''
+settings:
+  PackageFilter: csp;
+  FORCE_OPTIMIZATION: 'false'
+  GENERATE_BACKUP: 'true'
+  CMSISPath: .\dev_packs\arm\CMSIS\5.5.1
+  MERGE_STRATEGY: USER_ALL
+  DFPPath: .\dev_packs\Microchip\PIC32MX_DFP\1.0.57\atdf\PIC32MX274F256D.atdf
