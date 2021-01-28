@@ -51,41 +51,35 @@ UART_OBJECT uart1Obj;
 
 void static UART1_ErrorClear( void )
 {
-    /* rxBufferLen = (FIFO level + RX register) */
-    uint8_t rxBufferLen = UART_RXFIFO_DEPTH;
+    UART_ERROR errors = UART_ERROR_NONE;
     uint8_t dummyData = 0u;
 
-    /* If it's a overrun error then clear it to flush FIFO */
-    if(U1STA & _U1STA_OERR_MASK)
-    {
-        U1STACLR = _U1STA_OERR_MASK;
-    }
+    errors = (UART_ERROR)(U1STA & (_U1STA_OERR_MASK | _U1STA_FERR_MASK | _U1STA_PERR_MASK));
 
-    /* Read existing error bytes from FIFO to clear parity and framing error flags */
-    while(U1STA & (_U1STA_FERR_MASK | _U1STA_PERR_MASK))
+    if(errors != UART_ERROR_NONE)
     {
-        dummyData = (uint8_t )(U1RXREG );
-        rxBufferLen--;
-
-        /* Try to flush error bytes for one full FIFO and exit instead of
-         * blocking here if more error bytes are received */
-        if(rxBufferLen == 0u)
+        /* If it's a overrun error then clear it to flush FIFO */
+        if(U1STA & _U1STA_OERR_MASK)
         {
-            break;
+            U1STACLR = _U1STA_OERR_MASK;
         }
+
+        /* Read existing error bytes from FIFO to clear parity and framing error flags */
+        while(U1STA & _U1STA_URXDA_MASK)
+        {
+            dummyData = U1RXREG;
+        }
+
+        /* Clear error interrupt flag */
+        IFS1CLR = _IFS1_U1EIF_MASK;
+
+        /* Clear up the receive interrupt flag so that RX interrupt is not
+         * triggered for error bytes */
+        IFS1CLR = _IFS1_U1RXIF_MASK;
     }
 
     // Ignore the warning
     (void)dummyData;
-
-    /* Clear error interrupt flag */
-    IFS1CLR = _IFS1_U1EIF_MASK;
-
-    /* Clear up the receive interrupt flag so that RX interrupt is not
-     * triggered for error bytes */
-    IFS1CLR = _IFS1_U1RXIF_MASK;
-
-    return;
 }
 
 void UART1_Initialize( void )
@@ -106,7 +100,7 @@ void UART1_Initialize( void )
     U1MODE = 0x8;
 
     /* Enable UART1 Receiver, Transmitter and TX Interrupt selection */
-    U1STASET = (_U1STA_UTXEN_MASK | _U1STA_URXEN_MASK | _U1STA_UTXISEL1_MASK);
+    U1STASET = (_U1STA_UTXEN_MASK | _U1STA_URXEN_MASK | _U1STA_UTXISEL1_MASK );
 
     /* BAUD Rate register Setup */
     U1BRG = 77;
@@ -129,6 +123,7 @@ void UART1_Initialize( void )
     uart1Obj.txProcessedSize = 0;
     uart1Obj.txBusyStatus = false;
     uart1Obj.txCallback = NULL;
+    uart1Obj.errors = UART_ERROR_NONE;
 
     /* Turn ON UART1 */
     U1MODESET = _U1MODE_ON_MASK;
@@ -234,14 +229,14 @@ bool UART1_Read(void* buffer, const size_t size )
         /* Check if receive request is in progress */
         if(uart1Obj.rxBusyStatus == false)
         {
-            /* Clear errors before submitting the request.
-             * ErrorGet clears errors internally. */
-            UART1_ErrorGet();
+            /* Clear error flags and flush out error data that may have been received when no active request was pending */
+            UART1_ErrorClear();
 
             uart1Obj.rxBuffer = lBuffer;
             uart1Obj.rxSize = size;
             uart1Obj.rxProcessedSize = 0;
             uart1Obj.rxBusyStatus = true;
+            uart1Obj.errors = UART_ERROR_NONE;
             status = true;
 
             /* Enable UART1_FAULT Interrupt */
@@ -272,9 +267,18 @@ bool UART1_Write( void* buffer, const size_t size )
             status = true;
 
             /* Initiate the transfer by writing as many bytes as we can */
-            while((!(U1STA & _U1STA_UTXBF_MASK)) && (uart1Obj.txSize > uart1Obj.txProcessedSize) )
+             while((!(U1STA & _U1STA_UTXBF_MASK)) && (uart1Obj.txSize > uart1Obj.txProcessedSize) )
             {
-                U1TXREG = uart1Obj.txBuffer[uart1Obj.txProcessedSize++];
+                if (( U1MODE & (_U1MODE_PDSEL0_MASK | _U1MODE_PDSEL1_MASK)) == (_U1MODE_PDSEL0_MASK | _U1MODE_PDSEL1_MASK))
+                {
+                    /* 9-bit mode */
+                    U1TXREG = ((uint16_t*)uart1Obj.txBuffer)[uart1Obj.txProcessedSize++];
+                }
+                else
+                {
+                    /* 8-bit mode */
+                    U1TXREG = uart1Obj.txBuffer[uart1Obj.txProcessedSize++];
+                }
             }
 
             IEC1SET = _IEC1_U1TXIE_MASK;
@@ -286,15 +290,9 @@ bool UART1_Write( void* buffer, const size_t size )
 
 UART_ERROR UART1_ErrorGet( void )
 {
-    UART_ERROR errors = UART_ERROR_NONE;
-    uint32_t status = U1STA;
+    UART_ERROR errors = uart1Obj.errors;
 
-    errors = (UART_ERROR)(status & (_U1STA_OERR_MASK | _U1STA_FERR_MASK | _U1STA_PERR_MASK));
-
-    if(errors != UART_ERROR_NONE)
-    {
-        UART1_ErrorClear();
-    }
+    uart1Obj.errors = UART_ERROR_NONE;
 
     /* All errors are cleared, but send the previous error state */
     return errors;
@@ -374,15 +372,21 @@ size_t UART1_WriteCountGet( void )
 
 static void UART1_FAULT_InterruptHandler (void)
 {
-    /* Clear size and rx status */
-    uart1Obj.rxBusyStatus = false;
+    /* Save the error to be reported later */
+    uart1Obj.errors = (UART_ERROR)(U1STA & (_U1STA_OERR_MASK | _U1STA_FERR_MASK | _U1STA_PERR_MASK));
 
     /* Disable the fault interrupt */
     IEC1CLR = _IEC1_U1EIE_MASK;
+
     /* Disable the receive interrupt */
     IEC1CLR = _IEC1_U1RXIE_MASK;
 
-    /* Client must call UARTx_ErrorGet() function to clear the errors */
+    /* Clear size and rx status */
+    uart1Obj.rxBusyStatus = false;
+
+    UART1_ErrorClear();
+
+    /* Client must call UARTx_ErrorGet() function to get the errors */
     if( uart1Obj.rxCallback != NULL )
     {
         uart1Obj.rxCallback(uart1Obj.rxContext);
@@ -395,7 +399,16 @@ static void UART1_RX_InterruptHandler (void)
     {
         while((_U1STA_URXDA_MASK == (U1STA & _U1STA_URXDA_MASK)) && (uart1Obj.rxSize > uart1Obj.rxProcessedSize) )
         {
-            uart1Obj.rxBuffer[uart1Obj.rxProcessedSize++] = (uint8_t )(U1RXREG);
+            if (( U1MODE & (_U1MODE_PDSEL0_MASK | _U1MODE_PDSEL1_MASK)) == (_U1MODE_PDSEL0_MASK | _U1MODE_PDSEL1_MASK))
+            {
+                /* 9-bit mode */
+                ((uint16_t*)uart1Obj.rxBuffer)[uart1Obj.rxProcessedSize++] = (uint16_t )(U1RXREG);
+            }
+            else
+            {
+                /* 8-bit mode */
+                uart1Obj.rxBuffer[uart1Obj.rxProcessedSize++] = (uint8_t )(U1RXREG);
+            }
         }
 
         /* Clear UART1 RX Interrupt flag */
@@ -432,7 +445,16 @@ static void UART1_TX_InterruptHandler (void)
     {
         while((!(U1STA & _U1STA_UTXBF_MASK)) && (uart1Obj.txSize > uart1Obj.txProcessedSize) )
         {
-            U1TXREG = uart1Obj.txBuffer[uart1Obj.txProcessedSize++];
+            if (( U1MODE & (_U1MODE_PDSEL0_MASK | _U1MODE_PDSEL1_MASK)) == (_U1MODE_PDSEL0_MASK | _U1MODE_PDSEL1_MASK))
+            {
+                /* 9-bit mode */
+                U1TXREG = ((uint16_t*)uart1Obj.txBuffer)[uart1Obj.txProcessedSize++];
+            }
+            else
+            {
+                /* 8-bit mode */
+                U1TXREG = uart1Obj.txBuffer[uart1Obj.txProcessedSize++];
+            }
         }
 
         /* Clear UART1TX Interrupt flag */
@@ -461,20 +483,23 @@ static void UART1_TX_InterruptHandler (void)
 
 void UART_1_InterruptHandler (void)
 {
+    /* Call Error handler if Error interrupt flag is set */
+    if ((IFS1 & _IFS1_U1EIF_MASK) && (IEC1 & _IEC1_U1EIE_MASK))
+    {
+        UART1_FAULT_InterruptHandler();
+    }
+
     /* Call RX handler if RX interrupt flag is set */
     if ((IFS1 & _IFS1_U1RXIF_MASK) && (IEC1 & _IEC1_U1RXIE_MASK))
     {
         UART1_RX_InterruptHandler();
     }
+
     /* Call TX handler if TX interrupt flag is set */
-    else if ((IFS1 & _IFS1_U1TXIF_MASK) && (IEC1 & _IEC1_U1TXIE_MASK))
+    if ((IFS1 & _IFS1_U1TXIF_MASK) && (IEC1 & _IEC1_U1TXIE_MASK))
     {
         UART1_TX_InterruptHandler();
     }
-    /* Call Error handler if Error interrupt flag is set */
-    else if ((IFS1 & _IFS1_U1EIF_MASK) && (IEC1 & _IEC1_U1EIE_MASK))
-    {
-        UART1_FAULT_InterruptHandler();
-    }
+
 }
 
