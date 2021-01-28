@@ -125,13 +125,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 2C8543317B3F067432097AB9BD3E8672
-- generatedChecksum: E275D3BA649BE77DE1C5DF870CA4E334
+- generatedChecksum: A26CA65B6345DAB213FD6F3026F7F238
   logicalPath: config\pic32mx470_curiosity
   name: p32MX470F512H.ld
   physicalPath: ''
   security: NON_SECURE
   type: LINKER
-  userChecksum: E275D3BA649BE77DE1C5DF870CA4E334
+  userChecksum: A26CA65B6345DAB213FD6F3026F7F238
 format_version: v1.0
 libraries: []
 settings:
