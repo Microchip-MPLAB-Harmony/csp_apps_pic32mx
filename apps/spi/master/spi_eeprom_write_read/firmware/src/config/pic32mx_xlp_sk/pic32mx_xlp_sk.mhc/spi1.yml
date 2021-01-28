@@ -1,0 +1,35 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: spi1}
+children:
+- type: Symbols
+  children:
+  - type: Boolean
+    attributes: {id: SPIS_SLAVE_SELECT_ENABLE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: spi1, value: 'true'}
+  - type: Integer
+    attributes: {id: SPI_BRG_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: spi1, value: '17'}
+  - type: Hex
+    attributes: {id: SPI_DUMMY_DATA}
+    children:
+    - type: Attributes
+      children:
+      - type: Long
+        attributes: {id: max}
+        children:
+        - {type: Value, value: '255'}
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: spi1, value: '255'}
+- type: ElementPosition
+  attributes: {x: '70', y: '56', id: spi1}
