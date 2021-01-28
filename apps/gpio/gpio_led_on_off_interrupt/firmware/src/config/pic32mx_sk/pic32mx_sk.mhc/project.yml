@@ -13,13 +13,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: AC23E25D8557B7DDE2DACB90F49DA9AD
-- generatedChecksum: 4F392D2A60DC2AFB5C3B3569DE89E077
+- generatedChecksum: 89B2CF6741179C3D45BA8E6CACFE3B0E
   logicalPath: config\pic32mx_sk
   name: interrupts.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 4F392D2A60DC2AFB5C3B3569DE89E077
+  userChecksum: 89B2CF6741179C3D45BA8E6CACFE3B0E
 - generatedChecksum: null
   logicalPath: ''
   name: main_pic32mx_sk.c
@@ -27,66 +27,73 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: null
-- generatedChecksum: 9854678C3A3E4E9544EC7450ACBAE52A
+- generatedChecksum: 6902DD0021DA94F42DE165233780733C
   logicalPath: config\pic32mx_sk\peripheral\clk
   name: plib_clk.c
-  physicalPath: \peripheral\clk
+  physicalPath: peripheral\clk
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 9854678C3A3E4E9544EC7450ACBAE52A
-- generatedChecksum: F38D107BAF1770F488B6C886864F64E9
+  userChecksum: 6902DD0021DA94F42DE165233780733C
+- generatedChecksum: B9075C50D6E5312528847AA1098C60AD
   logicalPath: config\pic32mx_sk\peripheral\evic
   name: plib_evic.c
-  physicalPath: \peripheral\evic
+  physicalPath: peripheral\evic
   security: NON_SECURE
   type: SOURCE
-  userChecksum: F38D107BAF1770F488B6C886864F64E9
+  userChecksum: B9075C50D6E5312528847AA1098C60AD
 - generatedChecksum: BCB30EFD47515B1291A715D31B307C9A
   logicalPath: config\pic32mx_sk\peripheral\gpio
   name: plib_gpio.c
-  physicalPath: \peripheral\gpio
+  physicalPath: peripheral\gpio
   security: NON_SECURE
   type: SOURCE
   userChecksum: BCB30EFD47515B1291A715D31B307C9A
-- generatedChecksum: 16BE5CCEE5F9AF5909BF3F69B51C7D93
+- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
   logicalPath: config\pic32mx_sk\stdio
   name: xc32_monitor.c
-  physicalPath: \stdio
+  physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 16BE5CCEE5F9AF5909BF3F69B51C7D93
-- generatedChecksum: 4CA4A94723C108EDAE08198BDE2EEE5E
+  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+- generatedChecksum: 1E5CA1CBAC346A74EC2BFE040DC88828
   logicalPath: config\pic32mx_sk
   name: definitions.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 4CA4A94723C108EDAE08198BDE2EEE5E
-- generatedChecksum: 5D5C52527AB1435153DB9B50ADE6B79D
+  userChecksum: 1E5CA1CBAC346A74EC2BFE040DC88828
+- generatedChecksum: E189C26B2269F8DE46033CCD0621958D
   logicalPath: config\pic32mx_sk
   name: device.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 5D5C52527AB1435153DB9B50ADE6B79D
+  userChecksum: E189C26B2269F8DE46033CCD0621958D
+- generatedChecksum: 4CF4A86296482D5331331BA301C20BB2
+  logicalPath: config\pic32mx_sk
+  name: interrupts.h
+  physicalPath: ''
+  security: NON_SECURE
+  type: HEADER
+  userChecksum: 4CF4A86296482D5331331BA301C20BB2
 - generatedChecksum: 7066CC390335CF75126E2A50C46E3BDD
   logicalPath: config\pic32mx_sk\peripheral\clk
   name: plib_clk.h
-  physicalPath: \peripheral\clk
+  physicalPath: peripheral\clk
   security: NON_SECURE
   type: HEADER
   userChecksum: 7066CC390335CF75126E2A50C46E3BDD
-- generatedChecksum: F443860EB4D37FBF486C176F7DDAC101
+- generatedChecksum: 08CAE57066302D12E2A32EE07E935AFE
   logicalPath: config\pic32mx_sk\peripheral\evic
   name: plib_evic.h
-  physicalPath: \peripheral\evic
+  physicalPath: peripheral\evic
   security: NON_SECURE
   type: HEADER
-  userChecksum: F443860EB4D37FBF486C176F7DDAC101
+  userChecksum: 08CAE57066302D12E2A32EE07E935AFE
 - generatedChecksum: 289F35AD623593FC40A0F73142869219
   logicalPath: config\pic32mx_sk\peripheral\gpio
   name: plib_gpio.h
-  physicalPath: \peripheral\gpio
+  physicalPath: peripheral\gpio
   security: NON_SECURE
   type: HEADER
   userChecksum: 289F35AD623593FC40A0F73142869219
@@ -97,13 +104,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 2C8543317B3F067432097AB9BD3E8672
-- generatedChecksum: 133C9651E2D22B4E46B149A3252D80D3
+- generatedChecksum: D3313458AC706756FC68F2CE1408ECFF
   logicalPath: config\pic32mx_sk
   name: p32MX360F512L.ld
   physicalPath: ''
   security: NON_SECURE
   type: LINKER
-  userChecksum: 133C9651E2D22B4E46B149A3252D80D3
+  userChecksum: D3313458AC706756FC68F2CE1408ECFF
 format_version: v1.0
 libraries: []
 settings:
