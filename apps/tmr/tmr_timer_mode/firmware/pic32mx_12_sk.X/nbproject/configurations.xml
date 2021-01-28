@@ -7,16 +7,16 @@
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="pic32mx_12_sk" projectFiles="true">
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f2" displayName="clk" projectFiles="true">
+            <logicalFolder name="f1" displayName="clk" projectFiles="true">
               <itemPath>../src/config/pic32mx_12_sk/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="evic" projectFiles="true">
+            <logicalFolder name="f2" displayName="evic" projectFiles="true">
               <itemPath>../src/config/pic32mx_12_sk/peripheral/evic/plib_evic.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/pic32mx_12_sk/peripheral/gpio/plib_gpio.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f4" displayName="tmr" projectFiles="true">
               <itemPath>../src/config/pic32mx_12_sk/peripheral/tmr/plib_tmr_common.h</itemPath>
               <itemPath>../src/config/pic32mx_12_sk/peripheral/tmr/plib_tmr2.h</itemPath>
             </logicalFolder>
@@ -24,6 +24,7 @@
           <itemPath>../src/config/pic32mx_12_sk/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/pic32mx_12_sk/definitions.h</itemPath>
           <itemPath>../src/config/pic32mx_12_sk/device.h</itemPath>
+          <itemPath>../src/config/pic32mx_12_sk/interrupts.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -31,7 +32,7 @@
                    displayName="Important Files"
                    projectFiles="true">
       <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/pic32mx_12_sk/harmony.prj</itemPath>
+      <itemPath>../src/config/pic32mx_12_sk/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -48,16 +49,16 @@
       <logicalFolder name="f1" displayName="config" projectFiles="true">
         <logicalFolder name="f1" displayName="pic32mx_12_sk" projectFiles="true">
           <logicalFolder name="f1" displayName="peripheral" projectFiles="true">
-            <logicalFolder name="f2" displayName="clk" projectFiles="true">
+            <logicalFolder name="f1" displayName="clk" projectFiles="true">
               <itemPath>../src/config/pic32mx_12_sk/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="evic" projectFiles="true">
+            <logicalFolder name="f2" displayName="evic" projectFiles="true">
               <itemPath>../src/config/pic32mx_12_sk/peripheral/evic/plib_evic.c</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/pic32mx_12_sk/peripheral/gpio/plib_gpio.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f1" displayName="tmr" projectFiles="true">
+            <logicalFolder name="f4" displayName="tmr" projectFiles="true">
               <itemPath>../src/config/pic32mx_12_sk/peripheral/tmr/plib_tmr2.c</itemPath>
             </logicalFolder>
           </logicalFolder>
@@ -83,9 +84,9 @@
         <targetDevice>PIC32MX250F128D</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>PKOBSKDEPlatformTool</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>2.50</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -110,6 +111,7 @@
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
+        <makeUseCleanTarget>false</makeUseCleanTarget>
         <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
         <makeCustomizationPostStep></makeCustomizationPostStep>
@@ -126,7 +128,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/pic32mx_12_sk;../src/packs/PIC32MX250F128D_DFP;"/>
+                  value="../src;../src/config/pic32mx_12_sk;../src/packs/PIC32MX250F128D_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
@@ -223,7 +225,7 @@
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="../src;../src/config/pic32mx_12_sk;../src/packs/PIC32MX250F128D_DFP;"/>
+                  value="../src;../src/config/pic32mx_12_sk;../src/packs/PIC32MX250F128D_DFP"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="true"/>
