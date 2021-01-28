@@ -60,7 +60,6 @@ void ICAP2_Initialize (void)
     IC2CON = 0x81;
 
 
-
 }
 
 
