@@ -1,0 +1,22 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: icap1}
+children:
+- type: Symbols
+  children:
+  - type: KeyValueSet
+    attributes: {id: ICAP_ICxCON_ICTMR}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '1'}
+  - type: Hex
+    attributes: {id: ICxCON_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: icap1, value: '129'}
+- type: ElementPosition
+  attributes: {x: '56', y: '139', id: icap1}
