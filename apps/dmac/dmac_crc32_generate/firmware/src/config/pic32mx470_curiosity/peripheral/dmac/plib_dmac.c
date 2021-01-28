@@ -188,6 +188,7 @@ static uint32_t DMAC_BitReverse( uint32_t num, uint32_t bits)
 }
 
 // *****************************************************************************
+// *****************************************************************************
 // Section: DMAC PLib Interface Implementations
 // *****************************************************************************
 // *****************************************************************************
@@ -218,14 +219,12 @@ void DMAC_Initialize(void)
 
     /* DMA channel-level control registers.  They will have additional settings made when starting a transfer. */
     /* DMA channel 0 configuration */
-    /* CHPRI = 0 */
+    /* CHPRI = 0, CHAEN= 0, CHCHN= 0, CHCHNS= 0x0, CHAED= 0 */
     DCH0CON = 0x0;
-
     /* CHSIRQ = 0, SIRQEN = 0 */
     DCH0ECON = 0x0;
-
-    /* CHBCIE = 1, CHTAIE=1, CHERIE=1 */
-    DCH0INT = 0xB0000;
+    /* CHBCIE = 1, CHTAIE=1, CHERIE=1, CHSHIE= 0, CHDHIE= 0 */
+    DCH0INT = 0xb0000;
 
     /* Enable DMA channel interrupts */
     IEC2SET = 0 | 0x100 ;
@@ -255,11 +254,11 @@ bool DMAC_ChannelTransfer(DMAC_CHANNEL channel, const void *srcAddr, size_t srcS
         regs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x50);
         *(volatile uint32_t *)(regs) = srcSize;
 
-        /* Set the destination size (set same as source size), DCHxDSIZ */
+        /* Set the destination size, DCHxDSIZ */
         regs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x60);
         *(volatile uint32_t *)(regs) = destSize;
 
-        /* Set the cell size (set same as source size), DCHxCSIZ */
+        /* Set the cell size, DCHxCSIZ */
         regs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x90);
         *(volatile uint32_t *)(regs) = cellSize;
 
@@ -283,6 +282,53 @@ bool DMAC_ChannelTransfer(DMAC_CHANNEL channel, const void *srcAddr, size_t srcS
     return returnStatus;
 }
 
+bool DMAC_ChainTransferSetup( DMAC_CHANNEL channel, const void *srcAddr, size_t srcSize, const void *destAddr, size_t destSize, size_t cellSize)
+{
+    bool returnStatus = false;
+    volatile uint32_t *regs;
+
+    if(gDMAChannelObj[channel].inUse == false)
+    {
+        gDMAChannelObj[channel].inUse = true;
+        returnStatus = true;
+
+        /* Set the source / destination addresses, DCHxSSA and DCHxDSA */
+        DMAC_ChannelSetAddresses(channel, srcAddr, destAddr);
+
+        /* Set the source size, DCHxSSIZ */
+        regs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x50);
+        *(volatile uint32_t *)(regs) = srcSize;
+
+        /* Set the destination size, DCHxDSIZ */
+        regs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x60);
+        *(volatile uint32_t *)(regs) = destSize;
+
+        /* Set the cell size, DCHxCSIZ */
+        regs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x90);
+        *(volatile uint32_t *)(regs) = cellSize;
+    }
+
+    return returnStatus;
+}
+
+void DMAC_ChannelPatternMatchSetup(DMAC_CHANNEL channel, uint8_t patternMatchData)
+{
+    volatile uint32_t * patternRegs;
+    patternRegs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0xB0);
+    *(volatile uint32_t *)(patternRegs) = patternMatchData;
+
+    /* Enable Pattern Match */
+    volatile uint32_t * eventConRegs;
+    eventConRegs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x10)+2;
+    *(volatile uint32_t *)(eventConRegs) = _DCH0ECON_PATEN_MASK;
+}
+
+void DMAC_ChannelPatternMatchDisable(DMAC_CHANNEL channel)
+{
+    volatile uint32_t * eventConRegs;
+    eventConRegs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x10)+1;
+    *(volatile uint32_t *)(eventConRegs) = _DCH0ECON_PATEN_MASK;
+}
 void DMAC_ChannelDisable(DMAC_CHANNEL channel)
 {
     volatile uint32_t * regs;
@@ -372,6 +418,14 @@ void DMA_0_InterruptHandler(void)
 
     /* Check whether the active DMA channel event has occurred */
 
+    if((DCH0INTbits.CHSHIF == true) || (DCH0INTbits.CHDHIF == true))/* irq due to half complete */
+    {
+        /* Do not clear the flag here, it should be cleared with block transfer complete flag*/
+
+        /* Update error and event */
+        chanObj->errorInfo = DMAC_ERROR_NONE;
+        dmaEvent = DMAC_TRANSFER_EVENT_HALF_COMPLETE;
+    }
     if(DCH0INTbits.CHTAIF == true) /* irq due to transfer abort */
     {
         /* Channel is by default disabled on Transfer Abortion */
@@ -385,8 +439,8 @@ void DMA_0_InterruptHandler(void)
     if(DCH0INTbits.CHBCIF == true) /* irq due to transfer complete */
     {
         /* Channel is by default disabled on completion of a block transfer */
-        /* Clear the Block transfer complete flag */
-        DCH0INTCLR = _DCH0INT_CHBCIF_MASK;
+        /* Clear the Block transfer complete, half empty and half full interrupt flag */
+        DCH0INTCLR = _DCH0INT_CHBCIF_MASK | _DCH0INT_CHSHIF_MASK | _DCH0INT_CHDHIF_MASK;
 
         /* Update error and event */
         chanObj->errorInfo = DMAC_ERROR_NONE;

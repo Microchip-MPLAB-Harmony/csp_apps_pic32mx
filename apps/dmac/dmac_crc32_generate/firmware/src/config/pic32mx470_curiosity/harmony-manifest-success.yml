@@ -4,15 +4,14 @@
 
 
 project: dmac_crc32_generate
-creation_date: 2020-12-31T10:27:04.955+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
+creation_date: 2021-01-28T15:54:24.412+05:30[Asia/Calcutta]    # ISO 8601 format: https://www.w3.org/TR/NOTE-datetime
 operating_system: Windows 10
 mhc_mode: IDE            # [IDE|Standalone|Headless]
 mhc_version: v3.6.5
 mplabx_version: v5.45        # if MPLAB X plugin only
 plugin_version: v3.6.2        # if MPLAB X plugin only
-compiler: XC32 (2.41)
+compiler: XC32 (2.50)
 
 modules:
-    - {name: "csp", version: "unknown"}
-    - {name: "dev_packs", version: "unknown"}
-
+    - {name: "csp", version: "v3.9.0"}
+    - {name: "dev_packs", version: "v3.9.0"}
