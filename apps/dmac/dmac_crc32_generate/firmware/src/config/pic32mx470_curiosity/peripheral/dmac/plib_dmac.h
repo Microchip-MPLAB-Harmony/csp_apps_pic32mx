@@ -92,7 +92,10 @@ typedef enum
     DMAC_TRANSFER_EVENT_ERROR,
 
     /* No events yet. */
-    DMAC_TRANSFER_EVENT_NONE
+    DMAC_TRANSFER_EVENT_NONE,
+
+    /* Half Data is transferred */
+    DMAC_TRANSFER_EVENT_HALF_COMPLETE
 
 } DMAC_TRANSFER_EVENT;
 
@@ -166,6 +169,10 @@ void DMAC_ChannelCallbackRegister(DMAC_CHANNEL channel, const DMAC_CHANNEL_CALLB
 
 bool DMAC_ChannelTransfer( DMAC_CHANNEL channel, const void *srcAddr, size_t srcSize, const void *destAddr, size_t destSize, size_t cellSize);
 
+bool DMAC_ChainTransferSetup( DMAC_CHANNEL channel, const void *srcAddr, size_t srcSize, const void *destAddr, size_t destSize, size_t cellSize);
+
+void DMAC_ChannelPatternMatchSetup(DMAC_CHANNEL channel, uint8_t patternMatchData);
+void DMAC_ChannelPatternMatchDisable(DMAC_CHANNEL channel);
 void DMAC_ChannelDisable(DMAC_CHANNEL channel);
 
 bool DMAC_ChannelIsBusy(DMAC_CHANNEL channel);
