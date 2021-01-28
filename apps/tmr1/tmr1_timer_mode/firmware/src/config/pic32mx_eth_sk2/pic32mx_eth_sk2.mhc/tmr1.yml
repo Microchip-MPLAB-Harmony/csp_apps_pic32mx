@@ -1,0 +1,56 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: tmr1}
+children:
+- type: Symbols
+  children:
+  - type: Hex
+    attributes: {id: TCON_REG_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tmr1, value: '48'}
+  - type: Integer
+    attributes: {id: TIMER1_CLOCK_FREQ}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tmr1, value: '312500'}
+  - type: Long
+    attributes: {id: TIMER1_PERIOD}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tmr1, value: '46874'}
+  - type: KeyValueSet
+    attributes: {id: TIMER1_PRE_SCALER}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '0'}
+  - type: Float
+    attributes: {id: TIMER1_TIME_PERIOD_MS}
+    children:
+    - type: Attributes
+      children:
+      - type: Float
+        attributes: {id: max}
+        children:
+        - {type: Value, value: '209.7184'}
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '150.0'}
+  - type: Integer
+    attributes: {id: TMR1_PRESCALER_VALUE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: tmr1, value: '256'}
+- type: ElementPosition
+  attributes: {x: '340', y: '19', id: tmr1}
