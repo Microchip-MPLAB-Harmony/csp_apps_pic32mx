@@ -54,6 +54,7 @@ void ADC_Initialize(void)
     AD1CON1CLR = _AD1CON1_ON_MASK;
 
     AD1CON1 = 0x4;
+    AD1CON3 = 0x1f02;
     AD1CHS = 0x90000;
 
 
