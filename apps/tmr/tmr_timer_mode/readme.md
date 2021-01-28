@@ -1,6 +1,6 @@
 ---
 parent: Harmony 3 peripheral library application examples for PIC32MX family
-title: TMR periodic interrupt 
+title: TMR periodic interrupt
 has_children: false
 has_toc: false
 ---
@@ -91,6 +91,7 @@ Following table provides the LED names:
 | [PIC32MX1/2/5 Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/dm320100) | LED1 |
 | [MPLAB Starter Kit for PIC32MX1XX/2XX](https://www.microchip.com/Developmenttools/ProductDetails/DM320013) | LED(D1) |
 | [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004) | LED1 |
+| [PIC32 USB Starter Kit III](https://www.microchip.com/Developmenttools/ProductDetails/dm320003-3) | LED1 |
 | [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) | LED1 (RED) |
 | [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) | LED3 (GREEN) |
 |||
