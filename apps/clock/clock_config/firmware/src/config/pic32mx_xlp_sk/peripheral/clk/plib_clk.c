@@ -85,6 +85,8 @@
 void CLK_Initialize( void )
 {
 
+    /* Code for fuse settings can be found in "initialization.c" */
+    
 
     /* unlock system for clock configuration */
     SYSKEY = 0x00000000;
@@ -102,6 +104,7 @@ void CLK_Initialize( void )
 
     /* Lock system since done with clock configuration */
     SYSKEY = 0x33333333;
+
 
     /* Peripheral Module Disable Configuration */
     PMD1 = 0x101101;
