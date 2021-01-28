@@ -1,0 +1,15 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: ocmp2}
+children:
+- type: Symbols
+  children:
+  - type: Long
+    attributes: {id: OCMP_OCxR}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '15000'}
+- type: ElementPosition
+  attributes: {x: '350', y: '80', id: ocmp2}
