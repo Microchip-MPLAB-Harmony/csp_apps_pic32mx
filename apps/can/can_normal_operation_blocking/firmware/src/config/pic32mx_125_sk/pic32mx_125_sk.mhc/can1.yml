@@ -1,0 +1,115 @@
+format_version: v1.0
+type: UniqueComponent
+attributes: {id: can1}
+children:
+- type: Symbols
+  children:
+  - type: Integer
+    attributes: {id: BRP}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '3'}
+  - type: String
+    attributes: {id: CALCULATED_ERRORRATE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: can1, value: '0.000'}
+  - type: Integer
+    attributes: {id: CALCULATED_NOMINAL_BITRATE}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: can1, value: '500'}
+  - type: Integer
+    attributes: {id: CAN_CORE_CLOCK_FREQ}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: can1, value: '48000000'}
+  - type: Comment
+    attributes: {id: CAN_ERRORRATE_COMMENT}
+    children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: visible}
+        children:
+        - {type: Value, value: 'false'}
+  - type: KeyValueSet
+    attributes: {id: CAN_OPMODE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '0'}
+  - type: Integer
+    attributes: {id: NOMINAL_BITRATE}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '500'}
+  - type: Float
+    attributes: {id: NOMINAL_SAMPLE_POINT}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '75.0'}
+  - type: Integer
+    attributes: {id: PHASE1}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: can1, value: '7'}
+  - type: Integer
+    attributes: {id: PHASE2}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: can1, value: '3'}
+  - type: Integer
+    attributes: {id: PROPAG}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: can1, value: '1'}
+  - type: Integer
+    attributes: {id: PROPAG_TIME}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: '300'}
+  - type: Integer
+    attributes: {id: SJW}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: can1, value: '3'}
+  - type: String
+    attributes: {id: TIME_QUANTA_PERIOD}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: can1, value: '166.667'}
+  - type: Integer
+    attributes: {id: TOTAL_TIME_QUANTA}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: can1, value: '12'}
+- type: ElementPosition
+  attributes: {x: '340', y: '20', id: can1}
