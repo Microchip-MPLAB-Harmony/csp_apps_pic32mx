@@ -1,0 +1,13 @@
+configName: pic32mx_eth_sk2
+folderName: ''
+format_version: v1.0
+frameworkPath: ../../../..
+processor: PIC32MX795F512L
+projectName: ''
+settings:
+  PackageFilter: csp;
+  FORCE_OPTIMIZATION: 'false'
+  GENERATE_BACKUP: 'true'
+  CMSISPath: .\dev_packs\arm\CMSIS\5.6.0
+  MERGE_STRATEGY: USER_ALL
+  DFPPath: .\dev_packs\Microchip\PIC32MX_DFP\1.0.208\atdf\PIC32MX795F512L.atdf

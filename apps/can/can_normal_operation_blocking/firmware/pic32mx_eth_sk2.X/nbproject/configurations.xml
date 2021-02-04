@@ -14,16 +14,17 @@
             <logicalFolder name="f2" displayName="clk" projectFiles="true">
               <itemPath>../src/config/pic32mx_eth_sk2/peripheral/clk/plib_clk.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="evic" projectFiles="true">
+            <logicalFolder name="f3" displayName="evic" projectFiles="true">
               <itemPath>../src/config/pic32mx_eth_sk2/peripheral/evic/plib_evic.h</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="gpio" projectFiles="true">
+            <logicalFolder name="f4" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/pic32mx_eth_sk2/peripheral/gpio/plib_gpio.h</itemPath>
             </logicalFolder>
           </logicalFolder>
           <itemPath>../src/config/pic32mx_eth_sk2/toolchain_specifics.h</itemPath>
           <itemPath>../src/config/pic32mx_eth_sk2/definitions.h</itemPath>
           <itemPath>../src/config/pic32mx_eth_sk2/device.h</itemPath>
+          <itemPath>../src/config/pic32mx_eth_sk2/interrupts.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -31,12 +32,16 @@
                    displayName="Important Files"
                    projectFiles="true">
       <itemPath>Makefile</itemPath>
-      <itemPath>../src/config/pic32mx_eth_sk2/harmony.prj</itemPath>
-      <itemPath>../../../../../../mhc/../csp_apps_pic32mx/apps/can/can_normal_operation_blocking/firmware/src/config/pic32mx_eth_sk2/pic32mx_eth_sk2.xml</itemPath>
+      <itemPath>../src/config/pic32mx_eth_sk2/harmony-manifest-success.yml</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="config" projectFiles="true">
+        <logicalFolder name="f1" displayName="pic32mx_eth_sk2" projectFiles="true">
+          <itemPath>../src/config/pic32mx_eth_sk2/p32MX795F512L.ld</itemPath>
+        </logicalFolder>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -50,10 +55,10 @@
             <logicalFolder name="f2" displayName="clk" projectFiles="true">
               <itemPath>../src/config/pic32mx_eth_sk2/peripheral/clk/plib_clk.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f4" displayName="evic" projectFiles="true">
+            <logicalFolder name="f3" displayName="evic" projectFiles="true">
               <itemPath>../src/config/pic32mx_eth_sk2/peripheral/evic/plib_evic.c</itemPath>
             </logicalFolder>
-            <logicalFolder name="f3" displayName="gpio" projectFiles="true">
+            <logicalFolder name="f4" displayName="gpio" projectFiles="true">
               <itemPath>../src/config/pic32mx_eth_sk2/peripheral/gpio/plib_gpio.c</itemPath>
             </logicalFolder>
           </logicalFolder>
@@ -81,7 +86,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>2.40</languageToolchainVersion>
+        <languageToolchainVersion>2.50</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
@@ -106,6 +111,7 @@
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
+        <makeUseCleanTarget>false</makeUseCleanTarget>
         <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
         <makeCustomizationPostStep></makeCustomizationPostStep>
