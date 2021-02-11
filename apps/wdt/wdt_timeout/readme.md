@@ -1,6 +1,6 @@
 ---
 parent: Harmony 3 peripheral library application examples for PIC32MX family
-title: WDT timeout 
+title: WDT timeout
 has_children: false
 has_toc: false
 ---
@@ -42,7 +42,13 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103)
 
-- Connect the Debug USB port on the board to the computer using a micro USB cable
+- To run the demo, the following additional hardware are required:
+  - [USB UART click board](https://www.mikroe.com/usb-uart-click)
+
+- Connect mini USB cable to the 'Debug USB' connector(J3) on the board to the computer
+- Install an [USB UART click board](https://www.mikroe.com/usb-uart-click) on to the mikroBUS socket J5
+- Connect mini USB cable between PC and the [USB UART click board](https://www.mikroe.com/usb-uart-click)
+  - *Note: Ensure that the series resistors on the mikroBUS headers are of value 0 Ohms*
 
 ### Setting up [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001)
 
@@ -51,7 +57,7 @@ The following table shows the target hardware for the application projects.
 ## Running the Application
 
 1. Open the Terminal application (Ex.:Tera term) on the computer
-2. Connect to the EDBG Virtual COM port and configure the serial settings as follows:
+2. Connect to the "USB to UART" COM port and configure the serial settings as follows:
     - Baud : 115200
     - Data : 8 Bits
     - Parity : None
