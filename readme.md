@@ -44,7 +44,7 @@ The following applications are provided to demonstrate the typical or interestin
 | [Clock configuration](apps/clock/clock_config/readme.md) | This example application shows how to configure the clock system to run the device at maximum frequency. It also outputs a prescaled clock signal on a GPIO pin for measurement and verification |
 | [CMP configurable reference](apps/cmp/cmp_configurable_reference/readme.md) | This example application shows how to use the CMP Peripheral library to compare voltage level on the negative input with the internal configurable reference voltage |
 | [CORETIMER periodic interrupt](apps/coretimer/coretimer_periodic_timeout/readme.md) | This example application shows how to use the CoreTimer to generate periodic interrupts |
-| [DMAC CRC32 generate](apps/dmac/dmac_crc32_generate/readme.md) | This example application demonstrates how to use the DMAC peripheral to compute 32-bit Cyclic Redundancy Checksum (CRC) |
+| [DMAC CRC-32 Generation](apps/dmac/dmac_crc32_generate/readme.md) | This example application demonstrates how to use the DMAC peripheral to compute 32-bit Cyclic Redundancy Checksum (CRC) |
 | [DMAC memory transfer](apps/dmac/dmac_memory_transfer/readme.md) | This example application demonstrates how to use the DMAC peripheral to do a memory to memory transfer |
 | [DMAC usart echo](apps/dmac/dmac_usart_echo/readme.md) | This example application demonstrates USART transfer with DMA to receive 10 bytes and echo back the received bytes |
 | [GPIO interrupt](apps/gpio/gpio_led_on_off_interrupt/readme.md) | This example application demonstrate how to generate GPIO interrupt on switch press and release, and indicate the switch status using the LED |
@@ -54,6 +54,7 @@ The following applications are provided to demonstrate the typical or interestin
 | [ICAP capture mode](apps/icap/icap_capture_mode/readme.md) | This example application shows how to use the ICAP peripheral to measure the pulse width of the input signal |
 | [NVM flash read write](apps/nvm/flash_read_write/readme.md) | This example application demonstrates how to use the NVM to erase and program the internal Flash memory |
 | [OCMP compare mode](apps/ocmp/ocmp_compare_mode/readme.md) | This example application shows how to use the OCMP peripheral to generate an active low, active high, and toggle output on compare match |
+| [Low Power Modes](apps/power/low_power_modes/readme.md) | This example application demonstrates how to use different low power modes of the device |
 | [RCON reset handler](apps/rcon/reset_handler/readme.md) | This example shows how to use the RCON peripheral to indicate the cause of the device reset and clear the reset causes |
 | [RTCC alarm interrupt](apps/rtcc/rtcc_alarm/readme.md) | This example application shows how to use the RTCC to configure the time and generate the alarm |
 | [SPI EEPROM write read](apps/spi/master/spi_eeprom_write_read/readme.md) | This example application demonstrates how to use the SPI peripheral to write and read from the SPI serial EEPROM memory |
