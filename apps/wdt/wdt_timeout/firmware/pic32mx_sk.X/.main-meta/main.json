@@ -1,0 +1,75 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_wdt_timeout_pic32mx_sk",
+		"version": "3.0.1",
+		"displayName": "WDT timeout Example for PIC32MX Family",
+		"projectName": "wdt_timeout_pic32mx_sk",
+		"shortDescription": "This example application shows how the watchdog timer resets by not feeding the watchdog on switch press.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=5.45.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=2.50.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32MX_DFP",
+			"semverRange": "^1.3.231"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.7.0"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32MX360F512L",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit", "PIC32MX Starter Kit"
+			],
+			[
+				"Harmony", "Peripherals", "WDT"
+			],
+			[
+				"Peripherals", "WDT"
+			]
+		],
+		"peripherals": [
+			"WDT"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32MX360F512L",
+			"PIC32MX Family",
+			"Timer",
+			"WDT",
+			"Watch Dog Timer"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,74 @@
+{
+	"metaDataVersion": "1.0.0",
+	"category": "com.microchip.ide.project",
+	"content": {
+		"metaDataVersion": "1.1.0",
+		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_conf_xlp_power_low_power_modes",
+		"version": "3.0.1",
+		"displayName": "Low Power Modes Example for PIC32MX Family",
+		"projectName": "power_low_power_modes_pic32mx_xlp_sk",
+		"shortDescription": "This example application demonstrates how to use different low power modes of the device.",
+		"ide": {
+			"name": "MPLABX",
+			"semverRange": ">=5.45.0"
+		},
+		"compiler": [
+			{
+				"name": "XC32",
+				"semverRange": ">=2.50.0"
+			}
+		],
+		"dfp": {
+			"name": "PIC32MX_DFP",
+			"semverRange": "^1.3.231"
+		},
+		"configurator": {
+			"name": "MHC",
+			"semverRange": ">=3.7.0"
+		},
+		"device": {
+			"metaDataVersion": "1.0.0",
+			"category": "com.microchip.portal.contentRef",
+			"content": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.device",
+				"name": "PIC32MX274F256D",
+				"versionRange": "*"
+			}
+		},
+		"author": "Microchip",
+		"subcategories": [
+			[
+				"Development Kit", "PIC32MX274 XLP Starter Kit"
+			],
+			[
+				"Harmony", "Peripherals", "POWER"
+			],
+			[
+				"Peripherals", "POWER"
+			]
+		],
+		"peripherals": [
+			"POWER"
+		],
+		"keywords": [
+			"MHC",
+			"Harmony",
+			"PIC32MX274F256D",
+			"PIC32MX Family",
+			"POWER",
+			"LOW POWER"
+		],
+		"additionalData": {
+			"longDescription": {
+				"metaDataVersion": "1.0.0",
+				"category": "com.microchip.portal.fileRef",
+				"content": {
+					"metaDataVersion": "1.0.0",
+					"fileName": "./../../readme.md",
+					"mimeType": "text/markdown"
+				}
+			}
+		}
+	}
+}
