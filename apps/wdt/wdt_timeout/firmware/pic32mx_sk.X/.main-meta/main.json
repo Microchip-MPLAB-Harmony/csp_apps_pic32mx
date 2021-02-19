@@ -4,7 +4,7 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_wdt_timeout_pic32mx_sk",
-		"version": "3.0.1",
+		"version": "3.1.0",
 		"displayName": "WDT timeout Example for PIC32MX Family",
 		"projectName": "wdt_timeout_pic32mx_sk",
 		"shortDescription": "This example application shows how the watchdog timer resets by not feeding the watchdog on switch press.",
@@ -39,13 +39,17 @@
 		"author": "Microchip",
 		"subcategories": [
 			[
-				"Development Kit", "PIC32MX Starter Kit"
+				"Development Kit",
+				"PIC32MX Starter Kit"
 			],
 			[
-				"Harmony", "Peripherals", "WDT"
+				"Harmony",
+				"Peripherals",
+				"WDT"
 			],
 			[
-				"Peripherals", "WDT"
+				"Peripherals",
+				"WDT"
 			]
 		],
 		"peripherals": [

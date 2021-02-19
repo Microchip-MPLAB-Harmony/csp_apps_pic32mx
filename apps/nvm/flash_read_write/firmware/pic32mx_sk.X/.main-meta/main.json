@@ -4,7 +4,7 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_flash_read_write_pic32mx_sk",
-		"version": "3.0.1",
+		"version": "3.1.0",
 		"displayName": "NVM flash read write Example for PIC32MX Family",
 		"projectName": "flash_read_write_pic32mx_sk",
 		"shortDescription": "This example application demonstrates how to use the NVM to erase and program the internal Flash memory.",
@@ -39,13 +39,17 @@
 		"author": "Microchip",
 		"subcategories": [
 			[
-				"Development Kit", "PIC32MX Starter Kit"
+				"Development Kit",
+				"PIC32MX Starter Kit"
 			],
 			[
-				"Harmony", "Peripherals", "NVM"
+				"Harmony",
+				"Peripherals",
+				"NVM"
 			],
 			[
-				"Peripherals", "NVM"
+				"Peripherals",
+				"NVM"
 			]
 		],
 		"peripherals": [

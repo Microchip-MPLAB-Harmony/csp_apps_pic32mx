@@ -4,7 +4,7 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_conf_xlp_power_low_power_modes",
-		"version": "3.0.1",
+		"version": "3.1.0",
 		"displayName": "Low Power Modes Example for PIC32MX Family",
 		"projectName": "power_low_power_modes_pic32mx_xlp_sk",
 		"shortDescription": "This example application demonstrates how to use different low power modes of the device.",
@@ -39,13 +39,17 @@
 		"author": "Microchip",
 		"subcategories": [
 			[
-				"Development Kit", "PIC32MX274 XLP Starter Kit"
+				"Development Kit",
+				"PIC32MX274 XLP Starter Kit"
 			],
 			[
-				"Harmony", "Peripherals", "POWER"
+				"Harmony",
+				"Peripherals",
+				"POWER"
 			],
 			[
-				"Peripherals", "POWER"
+				"Peripherals",
+				"POWER"
 			]
 		],
 		"peripherals": [

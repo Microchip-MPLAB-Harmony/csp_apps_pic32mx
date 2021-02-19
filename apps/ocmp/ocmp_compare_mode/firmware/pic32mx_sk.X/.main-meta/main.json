@@ -4,7 +4,7 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_ocmp_compare_mode_pic32mx_sk",
-		"version": "3.0.1",
+		"version": "3.1.0",
 		"displayName": "OCMP compare mode Example for PIC32MX Family",
 		"projectName": "ocmp_compare_mode_pic32mx_sk",
 		"shortDescription": "This example application shows how to use the OCMP peripheral to generate an active low, active high, and toggle output on compare match.",
@@ -39,13 +39,17 @@
 		"author": "Microchip",
 		"subcategories": [
 			[
-				"Development Kit", "PIC32MX Starter Kit"
+				"Development Kit",
+				"PIC32MX Starter Kit"
 			],
 			[
-				"Harmony", "Peripherals", "OCMP"
+				"Harmony",
+				"Peripherals",
+				"OCMP"
 			],
 			[
-				"Peripherals", "OCMP"
+				"Peripherals",
+				"OCMP"
 			]
 		],
 		"peripherals": [

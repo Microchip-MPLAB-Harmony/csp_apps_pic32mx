@@ -4,7 +4,7 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_tmr_timer_mode_pic32mx_sk",
-		"version": "3.0.1",
+		"version": "3.1.0",
 		"displayName": "TMR periodic interrupt Example for PIC32MX Family",
 		"projectName": "tmr_timer_mode_pic32mx_sk",
 		"shortDescription": "This example demonstrates how to use the TMR module in timer mode to generate periodic interrupt.",
@@ -39,13 +39,17 @@
 		"author": "Microchip",
 		"subcategories": [
 			[
-				"Development Kit", "PIC32MX Starter Kit"
+				"Development Kit",
+				"PIC32MX Starter Kit"
 			],
 			[
-				"Harmony", "Peripherals", "TMR"
+				"Harmony",
+				"Peripherals",
+				"TMR"
 			],
 			[
-				"Peripherals", "TMR"
+				"Peripherals",
+				"TMR"
 			]
 		],
 		"peripherals": [

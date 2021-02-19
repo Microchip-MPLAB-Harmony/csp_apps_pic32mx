@@ -4,18 +4,18 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_conf_xlp_uart_ring_buffer_interrupt",
-		"version": "3.0.1",
+		"version": "3.1.0",
 		"displayName": "UART ring buffer Example for PIC32MX Family",
 		"projectName": "uart_ring_buffer_interrupt_pic32mx_xlp_sk",
 		"shortDescription": "This example application demonstrates how to use the UART peripheral in ring buffer mode.",
 		"ide": {
 			"name": "MPLABX",
-			"semverRange": ">=5.40.0"
+			"semverRange": ">=5.45.0"
 		},
 		"compiler": [
 			{
 				"name": "XC32",
-				"semverRange": ">=2.40.0"
+				"semverRange": ">=2.50.0"
 			}
 		],
 		"dfp": {
@@ -24,7 +24,7 @@
 		},
 		"configurator": {
 			"name": "MHC",
-			"semverRange": ">=3.5.1"
+			"semverRange": ">=3.7.0"
 		},
 		"device": {
 			"metaDataVersion": "1.0.0",
@@ -39,13 +39,17 @@
 		"author": "Microchip",
 		"subcategories": [
 			[
-				"Development Kit", "PIC32MX274 XLP Starter Kit"
+				"Development Kit",
+				"PIC32MX274 XLP Starter Kit"
 			],
 			[
-				"Harmony", "Peripherals", "UART"
+				"Harmony",
+				"Peripherals",
+				"UART"
 			],
 			[
-				"Peripherals", "UART"
+				"Peripherals",
+				"UART"
 			]
 		],
 		"peripherals": [

@@ -4,7 +4,7 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_gpio_led_on_off_polling_pic32mx_sk",
-		"version": "3.0.1",
+		"version": "3.1.0",
 		"displayName": "GPIO Polling Example for PIC32MX Family",
 		"projectName": "gpio_led_on_off_polling_pic32mx_sk",
 		"shortDescription": "This example application demonstrate how to poll the switch input, and indicate the switch status using the LED.",
@@ -39,13 +39,17 @@
 		"author": "Microchip",
 		"subcategories": [
 			[
-				"Development Kit", "PIC32MX Starter Kit"
+				"Development Kit",
+				"PIC32MX Starter Kit"
 			],
 			[
-				"Harmony", "Peripherals", "GPIO"
+				"Harmony",
+				"Peripherals",
+				"GPIO"
 			],
 			[
-				"Peripherals", "GPIO"
+				"Peripherals",
+				"GPIO"
 			]
 		],
 		"peripherals": [
