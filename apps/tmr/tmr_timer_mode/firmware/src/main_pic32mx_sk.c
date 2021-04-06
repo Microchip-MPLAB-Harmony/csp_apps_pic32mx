@@ -69,7 +69,7 @@ int main ( void )
     /* Initialize all modules */
     SYS_Initialize ( NULL );
     
-    TMR2_CallbackRegister(TIMER2_InterruptSvcRoutine,NULL);
+    TMR2_CallbackRegister(TIMER2_InterruptSvcRoutine, (uintptr_t) NULL);
     TMR2_Start();
 
     while ( true )
