@@ -28,6 +28,13 @@ children:
         children:
         - {type: Value, value: '*** High Speed mode 4x baud clock enabled (BRGH =
             1) ***'}
+  - type: Integer
+    attributes: {id: UART_CLOCK_FREQ}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: uart1, value: '36000000'}
   - type: Hex
     attributes: {id: UMODE_VALUE}
     children:
