@@ -10,7 +10,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: i2c1, value: '357'}
+        attributes: {id: i2c1, value: '356'}
   - type: Integer
     attributes: {id: I2CS_RISE_TIME_CORE_TIMER_CNTS}
     children:
@@ -25,5 +25,12 @@ children:
       children:
       - type: Dynamic
         attributes: {id: i2c1, value: '3'}
+  - type: Integer
+    attributes: {id: I2C_CLOCK_FREQ}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: i2c1, value: '36000000'}
 - type: ElementPosition
   attributes: {x: '54', y: '87', id: i2c1}

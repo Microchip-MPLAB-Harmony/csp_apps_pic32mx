@@ -68,7 +68,7 @@ void I2C1_Initialize(void)
     /* Disable the I2C Bus collision interrupt */
     IEC1CLR = _IEC1_I2C1BIE_MASK;
 
-    I2C1BRG = 357;
+    I2C1BRG = 356;
 
     I2C1CONCLR = _I2C1CON_SIDL_MASK;
     I2C1CONCLR = _I2C1CON_DISSLW_MASK;
