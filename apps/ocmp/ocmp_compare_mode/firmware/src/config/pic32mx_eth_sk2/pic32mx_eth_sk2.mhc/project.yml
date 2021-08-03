@@ -1,20 +1,20 @@
 files:
-- generatedChecksum: C2B88D9215301ECE3DC36E4B82F2791C
-  logicalPath: config\pic32mx_eth_sk2
+- generatedChecksum: 99DB74296DF9943C474F4F03A700C790
+  logicalPath: config/pic32mx_eth_sk2
   name: exceptions.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: C2B88D9215301ECE3DC36E4B82F2791C
+  userChecksum: 99DB74296DF9943C474F4F03A700C790
 - generatedChecksum: EB0A0DDEB206FBD1BBE9276386AB8673
-  logicalPath: config\pic32mx_eth_sk2
+  logicalPath: config/pic32mx_eth_sk2
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
   userChecksum: EB0A0DDEB206FBD1BBE9276386AB8673
 - generatedChecksum: 4B6A778CF4449A8EC938F5D4D0917E56
-  logicalPath: config\pic32mx_eth_sk2
+  logicalPath: config/pic32mx_eth_sk2
   name: interrupts.c
   physicalPath: ''
   security: NON_SECURE
@@ -23,164 +23,164 @@ files:
 - generatedChecksum: null
   logicalPath: ''
   name: main.c
-  physicalPath: ..\..
+  physicalPath: ../..
   security: NON_SECURE
   type: SOURCE
   userChecksum: null
 - generatedChecksum: 2F8D2F5AE2544E2AAB9FD3A1345E08B8
-  logicalPath: config\pic32mx_eth_sk2\peripheral\clk
+  logicalPath: config/pic32mx_eth_sk2/peripheral/clk
   name: plib_clk.c
-  physicalPath: peripheral\clk
+  physicalPath: peripheral/clk
   security: NON_SECURE
   type: SOURCE
   userChecksum: 2F8D2F5AE2544E2AAB9FD3A1345E08B8
 - generatedChecksum: 36F718A0C383C0856EB1DE4DEA41B4D5
-  logicalPath: config\pic32mx_eth_sk2\peripheral\evic
+  logicalPath: config/pic32mx_eth_sk2/peripheral/evic
   name: plib_evic.c
-  physicalPath: peripheral\evic
+  physicalPath: peripheral/evic
   security: NON_SECURE
   type: SOURCE
   userChecksum: 36F718A0C383C0856EB1DE4DEA41B4D5
 - generatedChecksum: 57C8603AF0A50F8F39F246233048D30A
-  logicalPath: config\pic32mx_eth_sk2\peripheral\gpio
+  logicalPath: config/pic32mx_eth_sk2/peripheral/gpio
   name: plib_gpio.c
-  physicalPath: peripheral\gpio
+  physicalPath: peripheral/gpio
   security: NON_SECURE
   type: SOURCE
   userChecksum: 57C8603AF0A50F8F39F246233048D30A
 - generatedChecksum: 3337C983FFF486595EE9790AC8E7405C
-  logicalPath: config\pic32mx_eth_sk2\peripheral\ocmp
+  logicalPath: config/pic32mx_eth_sk2/peripheral/ocmp
   name: plib_ocmp1.c
-  physicalPath: peripheral\ocmp
+  physicalPath: peripheral/ocmp
   security: NON_SECURE
   type: SOURCE
   userChecksum: 3337C983FFF486595EE9790AC8E7405C
 - generatedChecksum: 0D16344D62ECBDDFDCBE2412F3DBF19B
-  logicalPath: config\pic32mx_eth_sk2\peripheral\ocmp
+  logicalPath: config/pic32mx_eth_sk2/peripheral/ocmp
   name: plib_ocmp2.c
-  physicalPath: peripheral\ocmp
+  physicalPath: peripheral/ocmp
   security: NON_SECURE
   type: SOURCE
   userChecksum: 0D16344D62ECBDDFDCBE2412F3DBF19B
 - generatedChecksum: 1936E27D6136CB16DC17B205FC468710
-  logicalPath: config\pic32mx_eth_sk2\peripheral\ocmp
+  logicalPath: config/pic32mx_eth_sk2/peripheral/ocmp
   name: plib_ocmp3.c
-  physicalPath: peripheral\ocmp
+  physicalPath: peripheral/ocmp
   security: NON_SECURE
   type: SOURCE
   userChecksum: 1936E27D6136CB16DC17B205FC468710
 - generatedChecksum: F5260FAEDC15C230A37E2293CAA029DB
-  logicalPath: config\pic32mx_eth_sk2\peripheral\tmr
+  logicalPath: config/pic32mx_eth_sk2/peripheral/tmr
   name: plib_tmr2.c
-  physicalPath: peripheral\tmr
+  physicalPath: peripheral/tmr
   security: NON_SECURE
   type: SOURCE
   userChecksum: F5260FAEDC15C230A37E2293CAA029DB
 - generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
-  logicalPath: config\pic32mx_eth_sk2\stdio
+  logicalPath: config/pic32mx_eth_sk2/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
   userChecksum: 7806B30ECAE0D18D08CD583D8775530D
 - generatedChecksum: 04B1ADBFE2C0B8D12A86A9ABCBA5888C
-  logicalPath: config\pic32mx_eth_sk2
+  logicalPath: config/pic32mx_eth_sk2
   name: definitions.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
   userChecksum: 04B1ADBFE2C0B8D12A86A9ABCBA5888C
 - generatedChecksum: E189C26B2269F8DE46033CCD0621958D
-  logicalPath: config\pic32mx_eth_sk2
+  logicalPath: config/pic32mx_eth_sk2
   name: device.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
   userChecksum: E189C26B2269F8DE46033CCD0621958D
 - generatedChecksum: 4CF4A86296482D5331331BA301C20BB2
-  logicalPath: config\pic32mx_eth_sk2
+  logicalPath: config/pic32mx_eth_sk2
   name: interrupts.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
   userChecksum: 4CF4A86296482D5331331BA301C20BB2
 - generatedChecksum: 7066CC390335CF75126E2A50C46E3BDD
-  logicalPath: config\pic32mx_eth_sk2\peripheral\clk
+  logicalPath: config/pic32mx_eth_sk2/peripheral/clk
   name: plib_clk.h
-  physicalPath: peripheral\clk
+  physicalPath: peripheral/clk
   security: NON_SECURE
   type: HEADER
   userChecksum: 7066CC390335CF75126E2A50C46E3BDD
 - generatedChecksum: 37436424B3DFA2A4948662880FFD2E29
-  logicalPath: config\pic32mx_eth_sk2\peripheral\evic
+  logicalPath: config/pic32mx_eth_sk2/peripheral/evic
   name: plib_evic.h
-  physicalPath: peripheral\evic
+  physicalPath: peripheral/evic
   security: NON_SECURE
   type: HEADER
   userChecksum: 37436424B3DFA2A4948662880FFD2E29
 - generatedChecksum: 54B6A0896A14D84BEC8A585701BD86DC
-  logicalPath: config\pic32mx_eth_sk2\peripheral\gpio
+  logicalPath: config/pic32mx_eth_sk2/peripheral/gpio
   name: plib_gpio.h
-  physicalPath: peripheral\gpio
+  physicalPath: peripheral/gpio
   security: NON_SECURE
   type: HEADER
   userChecksum: 54B6A0896A14D84BEC8A585701BD86DC
 - generatedChecksum: 76AA999BA6C34DEAF6C37E3E0695C45E
-  logicalPath: config\pic32mx_eth_sk2\peripheral\ocmp
+  logicalPath: config/pic32mx_eth_sk2/peripheral/ocmp
   name: plib_ocmp1.h
-  physicalPath: peripheral\ocmp
+  physicalPath: peripheral/ocmp
   security: NON_SECURE
   type: HEADER
   userChecksum: 76AA999BA6C34DEAF6C37E3E0695C45E
 - generatedChecksum: 13EE9B5E82F59CC57E429D234B2B6FB3
-  logicalPath: config\pic32mx_eth_sk2\peripheral\ocmp
+  logicalPath: config/pic32mx_eth_sk2/peripheral/ocmp
   name: plib_ocmp2.h
-  physicalPath: peripheral\ocmp
+  physicalPath: peripheral/ocmp
   security: NON_SECURE
   type: HEADER
   userChecksum: 13EE9B5E82F59CC57E429D234B2B6FB3
 - generatedChecksum: 92F5C35DF062E420C1899CB3343BE8FA
-  logicalPath: config\pic32mx_eth_sk2\peripheral\ocmp
+  logicalPath: config/pic32mx_eth_sk2/peripheral/ocmp
   name: plib_ocmp3.h
-  physicalPath: peripheral\ocmp
+  physicalPath: peripheral/ocmp
   security: NON_SECURE
   type: HEADER
   userChecksum: 92F5C35DF062E420C1899CB3343BE8FA
 - generatedChecksum: C7376B9C0FE98B35880E7395A16846B2
-  logicalPath: config\pic32mx_eth_sk2\peripheral\ocmp
+  logicalPath: config/pic32mx_eth_sk2/peripheral/ocmp
   name: plib_ocmp_common.h
-  physicalPath: peripheral\ocmp
+  physicalPath: peripheral/ocmp
   security: NON_SECURE
   type: HEADER
   userChecksum: C7376B9C0FE98B35880E7395A16846B2
 - generatedChecksum: 9DF2058BBA7397756E0CED63F294C4C3
-  logicalPath: config\pic32mx_eth_sk2\peripheral\tmr
+  logicalPath: config/pic32mx_eth_sk2/peripheral/tmr
   name: plib_tmr2.h
-  physicalPath: peripheral\tmr
+  physicalPath: peripheral/tmr
   security: NON_SECURE
   type: HEADER
   userChecksum: 9DF2058BBA7397756E0CED63F294C4C3
 - generatedChecksum: D948F2CE092CAB556EF299D3CCD83A55
-  logicalPath: config\pic32mx_eth_sk2\peripheral\tmr
+  logicalPath: config/pic32mx_eth_sk2/peripheral/tmr
   name: plib_tmr_common.h
-  physicalPath: peripheral\tmr
+  physicalPath: peripheral/tmr
   security: NON_SECURE
   type: HEADER
   userChecksum: D948F2CE092CAB556EF299D3CCD83A55
 - generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
-  logicalPath: config\pic32mx_eth_sk2
+  logicalPath: config/pic32mx_eth_sk2
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
   userChecksum: 2C8543317B3F067432097AB9BD3E8672
-- generatedChecksum: 27954F44000DB58CD56D0372E7A00395
-  logicalPath: config\pic32mx_eth_sk2
+- generatedChecksum: 08F2FE68EE259663A7283810FD5278BF
+  logicalPath: config/pic32mx_eth_sk2
   name: p32MX795F512L.ld
   physicalPath: ''
   security: NON_SECURE
   type: LINKER
-  userChecksum: 27954F44000DB58CD56D0372E7A00395
+  userChecksum: 08F2FE68EE259663A7283810FD5278BF
 format_version: v1.0
 libraries: []
 settings:
@@ -189,7 +189,7 @@ settings:
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src;../src/config/pic32mx_eth_sk2;../src/packs/PIC32MX795F512L_DFP;
+  value: ../src;../src/config/pic32mx_eth_sk2;
 - append: false
   category: C32
   delimiter: ''
@@ -219,7 +219,7 @@ settings:
   delimiter: ;
   key: extra-include-directories
   security: NON_SECURE
-  value: ../src;../src/config/pic32mx_eth_sk2;../src/packs/PIC32MX795F512L_DFP;
+  value: ../src;../src/config/pic32mx_eth_sk2;
 - append: false
   category: C32CPP
   delimiter: ''
