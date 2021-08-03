@@ -68,9 +68,12 @@ uint32_t CORETIMER_FrequencyGet (void);
 void CORETIMER_PeriodSet (uint32_t period);
 void CORETIMER_Start(void);
 void CORETIMER_Stop(void);
+
+
+
+
 void CORETIMER_DelayMs (uint32_t delay_ms);
-
-
+void CORETIMER_DelayUs (uint32_t delay_us);
 
 #ifdef __cplusplus // Provide C++ Compatibility
  }
