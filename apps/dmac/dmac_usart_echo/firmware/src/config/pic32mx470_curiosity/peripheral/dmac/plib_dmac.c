@@ -249,9 +249,17 @@ bool DMAC_ChannelTransfer(DMAC_CHANNEL channel, const void *srcAddr, size_t srcS
 {
     bool returnStatus = false;
     volatile uint32_t *regs;
+    uint32_t DCHxINT_Flags;
 
-    if(gDMAChannelObj[channel].inUse == false)
+    regs = ((volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x20));
+    DCHxINT_Flags = *(volatile uint32_t *)(regs) & (_DCH0INT_CHERIF_MASK | _DCH0INT_CHTAIF_MASK | _DCH0INT_CHBCIF_MASK);
+
+    if((gDMAChannelObj[channel].inUse == false) || (DCHxINT_Flags != 0))
     {
+        /* Clear all the interrupt flags */
+        regs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x20) + 1;
+        *(volatile uint32_t *)(regs) = (_DCH0INT_CHSHIF_MASK |_DCH0INT_CHDHIF_MASK | _DCH0INT_CHBCIF_MASK | _DCH0INT_CHTAIF_MASK| _DCH0INT_CHERIF_MASK);
+
         gDMAChannelObj[channel].inUse = true;
         returnStatus = true;
 
@@ -294,9 +302,17 @@ bool DMAC_ChainTransferSetup( DMAC_CHANNEL channel, const void *srcAddr, size_t 
 {
     bool returnStatus = false;
     volatile uint32_t *regs;
+    uint32_t DCHxINT_Flags;
 
-    if(gDMAChannelObj[channel].inUse == false)
+    regs = ((volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x20));
+    DCHxINT_Flags = *(volatile uint32_t *)(regs) & (_DCH0INT_CHERIF_MASK | _DCH0INT_CHTAIF_MASK | _DCH0INT_CHBCIF_MASK);
+
+    if((gDMAChannelObj[channel].inUse == false) || (DCHxINT_Flags != 0))
     {
+        /* Clear all the interrupt flags */
+        regs = (volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x20) + 1;
+        *(volatile uint32_t *)(regs) = (_DCH0INT_CHSHIF_MASK |_DCH0INT_CHDHIF_MASK | _DCH0INT_CHBCIF_MASK | _DCH0INT_CHTAIF_MASK| _DCH0INT_CHERIF_MASK);
+
         gDMAChannelObj[channel].inUse = true;
         returnStatus = true;
 
@@ -354,7 +370,43 @@ void DMAC_ChannelDisable(DMAC_CHANNEL channel)
 
 bool DMAC_ChannelIsBusy(DMAC_CHANNEL channel)
 {
-    return (gDMAChannelObj[channel].inUse);
+    uint32_t DCHxINT_Flags;
+
+    DCHxINT_Flags = *(volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x20);
+    DCHxINT_Flags = DCHxINT_Flags & (_DCH0INT_CHERIF_MASK | _DCH0INT_CHTAIF_MASK | _DCH0INT_CHBCIF_MASK);
+
+    if ((gDMAChannelObj[channel].inUse == true) && (DCHxINT_Flags == 0))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+DMAC_TRANSFER_EVENT DMAC_ChannelTransferStatusGet(DMAC_CHANNEL channel)
+{
+    uint32_t DCHxINT_Flags;
+
+    DMAC_TRANSFER_EVENT dmaEvent = DMAC_TRANSFER_EVENT_NONE;
+
+    DCHxINT_Flags = *(volatile uint32_t *)(_DMAC_BASE_ADDRESS + 0x60 + (channel * 0xC0) + 0x20);
+
+    if (DCHxINT_Flags & (_DCH0INT_CHSHIF_MASK | _DCH0INT_CHDHIF_MASK))  /* Dest Half-full or Src Half-empty flags */
+    {
+        dmaEvent = DMAC_TRANSFER_EVENT_HALF_COMPLETE;
+    }
+    if (DCHxINT_Flags & (_DCH0INT_CHTAIF_MASK | _DCH0INT_CHERIF_MASK))  /* Abort or Error flags*/
+    {
+        dmaEvent = DMAC_TRANSFER_EVENT_ERROR;
+    }
+    if (DCHxINT_Flags & _DCH0INT_CHBCIF_MASK)   /* Block Transfer complete flag */
+    {
+        dmaEvent = DMAC_TRANSFER_EVENT_COMPLETE;
+    }
+
+    return dmaEvent;
 }
 
 void DMAC_ChannelCRCSetup( DMAC_CHANNEL channel, DMAC_CRC_SETUP CRCSetup )
@@ -433,6 +485,7 @@ void DMA_0_InterruptHandler(void)
         /* Update error and event */
         chanObj->errorInfo = DMAC_ERROR_NONE;
         dmaEvent = DMAC_TRANSFER_EVENT_HALF_COMPLETE;
+        /* Since transfer is only half done yet, do not make inUse flag false */
     }
     if(DCH0INTbits.CHTAIF == true) /* irq due to transfer abort */
     {
@@ -443,6 +496,7 @@ void DMA_0_InterruptHandler(void)
         /* Update error and event */
         chanObj->errorInfo = DMAC_ERROR_NONE;
         dmaEvent = DMAC_TRANSFER_EVENT_ERROR;
+        chanObj->inUse = false;
     }
     if(DCH0INTbits.CHBCIF == true) /* irq due to transfer complete */
     {
@@ -453,6 +507,7 @@ void DMA_0_InterruptHandler(void)
         /* Update error and event */
         chanObj->errorInfo = DMAC_ERROR_NONE;
         dmaEvent = DMAC_TRANSFER_EVENT_COMPLETE;
+        chanObj->inUse = false;
     }
     if(DCH0INTbits.CHERIF == true) /* irq due to address error */
     {
@@ -462,9 +517,8 @@ void DMA_0_InterruptHandler(void)
         /* Update error and event */
         chanObj->errorInfo = DMAC_ERROR_ADDRESS_ERROR;
         dmaEvent = DMAC_TRANSFER_EVENT_ERROR;
+        chanObj->inUse = false;
     }
-
-    chanObj->inUse = false;
 
     /* Clear the interrupt flag and call event handler */
     IFS2CLR = 0x100;
@@ -491,6 +545,7 @@ void DMA_1_InterruptHandler(void)
         /* Update error and event */
         chanObj->errorInfo = DMAC_ERROR_NONE;
         dmaEvent = DMAC_TRANSFER_EVENT_HALF_COMPLETE;
+        /* Since transfer is only half done yet, do not make inUse flag false */
     }
     if(DCH1INTbits.CHTAIF == true) /* irq due to transfer abort */
     {
@@ -501,6 +556,7 @@ void DMA_1_InterruptHandler(void)
         /* Update error and event */
         chanObj->errorInfo = DMAC_ERROR_NONE;
         dmaEvent = DMAC_TRANSFER_EVENT_ERROR;
+        chanObj->inUse = false;
     }
     if(DCH1INTbits.CHBCIF == true) /* irq due to transfer complete */
     {
@@ -511,6 +567,7 @@ void DMA_1_InterruptHandler(void)
         /* Update error and event */
         chanObj->errorInfo = DMAC_ERROR_NONE;
         dmaEvent = DMAC_TRANSFER_EVENT_COMPLETE;
+        chanObj->inUse = false;
     }
     if(DCH1INTbits.CHERIF == true) /* irq due to address error */
     {
@@ -520,9 +577,8 @@ void DMA_1_InterruptHandler(void)
         /* Update error and event */
         chanObj->errorInfo = DMAC_ERROR_ADDRESS_ERROR;
         dmaEvent = DMAC_TRANSFER_EVENT_ERROR;
+        chanObj->inUse = false;
     }
-
-    chanObj->inUse = false;
 
     /* Clear the interrupt flag and call event handler */
     IFS2CLR = 0x200;
