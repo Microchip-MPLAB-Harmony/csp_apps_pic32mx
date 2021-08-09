@@ -75,9 +75,9 @@ The following table shows the target hardware for the application projects.
 5. Watch timer is fed periodically using Core Timer to prevent the WDT reset and the LED is toggled
     - Following table provides the switch and the LED name:
 
-    | Board      | LED Name |
-    | ---------- |--------- |
-    | [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | LED1 |
+    | Board      | LED Name | Switch Name |
+    | ---------- |--------- | ----------- |
+    | [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | LED1 | S1 |
 
 6. Press the switch to put the system in deadlock
 7. LED should stop blinking and the console should print the following message

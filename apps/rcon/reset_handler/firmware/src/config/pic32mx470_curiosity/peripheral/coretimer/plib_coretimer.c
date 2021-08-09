@@ -84,15 +84,6 @@ uint32_t CORETIMER_FrequencyGet ( void )
 {
     return (CORE_TIMER_FREQUENCY);
 }
-void CORETIMER_DelayMs ( uint32_t delay)
-{
-    uint32_t tickStart, delayTicks;
-    tickStart=coreTmr.tickCounter;
-    delayTicks=(1000 * delay)/CORE_TIMER_INTERRUPT_PERIOD_IN_US;  // Number of tick interrupts to wait for the delay
-    while((coreTmr.tickCounter-tickStart)<delayTicks)
-    {
-    }
-}
 void CORE_TIMER_InterruptHandler (void)
 {
     uint32_t count, newCompare;
@@ -116,4 +107,28 @@ void CORE_TIMER_InterruptHandler (void)
 }
 
 
+
+void CORETIMER_DelayMs ( uint32_t delay_ms)
+{
+    uint32_t startCount, endCount;
+
+    /* Calculate the end count for the given delay */
+    endCount=(CORE_TIMER_FREQUENCY/1000)*delay_ms;
+
+    startCount=_CP0_GET_COUNT();
+    while((_CP0_GET_COUNT()-startCount)<endCount);
+
+}
+
+void CORETIMER_DelayUs ( uint32_t delay_us)
+{
+    uint32_t startCount, endCount;
+
+    /* Calculate the end count for the given delay */
+    endCount=(CORE_TIMER_FREQUENCY/1000000)*delay_us;
+
+    startCount=_CP0_GET_COUNT();
+    while((_CP0_GET_COUNT()-startCount)<endCount);
+
+}
 
