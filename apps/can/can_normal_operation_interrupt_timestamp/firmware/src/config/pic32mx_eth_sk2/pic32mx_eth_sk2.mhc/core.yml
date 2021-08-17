@@ -94,7 +94,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: '48000000'}
+        attributes: {id: core, value: '80000000'}
   - type: Integer
     attributes: {id: CAN2_CLOCK_FREQUENCY}
     children:
