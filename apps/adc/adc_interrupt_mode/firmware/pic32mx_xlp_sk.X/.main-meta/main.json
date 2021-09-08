@@ -4,18 +4,18 @@
 	"content": {
 		"metaDataVersion": "1.1.0",
 		"name": "com.microchip.mcu32.mplabx.project.csp_apps_pic32mx_conf_xlp_adc_interrupt_mode",
-		"version": "3.1.0",
+		"version": "3.2.0",
 		"displayName": "ADC interrupt Example for PIC32MX Family",
 		"projectName": "adc_interrupt_pic32mx_xlp_sk",
 		"shortDescription": "This example demonstrates how to sample an analog input in interrupt mode and send the converted data to console.",
 		"ide": {
 			"name": "MPLABX",
-			"semverRange": ">=5.45.0"
+			"semverRange": ">=5.50.0"
 		},
 		"compiler": [
 			{
 				"name": "XC32",
-				"semverRange": ">=2.50.0"
+				"semverRange": ">=3.01.0"
 			}
 		],
 		"dfp": {
@@ -24,7 +24,7 @@
 		},
 		"configurator": {
 			"name": "MHC",
-			"semverRange": ">=3.7.0"
+			"semverRange": ">=3.8.0"
 		},
 		"device": {
 			"metaDataVersion": "1.0.0",
