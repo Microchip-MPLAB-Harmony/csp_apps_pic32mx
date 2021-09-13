@@ -14,7 +14,7 @@ nav_order: 99
 
 Following table provides number of peripheral library examples available for different development kits.
 
-| Development Kits  | MPLABx applications |
+| Development Kits  | MPLAB X applications |
 |:-----------------:|:-------------------:|
 | [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | 27 |
 | [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) | 21 |
@@ -59,7 +59,7 @@ Following table provides number of peripheral library examples available for dif
 
 Following table provides number of peripheral library examples available for different development kits.
 
-| Development Kits  | MPLABx applications |
+| Development Kits  | MPLAB X applications |
 |:-----------------:|:-------------------:|
 | [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | 27 |
 | [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) | 21 |
@@ -105,7 +105,7 @@ Following table provides number of peripheral library examples available for dif
 
 Following table provides number of peripheral library examples available for different development kits.
 
-| Development Kits  | MPLABx applications |
+| Development Kits  | MPLAB X applications |
 |:-----------------:|:-------------------:|
 | [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) | 20 |
 | [MPLAB Starter Kit for PIC32MX1XX/2XX](https://www.microchip.com/Developmenttools/ProductDetails/DM320013) | 1 |
