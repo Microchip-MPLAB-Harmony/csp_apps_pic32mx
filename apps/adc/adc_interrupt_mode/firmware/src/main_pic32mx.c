@@ -68,7 +68,7 @@ volatile bool result_ready = false;
 void ADC_ResultHandler(uintptr_t context)
 {
     /* Read the ADC result */
-    adc_count = ADC_ResultGet(ADC_RESULT_BUFFER_0);   
+    adc_count = ADC_ResultGet(ADC_RESULT_BUFFER_0);
     result_ready = true;
 }
 
@@ -77,20 +77,21 @@ int main ( void )
     /* Initialize all modules */
     SYS_Initialize ( NULL );
     ADC_CallbackRegister(ADC_ResultHandler, (uintptr_t)NULL);
-    
+
     printf("\n\r---------------------------------------------------------");
     printf("\n\r                    ADC Demo                 ");
     printf("\n\r---------------------------------------------------------\n\r");
-    
+
+    /* Start ADC conversion */
+    ADC_ConversionStart();
+
+
     while (1)
     {
         /* Maintain state machines of all polled MPLAB Harmony modules. */
         SYS_Tasks ( );
 
         /* Auto sampling mode is used, so no code is needed to start sampling */
-		
-        /* Start ADC conversion in software */
-        ADC_ConversionStart();
 
         /* Wait till ADC conversion result is available */
         if(result_ready == true)
@@ -98,6 +99,9 @@ int main ( void )
             result_ready = false;
             input_voltage = (float)adc_count * ADC_VREF / ADC_MAX_COUNT;
             printf("ADC Count = 0x%03x, ADC Input Voltage = %d.%02d V \r", adc_count, (int)input_voltage, (int)((input_voltage - (int)input_voltage)*100.0));
+
+            /* Start ADC conversion */
+            ADC_ConversionStart();
         }
     }
 
