@@ -83,7 +83,7 @@ int main ( void )
     sys_time.tm_sec = 55;
 
     sys_time.tm_year = 18;
-    sys_time.tm_mon = 12;
+    sys_time.tm_mon = 11;
     sys_time.tm_mday = 31;
     sys_time.tm_wday = 1;
 
@@ -93,7 +93,7 @@ int main ( void )
     alarm_time.tm_sec = 05;
 
     alarm_time.tm_year = 19;
-    alarm_time.tm_mon = 01;
+    alarm_time.tm_mon = 00;
     alarm_time.tm_mday = 01;
     alarm_time.tm_wday = 2;
 
@@ -119,7 +119,7 @@ int main ( void )
         SYS_Tasks ( );
         
         RTCC_TimeGet(&sys_time);
-        printf("System Date and Time is: DD:MM:YY %02d-%02d-%04d ", sys_time.tm_mday, sys_time.tm_mon, sys_time.tm_year);
+        printf("System Date and Time is: DD:MM:YY %02d-%02d-%04d ", sys_time.tm_mday, (sys_time.tm_mon + 1), sys_time.tm_year);
         printf(" %02d:%02d:%02d \r",sys_time.tm_hour, sys_time.tm_min, sys_time.tm_sec);
         if(rtcc_alarm)
         {
