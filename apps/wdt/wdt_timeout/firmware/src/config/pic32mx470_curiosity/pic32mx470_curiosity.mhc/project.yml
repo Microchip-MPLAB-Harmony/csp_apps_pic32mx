@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: 9E0AEE0DD7638AA5A12C30A7F959CB00
+- generatedChecksum: 413EAB17CDC79B6AC8DEA0DA9EC2581F
   logicalPath: config/pic32mx470_curiosity
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 9E0AEE0DD7638AA5A12C30A7F959CB00
+  userChecksum: 413EAB17CDC79B6AC8DEA0DA9EC2581F
 - generatedChecksum: 2593A48A9BDCCF2533CF29C6099DC002
   logicalPath: config/pic32mx470_curiosity
   name: interrupts.c
@@ -55,27 +55,27 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 802B6B0F050F31A508B8C42D5DF6FD6D
-- generatedChecksum: 7839BF01CED9432B7210B376E179A787
+- generatedChecksum: B3F9F5A204955061A8B68A451E30C2D7
   logicalPath: config/pic32mx470_curiosity/peripheral/uart
   name: plib_uart1.c
   physicalPath: peripheral/uart
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7839BF01CED9432B7210B376E179A787
-- generatedChecksum: F692CD3BEAAFCAA63048D2A59DCFFBC9
+  userChecksum: B3F9F5A204955061A8B68A451E30C2D7
+- generatedChecksum: CCE2FAB67693EC3B0A29F1545AA76913
   logicalPath: config/pic32mx470_curiosity/peripheral/wdt
   name: plib_wdt.c
   physicalPath: peripheral/wdt
   security: NON_SECURE
   type: SOURCE
-  userChecksum: F692CD3BEAAFCAA63048D2A59DCFFBC9
-- generatedChecksum: A636C701B81D51E1D15E7ECB7F0FDE65
+  userChecksum: CCE2FAB67693EC3B0A29F1545AA76913
+- generatedChecksum: 42A948E504602741B0D592C55FCD9A7B
   logicalPath: config/pic32mx470_curiosity/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: A636C701B81D51E1D15E7ECB7F0FDE65
+  userChecksum: 42A948E504602741B0D592C55FCD9A7B
 - generatedChecksum: A2E714F16ED85EE6F5B2D801A3976132
   logicalPath: config/pic32mx470_curiosity
   name: definitions.h
@@ -139,20 +139,20 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 91611515A95D92B82B7F4064C16D122B
-- generatedChecksum: 52646F9F1734C5AA98A212549F6FE3E3
+- generatedChecksum: 2AD7259D0E303CE06622D0F1A6BBEC13
   logicalPath: config/pic32mx470_curiosity/peripheral/wdt
   name: plib_wdt.h
   physicalPath: peripheral/wdt
   security: NON_SECURE
   type: HEADER
-  userChecksum: 52646F9F1734C5AA98A212549F6FE3E3
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 2AD7259D0E303CE06622D0F1A6BBEC13
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx470_curiosity
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: 52AA20E8BAA488B3B6581379249C0FCE
   logicalPath: config/pic32mx470_curiosity
   name: p32MX470F512H.ld

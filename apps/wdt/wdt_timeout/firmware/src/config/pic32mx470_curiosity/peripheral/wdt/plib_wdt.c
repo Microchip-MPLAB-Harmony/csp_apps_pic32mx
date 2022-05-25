@@ -67,6 +67,11 @@ void WDT_Disable(void)
     WDTCONbits.ON = 0;
 }
 
+bool WDT_IsEnabled( void )
+{
+    return((bool)WDTCONbits.ON);
+}
+
 void WDT_WindowEnable( void )
 {
     /* WDTWINEN = 1 */
@@ -79,7 +84,12 @@ void WDT_WindowDisable( void )
     WDTCONbits.WDTWINEN = 0;
 }
 
-void WDT_Clear(void)
+bool WDT_IsWindowEnabled( void )
+{
+    return((bool)WDTCONbits.WDTWINEN);
+}
+
+void WDT_Clear( void )
 {
     /* Clear WDT timer */
     WDTCONbits.WDTCLR = 1;
