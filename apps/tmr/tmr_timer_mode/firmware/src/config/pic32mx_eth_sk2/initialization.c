@@ -93,6 +93,7 @@
 
 
 
+
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Initialization Data
@@ -155,8 +156,8 @@ void SYS_Initialize ( void* data )
     CHECONbits.PFMWS = 2;
     CHECONbits.PREFEN = 3;
 
-    /* Set the SRAM wait states to zero */
-    BMXCONbits.BMXWSDRM = 0;
+    /* Set the SRAM wait states to One */
+    BMXCONbits.BMXWSDRM = 1;
 
     /* Configure Debug Data Port */
     DDPCONbits.JTAGEN = 0;
