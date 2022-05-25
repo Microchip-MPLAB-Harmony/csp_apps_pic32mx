@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: 507D7D900C0C468F4AECC4A10AA96A45
+- generatedChecksum: 9F7C09DD8F2A6DEBCAEFDA67AD2B9096
   logicalPath: config/pic32mx470_curiosity
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 507D7D900C0C468F4AECC4A10AA96A45
+  userChecksum: 9F7C09DD8F2A6DEBCAEFDA67AD2B9096
 - generatedChecksum: BD2E87AD035A19DFF5A2B098F4EE1588
   logicalPath: config/pic32mx470_curiosity
   name: interrupts.c
@@ -48,20 +48,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 25AB3ECB2F2709F2600122B64E3E4355
-- generatedChecksum: BBF5C27D7806711314F59BAC96663D5F
+- generatedChecksum: 2613A41A960BAB783DE7A916F8D45788
   logicalPath: config/pic32mx470_curiosity/peripheral/i2c/master
   name: plib_i2c1_master.c
   physicalPath: peripheral/i2c/master
   security: NON_SECURE
   type: SOURCE
-  userChecksum: BBF5C27D7806711314F59BAC96663D5F
-- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 2613A41A960BAB783DE7A916F8D45788
+- generatedChecksum: 71352EF41F6688AD8408E42970B50B66
   logicalPath: config/pic32mx470_curiosity/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 71352EF41F6688AD8408E42970B50B66
 - generatedChecksum: 42F8D97507D86E263CAC35E0A5C64607
   logicalPath: config/pic32mx470_curiosity
   name: definitions.h
@@ -104,13 +104,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 468BDD4A60A51F6415A3D725EFE6F340
-- generatedChecksum: 407D8CE5F0C091BCEBB78967FECBE53E
+- generatedChecksum: 62FBC878743DB699BADD3CF9BC5D10AD
   logicalPath: config/pic32mx470_curiosity/peripheral/i2c/master
   name: plib_i2c1_master.h
   physicalPath: peripheral/i2c/master
   security: NON_SECURE
   type: HEADER
-  userChecksum: 407D8CE5F0C091BCEBB78967FECBE53E
+  userChecksum: 62FBC878743DB699BADD3CF9BC5D10AD
 - generatedChecksum: B963C6FE44292A1C4A14C3BA5BE95AEE
   logicalPath: config/pic32mx470_curiosity/peripheral/i2c/master
   name: plib_i2c_master_common.h
@@ -118,13 +118,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: B963C6FE44292A1C4A14C3BA5BE95AEE
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx470_curiosity
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: 52AA20E8BAA488B3B6581379249C0FCE
   logicalPath: config/pic32mx470_curiosity
   name: p32MX470F512H.ld

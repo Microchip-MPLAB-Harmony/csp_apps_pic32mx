@@ -1,4 +1,4 @@
-<config configName="pic32mx470_curiosity" projectName="i2c_eeprom_pic32mx470_curiosity" configVersion="1.1" device="PIC32MX470F512H" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.2.4">
+<config configName="pic32mx470_curiosity" projectName="i2c_eeprom_pic32mx470_curiosity" configVersion="1.1" device="PIC32MX470F512H" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -15,7 +15,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.0.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -1029,7 +1029,7 @@
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
          <file>..\src\config\pic32mx470_curiosity\stdio\xc32_monitor.c</file>
-         <hash>26e5749db654ed433fd94f6c732ef8600d0cbf5196493374cf111877c02b694e</hash>
+         <hash>858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\clk\plib_clk.c</file>
@@ -1053,7 +1053,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\i2c\master\plib_i2c1_master.c</file>
-         <hash>8e6c4f3f4bd15d74c846ee2cd6683f3316adae23d6a52e4b208de4eb492a6c4a</hash>
+         <hash>2a4224f2501724a06691717353f229bb34646d2f2d0b6a8d0931ade71f6bb2db</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\definitions.h</file>
@@ -1069,7 +1069,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\i2c\master\plib_i2c1_master.h</file>
-         <hash>2a6da809d8d6dd3766b6427c4e07a843080dc2d5be2730442661263609044065</hash>
+         <hash>fe1705d5a4367c2fb58afad568326a01c5771d0ac94cf8657427f37046856082</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\evic\plib_evic.c</file>
@@ -1089,7 +1089,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\toolchain_specifics.h</file>
-         <hash>c86ea57caade552aa8a4e7853594d481930697fdf3549b89ba0f07604894e0e8</hash>
+         <hash>9dfc75809b6eb23cee342231de51f6b382f8f7eabf8a939539cf44c0da32acbc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\interrupts.c</file>
@@ -1097,7 +1097,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\initialization.c</file>
-         <hash>6f4b4e1a981dc6f07b9dd9b2527fc547a360761be113e385c5a2b98fe70c0246</hash>
+         <hash>b49cf943e304ebe4749c87a99e26e950f5dba0240a39fca5c575a6befee8a56d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\i2c\master\plib_i2c_master_common.h</file>
