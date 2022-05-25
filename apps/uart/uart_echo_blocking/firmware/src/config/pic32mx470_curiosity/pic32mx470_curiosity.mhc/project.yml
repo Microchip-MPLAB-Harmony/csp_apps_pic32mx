@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: 6520CA997BBB4FE0FE287FF729CF8B2D
+- generatedChecksum: 2866EA07277BA04A816DAB35B8FB152E
   logicalPath: config/pic32mx470_curiosity
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 6520CA997BBB4FE0FE287FF729CF8B2D
+  userChecksum: 2866EA07277BA04A816DAB35B8FB152E
 - generatedChecksum: 4B6A778CF4449A8EC938F5D4D0917E56
   logicalPath: config/pic32mx470_curiosity
   name: interrupts.c
@@ -48,20 +48,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 664B82DBFE5D91018836672BB0D82BC1
-- generatedChecksum: 7839BF01CED9432B7210B376E179A787
+- generatedChecksum: B3F9F5A204955061A8B68A451E30C2D7
   logicalPath: config/pic32mx470_curiosity/peripheral/uart
   name: plib_uart1.c
   physicalPath: peripheral/uart
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7839BF01CED9432B7210B376E179A787
-- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: B3F9F5A204955061A8B68A451E30C2D7
+- generatedChecksum: 71352EF41F6688AD8408E42970B50B66
   logicalPath: config/pic32mx470_curiosity/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 71352EF41F6688AD8408E42970B50B66
 - generatedChecksum: B09EA06A30384DC6D166E1DA50D4A00A
   logicalPath: config/pic32mx470_curiosity
   name: definitions.h
@@ -118,13 +118,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 91611515A95D92B82B7F4064C16D122B
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx470_curiosity
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: 52AA20E8BAA488B3B6581379249C0FCE
   logicalPath: config/pic32mx470_curiosity
   name: p32MX470F512H.ld
