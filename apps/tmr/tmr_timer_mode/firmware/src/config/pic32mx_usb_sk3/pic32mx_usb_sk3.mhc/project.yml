@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: A1617176B8802EFF5B3BCBABDFFEC430
+- generatedChecksum: 5EE6BA21A3C43EF42A429626BABE3C3B
   logicalPath: config/pic32mx_usb_sk3
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: A1617176B8802EFF5B3BCBABDFFEC430
+  userChecksum: 5EE6BA21A3C43EF42A429626BABE3C3B
 - generatedChecksum: A3B1B3B09627EB7EED7D65D44D5F6D59
   logicalPath: config/pic32mx_usb_sk3
   name: interrupts.c
@@ -55,13 +55,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: E75C1623D694DB84BCB09DB0B1973C4E
-- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
+- generatedChecksum: 71352EF41F6688AD8408E42970B50B66
   logicalPath: config/pic32mx_usb_sk3/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 71352EF41F6688AD8408E42970B50B66
 - generatedChecksum: 8D3C849EBB4C04E7D6AB7F8CA5C5A856
   logicalPath: config/pic32mx_usb_sk3
   name: definitions.h
@@ -118,13 +118,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: D948F2CE092CAB556EF299D3CCD83A55
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx_usb_sk3
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: DF774185035B3C4F6B56C47647C7D6E5
   logicalPath: config/pic32mx_usb_sk3
   name: p32MX470F512L.ld
