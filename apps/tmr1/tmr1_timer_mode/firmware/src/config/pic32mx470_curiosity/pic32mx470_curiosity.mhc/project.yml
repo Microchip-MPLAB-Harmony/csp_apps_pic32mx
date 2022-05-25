@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: 2B3609A8809B5A5F6C513E1FA00A9E3D
+- generatedChecksum: 04BE1AA2B0584642AEBBB0AD234442D7
   logicalPath: config/pic32mx470_curiosity
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 2B3609A8809B5A5F6C513E1FA00A9E3D
+  userChecksum: 04BE1AA2B0584642AEBBB0AD234442D7
 - generatedChecksum: 1C5E21980C440B688329A2EE5144C7EE
   logicalPath: config/pic32mx470_curiosity
   name: interrupts.c
@@ -55,13 +55,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 1B33AAEFBAC0BFDE7FBB343EA42D3A01
-- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
+- generatedChecksum: 71352EF41F6688AD8408E42970B50B66
   logicalPath: config/pic32mx470_curiosity/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 71352EF41F6688AD8408E42970B50B66
 - generatedChecksum: 9615CB27A1E509394A48D5CF839C2712
   logicalPath: config/pic32mx470_curiosity
   name: definitions.h
@@ -118,13 +118,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 69E7C8CDAB1B32838331EE261170CEA4
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx470_curiosity
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: 52AA20E8BAA488B3B6581379249C0FCE
   logicalPath: config/pic32mx470_curiosity
   name: p32MX470F512H.ld
