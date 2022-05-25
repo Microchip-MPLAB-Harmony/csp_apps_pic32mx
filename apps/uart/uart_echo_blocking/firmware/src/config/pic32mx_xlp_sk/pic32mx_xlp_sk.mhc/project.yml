@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: A3BFF3AAE3A16CC838A83E3E268E31E2
+- generatedChecksum: 680FD1D70432C852697FC48682220670
   logicalPath: config/pic32mx_xlp_sk
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: A3BFF3AAE3A16CC838A83E3E268E31E2
+  userChecksum: 680FD1D70432C852697FC48682220670
 - generatedChecksum: 4B6A778CF4449A8EC938F5D4D0917E56
   logicalPath: config/pic32mx_xlp_sk
   name: interrupts.c
@@ -48,20 +48,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: E710B97FD2636B15DD600B3444D15A56
-- generatedChecksum: AEA3F49E924C04B1DC1275B0429B655B
+- generatedChecksum: 8A8E4B7D1561E11086D51E8925F8F77E
   logicalPath: config/pic32mx_xlp_sk/peripheral/uart
   name: plib_uart1.c
   physicalPath: peripheral/uart
   security: NON_SECURE
   type: SOURCE
-  userChecksum: AEA3F49E924C04B1DC1275B0429B655B
-- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 8A8E4B7D1561E11086D51E8925F8F77E
+- generatedChecksum: 71352EF41F6688AD8408E42970B50B66
   logicalPath: config/pic32mx_xlp_sk/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 71352EF41F6688AD8408E42970B50B66
 - generatedChecksum: C6E338902BF07539006D7BF7CCBECA08
   logicalPath: config/pic32mx_xlp_sk
   name: definitions.h
@@ -118,13 +118,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 67EEAF539A53B6B8FD7B600ACCB3F3CA
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx_xlp_sk
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: CF99597DFF6AD85206D19812D9D7793C
   logicalPath: config/pic32mx_xlp_sk
   name: p32MX274F256D.ld
