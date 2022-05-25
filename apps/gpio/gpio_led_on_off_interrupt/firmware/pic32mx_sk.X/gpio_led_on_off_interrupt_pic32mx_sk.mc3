@@ -1,4 +1,4 @@
-<config configName="pic32mx_sk" projectName="gpio_led_on_off_interrupt_pic32mx_sk" configVersion="1.1" device="PIC32MX360F512L" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.2.3">
+<config configName="pic32mx_sk" projectName="gpio_led_on_off_interrupt_pic32mx_sk" configVersion="1.1" device="PIC32MX360F512L" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -11,7 +11,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.0.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -293,7 +293,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_sk\stdio\xc32_monitor.c</file>
-         <hash>26e5749db654ed433fd94f6c732ef8600d0cbf5196493374cf111877c02b694e</hash>
+         <hash>858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_sk\exceptions.c</file>
@@ -317,7 +317,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_sk\initialization.c</file>
-         <hash>627f409dc4f208e4eb86ede1ae6677ce968281109d5f37e00531928a8d0b154d</hash>
+         <hash>9fe24ff0fdbe6f3d6098123f9a73520199fb4279bbfbd2d5cf4fb93078e1cb69</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_sk\interrupts.h</file>
@@ -345,7 +345,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_sk\toolchain_specifics.h</file>
-         <hash>c86ea57caade552aa8a4e7853594d481930697fdf3549b89ba0f07604894e0e8</hash>
+         <hash>9dfc75809b6eb23cee342231de51f6b382f8f7eabf8a939539cf44c0da32acbc</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

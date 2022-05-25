@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: AC23E25D8557B7DDE2DACB90F49DA9AD
+- generatedChecksum: 1E1A232A8AA3BD94CD863575D9E22AE1
   logicalPath: config/pic32mx_sk
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: AC23E25D8557B7DDE2DACB90F49DA9AD
+  userChecksum: 1E1A232A8AA3BD94CD863575D9E22AE1
 - generatedChecksum: 89B2CF6741179C3D45BA8E6CACFE3B0E
   logicalPath: config/pic32mx_sk
   name: interrupts.c
@@ -48,13 +48,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: BCB30EFD47515B1291A715D31B307C9A
-- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
+- generatedChecksum: 71352EF41F6688AD8408E42970B50B66
   logicalPath: config/pic32mx_sk/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 71352EF41F6688AD8408E42970B50B66
 - generatedChecksum: 1E5CA1CBAC346A74EC2BFE040DC88828
   logicalPath: config/pic32mx_sk
   name: definitions.h
@@ -97,13 +97,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 289F35AD623593FC40A0F73142869219
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx_sk
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: 0A6FA09F32457EE88B670700114A44AF
   logicalPath: config/pic32mx_sk
   name: p32MX360F512L.ld
