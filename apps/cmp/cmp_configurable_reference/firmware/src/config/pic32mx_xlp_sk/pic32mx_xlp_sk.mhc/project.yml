@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: F916A9DCA27DF1EE99FAC7125BCDDD80
+- generatedChecksum: 6402316D1295A4D6FDF72970D9CD07B3
   logicalPath: config/pic32mx_xlp_sk
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: F916A9DCA27DF1EE99FAC7125BCDDD80
+  userChecksum: 6402316D1295A4D6FDF72970D9CD07B3
 - generatedChecksum: 7B6103582806BD88FC22F6EA66A8022E
   logicalPath: config/pic32mx_xlp_sk
   name: interrupts.c
@@ -34,13 +34,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: F99878ADFA7BC9B25CB998A137286A1A
-- generatedChecksum: F13131809CB9EDFA17F65B76554407A5
+- generatedChecksum: 55AA0E26E3D2FBF1FBE433BF2DBA6A2A
   logicalPath: config/pic32mx_xlp_sk/peripheral/cmp
   name: plib_cmp.c
   physicalPath: peripheral/cmp
   security: NON_SECURE
   type: SOURCE
-  userChecksum: F13131809CB9EDFA17F65B76554407A5
+  userChecksum: 55AA0E26E3D2FBF1FBE433BF2DBA6A2A
 - generatedChecksum: BF3120FEEA787A31DE2117BDF5DCD6BD
   logicalPath: config/pic32mx_xlp_sk/peripheral/cvr
   name: plib_cvr.c
@@ -62,20 +62,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 95087D84A3D34F60355B692179D260E8
-- generatedChecksum: AEA3F49E924C04B1DC1275B0429B655B
+- generatedChecksum: 8A8E4B7D1561E11086D51E8925F8F77E
   logicalPath: config/pic32mx_xlp_sk/peripheral/uart
   name: plib_uart1.c
   physicalPath: peripheral/uart
   security: NON_SECURE
   type: SOURCE
-  userChecksum: AEA3F49E924C04B1DC1275B0429B655B
-- generatedChecksum: A636C701B81D51E1D15E7ECB7F0FDE65
+  userChecksum: 8A8E4B7D1561E11086D51E8925F8F77E
+- generatedChecksum: 42A948E504602741B0D592C55FCD9A7B
   logicalPath: config/pic32mx_xlp_sk/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: A636C701B81D51E1D15E7ECB7F0FDE65
+  userChecksum: 42A948E504602741B0D592C55FCD9A7B
 - generatedChecksum: 3441C81F37AB08F8F9DDFBB7FCAA7C88
   logicalPath: config/pic32mx_xlp_sk
   name: definitions.h
@@ -104,13 +104,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 7066CC390335CF75126E2A50C46E3BDD
-- generatedChecksum: A13054F423A26211EFC98847CFA869EA
+- generatedChecksum: BFFFD58D181607BEC23826BD795664BC
   logicalPath: config/pic32mx_xlp_sk/peripheral/cmp
   name: plib_cmp.h
   physicalPath: peripheral/cmp
   security: NON_SECURE
   type: HEADER
-  userChecksum: A13054F423A26211EFC98847CFA869EA
+  userChecksum: BFFFD58D181607BEC23826BD795664BC
 - generatedChecksum: 519595A71797770B586ED17BE1FE4584
   logicalPath: config/pic32mx_xlp_sk/peripheral/cvr
   name: plib_cvr.h
@@ -146,13 +146,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 67EEAF539A53B6B8FD7B600ACCB3F3CA
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx_xlp_sk
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: CF99597DFF6AD85206D19812D9D7793C
   logicalPath: config/pic32mx_xlp_sk
   name: p32MX274F256D.ld

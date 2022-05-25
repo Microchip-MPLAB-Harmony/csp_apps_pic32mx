@@ -97,7 +97,7 @@ void CMP_Initialize(void)
 
 bool CMP_StatusGet(CMP_STATUS_SOURCE ch_status)
 {
-    return ((CMSTAT & ch_status)?true:false);
+    return ((CMSTAT & ch_status) != 0U);
 }
 
 void CMP_1_CompareEnable(void)
