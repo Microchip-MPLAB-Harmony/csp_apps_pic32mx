@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: F0FF371870416E49A854A2203E9354B2
+- generatedChecksum: 6147A9E611396F08C09028723AE7CB16
   logicalPath: config/pic32mx_xlp_sk
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: F0FF371870416E49A854A2203E9354B2
+  userChecksum: 6147A9E611396F08C09028723AE7CB16
 - generatedChecksum: 7F75C11B3766253CADB047629447FCFD
   logicalPath: config/pic32mx_xlp_sk
   name: interrupts.c
@@ -48,20 +48,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: E710B97FD2636B15DD600B3444D15A56
-- generatedChecksum: CA105D9590167AE387D7FA00EAED7E63
+- generatedChecksum: D3561BCB09CEE583F9CD2E8EB19DF490
   logicalPath: config/pic32mx_xlp_sk/peripheral/uart
   name: plib_uart1.c
   physicalPath: peripheral/uart
   security: NON_SECURE
   type: SOURCE
-  userChecksum: CA105D9590167AE387D7FA00EAED7E63
-- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: D3561BCB09CEE583F9CD2E8EB19DF490
+- generatedChecksum: 71352EF41F6688AD8408E42970B50B66
   logicalPath: config/pic32mx_xlp_sk/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 71352EF41F6688AD8408E42970B50B66
 - generatedChecksum: C6E338902BF07539006D7BF7CCBECA08
   logicalPath: config/pic32mx_xlp_sk
   name: definitions.h
@@ -104,13 +104,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: D3FBD6DBCE66F5AABDFA50B807C178BE
-- generatedChecksum: 8DAE87F255A119BC5653E657CCB4AD35
+- generatedChecksum: E8EE36B043BD54CFF975FD251198EF5B
   logicalPath: config/pic32mx_xlp_sk/peripheral/uart
   name: plib_uart1.h
   physicalPath: peripheral/uart
   security: NON_SECURE
   type: HEADER
-  userChecksum: 8DAE87F255A119BC5653E657CCB4AD35
+  userChecksum: E8EE36B043BD54CFF975FD251198EF5B
 - generatedChecksum: 67EEAF539A53B6B8FD7B600ACCB3F3CA
   logicalPath: config/pic32mx_xlp_sk/peripheral/uart
   name: plib_uart_common.h
@@ -118,13 +118,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 67EEAF539A53B6B8FD7B600ACCB3F3CA
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx_xlp_sk
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: CF99597DFF6AD85206D19812D9D7793C
   logicalPath: config/pic32mx_xlp_sk
   name: p32MX274F256D.ld
