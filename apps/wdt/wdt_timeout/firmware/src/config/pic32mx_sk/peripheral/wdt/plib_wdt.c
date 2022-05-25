@@ -67,6 +67,10 @@ void WDT_Disable(void)
     WDTCONbits.ON = 0;
 }
 
+bool WDT_IsEnabled( void )
+{
+    return((bool)WDTCONbits.ON);
+}
 
 void WDT_Clear(void)
 {

@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: 173A89FF2267EE770AE1E7C5838EB9FC
+- generatedChecksum: FC686C8C0E1AAC2E91143672908D294E
   logicalPath: config/pic32mx_sk
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 173A89FF2267EE770AE1E7C5838EB9FC
+  userChecksum: FC686C8C0E1AAC2E91143672908D294E
 - generatedChecksum: 89B2CF6741179C3D45BA8E6CACFE3B0E
   logicalPath: config/pic32mx_sk
   name: interrupts.c
@@ -55,20 +55,20 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: BCB30EFD47515B1291A715D31B307C9A
-- generatedChecksum: 9DC717E61F1E3A5706308EA5F885E204
+- generatedChecksum: ECE8389D938E7C2774F14646359B9641
   logicalPath: config/pic32mx_sk/peripheral/wdt
   name: plib_wdt.c
   physicalPath: peripheral/wdt
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 9DC717E61F1E3A5706308EA5F885E204
-- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: ECE8389D938E7C2774F14646359B9641
+- generatedChecksum: 71352EF41F6688AD8408E42970B50B66
   logicalPath: config/pic32mx_sk/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 71352EF41F6688AD8408E42970B50B66
 - generatedChecksum: AC976C677A183CEA4E0196E2A20DBD64
   logicalPath: config/pic32mx_sk
   name: definitions.h
@@ -118,20 +118,20 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 289F35AD623593FC40A0F73142869219
-- generatedChecksum: CE6EC097E60ED6A31224837752B229EF
+- generatedChecksum: C4CEE622A645C70BB8DE2E9699F39099
   logicalPath: config/pic32mx_sk/peripheral/wdt
   name: plib_wdt.h
   physicalPath: peripheral/wdt
   security: NON_SECURE
   type: HEADER
-  userChecksum: CE6EC097E60ED6A31224837752B229EF
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: C4CEE622A645C70BB8DE2E9699F39099
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx_sk
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: 0A6FA09F32457EE88B670700114A44AF
   logicalPath: config/pic32mx_sk
   name: p32MX360F512L.ld
