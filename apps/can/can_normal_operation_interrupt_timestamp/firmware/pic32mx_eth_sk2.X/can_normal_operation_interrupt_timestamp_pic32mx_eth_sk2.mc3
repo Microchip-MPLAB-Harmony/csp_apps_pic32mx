@@ -1,4 +1,4 @@
-<config configName="pic32mx_eth_sk2" projectName="can_normal_operation_interrupt_timestamp_pic32mx_eth_sk2" configVersion="1.1" device="PIC32MX795F512L" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.2.4">
+<config configName="pic32mx_eth_sk2" projectName="can_normal_operation_interrupt_timestamp_pic32mx_eth_sk2" configVersion="1.1" device="PIC32MX795F512L" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -15,7 +15,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.0.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -1018,7 +1018,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\can\plib_can1.c</file>
-         <hash>79c2c4533f352f2096ee4bc735262be9c72277a0f656b259b964736b2f7d47a9</hash>
+         <hash>e6ac94ad76e37578ca5c4100bc230d922d7d688421dd089eb4c76c6916c3086b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\interrupts.c</file>
@@ -1050,7 +1050,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\initialization.c</file>
-         <hash>46fd1c1d6bd9a9054796ea2396278430f0773e449e36a94788ee730af141848b</hash>
+         <hash>ea27e5439205a9a254ea0bc454d443a29d5311eb56f8033206efaacd86aada04</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\evic\plib_evic.c</file>
@@ -1078,7 +1078,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\stdio\xc32_monitor.c</file>
-         <hash>26e5749db654ed433fd94f6c732ef8600d0cbf5196493374cf111877c02b694e</hash>
+         <hash>858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

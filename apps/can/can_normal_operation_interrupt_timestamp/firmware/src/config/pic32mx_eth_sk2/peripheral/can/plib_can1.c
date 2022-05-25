@@ -836,6 +836,7 @@ void CAN1_InterruptHandler(void)
             {
                 *(volatile uint32_t *)(&C1FIFOINT0CLR + (fifoNum * CAN_FIFO_OFFSET)) = _C1FIFOINT0_TXEMPTYIE_MASK;
             }
+            C1INTCLR = _C1INT_TBIE_MASK;
             IFS1CLR = _IFS1_CAN1IF_MASK;
 
             if (can1CallbackObj[fifoNum].callback != NULL)

@@ -51,10 +51,6 @@ children:
         attributes: {id: text}
         children:
         - {type: Value, value: Warning!!! Error 17.647%}
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
   - type: Boolean
     attributes: {id: CAN_INTERRUPT_MODE}
     children:
