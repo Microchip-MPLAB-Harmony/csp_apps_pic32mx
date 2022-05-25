@@ -1,4 +1,4 @@
-<config configName="pic32mx_125_sk" projectName="can_normal_operation_interrupt_timestamp_pic32mx_125_sk" configVersion="1.1" device="PIC32MX570F512L" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.2.3">
+<config configName="pic32mx_125_sk" projectName="can_normal_operation_interrupt_timestamp_pic32mx_125_sk" configVersion="1.1" device="PIC32MX570F512L" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -15,7 +15,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.0.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -1676,7 +1676,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_125_sk\peripheral\can\plib_can1.c</file>
-         <hash>875a572253bffb8adb2b6279aee69775cdb2f9f2d9ce192d7681355b98cb7861</hash>
+         <hash>d05b22aebd5a3f529f29be8916b3ec852a6864f4602540e67c1a5f75fec8a942</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_125_sk\peripheral\gpio\plib_gpio.h</file>
@@ -1708,7 +1708,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_125_sk\toolchain_specifics.h</file>
-         <hash>c86ea57caade552aa8a4e7853594d481930697fdf3549b89ba0f07604894e0e8</hash>
+         <hash>9dfc75809b6eb23cee342231de51f6b382f8f7eabf8a939539cf44c0da32acbc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_125_sk\p32MX570F512L.ld</file>
@@ -1724,7 +1724,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_125_sk\initialization.c</file>
-         <hash>0f372639663cea9a8ccd4c12066885ef9d4244fc51a75e20681354324f92a16e</hash>
+         <hash>efa222c7b57bc19bdb1d886b604b91fc702d8e59147bf390890f7dce618f21e1</hash>
       </entry>
       <entry>
          <file>..\src\main_pic32mx.c</file>
@@ -1740,7 +1740,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_125_sk\stdio\xc32_monitor.c</file>
-         <hash>26e5749db654ed433fd94f6c732ef8600d0cbf5196493374cf111877c02b694e</hash>
+         <hash>858f8710d4287200a5ee7f3b3ad7c24f505aed9c05c16956ab0ff9f7bb162a6a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_125_sk\interrupts.h</file>

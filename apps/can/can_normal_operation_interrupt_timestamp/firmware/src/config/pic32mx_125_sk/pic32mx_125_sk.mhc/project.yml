@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: 2BDFFDE5421E7CABD0CE0556269C5659
+- generatedChecksum: FBFAE2CA3FB6CC29573D07468295CEFA
   logicalPath: config/pic32mx_125_sk
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 2BDFFDE5421E7CABD0CE0556269C5659
+  userChecksum: FBFAE2CA3FB6CC29573D07468295CEFA
 - generatedChecksum: 14934030EEDD4F5769650418FBBDE0D1
   logicalPath: config/pic32mx_125_sk
   name: interrupts.c
@@ -27,13 +27,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: null
-- generatedChecksum: BFF5CCB9146771EC2A1DC4C8D48C7B97
+- generatedChecksum: 80C1C99B61F82DBAD9A3409A6CB8075D
   logicalPath: config/pic32mx_125_sk/peripheral/can
   name: plib_can1.c
   physicalPath: peripheral/can
   security: NON_SECURE
   type: SOURCE
-  userChecksum: BFF5CCB9146771EC2A1DC4C8D48C7B97
+  userChecksum: 80C1C99B61F82DBAD9A3409A6CB8075D
 - generatedChecksum: B4BD0AE21817C6040D387509391F7A92
   logicalPath: config/pic32mx_125_sk/peripheral/clk
   name: plib_clk.c
@@ -55,13 +55,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 03AB3EC5DD62D0C7399C9BC47C3D5E2D
-- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
+- generatedChecksum: 71352EF41F6688AD8408E42970B50B66
   logicalPath: config/pic32mx_125_sk/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 71352EF41F6688AD8408E42970B50B66
 - generatedChecksum: A92884F82E00383108AEBE42DBAA0BC6
   logicalPath: config/pic32mx_125_sk
   name: definitions.h
@@ -118,13 +118,13 @@ files:
   security: NON_SECURE
   type: HEADER
   userChecksum: 37135DF1DBCD9FD648F976D28861D4D5
-- generatedChecksum: 2C8543317B3F067432097AB9BD3E8672
+- generatedChecksum: 7DC91D6D376C98802C9C2990432DE9B7
   logicalPath: config/pic32mx_125_sk
   name: toolchain_specifics.h
   physicalPath: ''
   security: NON_SECURE
   type: HEADER
-  userChecksum: 2C8543317B3F067432097AB9BD3E8672
+  userChecksum: 7DC91D6D376C98802C9C2990432DE9B7
 - generatedChecksum: F5C945E894088AB9993C2E450F3E310D
   logicalPath: config/pic32mx_125_sk
   name: p32MX570F512L.ld
