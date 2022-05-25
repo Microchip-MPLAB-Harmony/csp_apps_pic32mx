@@ -1,4 +1,4 @@
-<config configName="pic32mx470_curiosity" projectName="cmp_configurable_reference_pic32mx470_curiosity" configVersion="1.1" device="PIC32MX470F512H" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.2.4">
+<config configName="pic32mx470_curiosity" projectName="cmp_configurable_reference_pic32mx470_curiosity" configVersion="1.1" device="PIC32MX470F512H" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -27,7 +27,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.0.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -849,19 +849,6 @@
 </value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="uart1" name="UART_BRGH_MODE_COMMENT"/>
-         <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;uart1&gt;
-  &lt;uart1 dnOrder=&quot;0&quot; id=&quot;UART_BRGH_MODE_COMMENT&quot;&gt;
-    &lt;Attributes dnOrder=&quot;0&quot;&gt;
-      &lt;String dnOrder=&quot;0&quot; id=&quot;text&quot;&gt;
-        &lt;Value dnOrder=&quot;0&quot;&gt;***&amp;amp;#160;Standard&amp;amp;#160;Speed&amp;amp;#160;mode&amp;amp;#160;16x&amp;amp;#160;baud&amp;amp;#160;clock&amp;amp;#160;enabled&amp;amp;#160;(BRGH&amp;amp;#160;=&amp;amp;#160;0)&amp;amp;#160;***&lt;/Value&gt;
-      &lt;/String&gt;
-    &lt;/Attributes&gt;
-  &lt;/uart1&gt;
-&lt;/uart1&gt;
-</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="uart1" name="UART_CLOCK_FREQ"/>
          <value>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;uart1&gt;
   &lt;uart1 dnOrder=&quot;0&quot; id=&quot;UART_CLOCK_FREQ&quot;&gt;
@@ -941,7 +928,7 @@
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
          <file>..\src\config\pic32mx470_curiosity\stdio\xc32_monitor.c</file>
-         <hash>bcf1042a78148abfa5abca156b76a2b069f8d285c0d1a86e50961d578639e793</hash>
+         <hash>0686d176910c03a71788eee4ae3b99492c26e6e03a4724c6a49fa76c0b2e6c3f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\clk\plib_clk.c</file>
@@ -953,7 +940,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\cmp\plib_cmp.c</file>
-         <hash>95bd5e8e64564e7888564bb81e0e6c573487f006ed91f0a97d45d9e8c158728b</hash>
+         <hash>a5675eb4207a96c69652cc3c98f1729d2275fbb3f15192c25c46e3ecc408db44</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\gpio\plib_gpio.h</file>
@@ -985,7 +972,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\uart\plib_uart1.c</file>
-         <hash>c7e4cddd266cae033c257ca4637415b39d3095d25a8872c3e6a8c9655c7c514d</hash>
+         <hash>b43048e9bfc0af561156e43bef9d5ce4028b294c98eb6e1001cf6ce00c63a624</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\p32MX470F512H.ld</file>
@@ -993,7 +980,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\cmp\plib_cmp.h</file>
-         <hash>5b9def5869a7e9cdefb052c7add93baf4ac51d0e227c8c28d05d94a9bd19d17d</hash>
+         <hash>5194dee8daf7e5cf70e23bcdde9b81c1efab836451dab8626b40ac6254b71cd9</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\evic\plib_evic.c</file>
@@ -1009,7 +996,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\uart\plib_uart1.h</file>
-         <hash>8aa4e9240686f968b066a15d02499a32f9c9e6f637b2880bd6d8dc900b57efc7</hash>
+         <hash>0ee6b47011bb6162f6b5bba91d8c1ab289be568eafe725a83d051e4857595ffe</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\clk\plib_clk.h</file>
@@ -1021,7 +1008,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\toolchain_specifics.h</file>
-         <hash>c86ea57caade552aa8a4e7853594d481930697fdf3549b89ba0f07604894e0e8</hash>
+         <hash>9dfc75809b6eb23cee342231de51f6b382f8f7eabf8a939539cf44c0da32acbc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\interrupts.c</file>
@@ -1029,7 +1016,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\initialization.c</file>
-         <hash>dc45f62808663be8f59a91ae36cd5951cf16727d2d79192b2f1133060e6b6647</hash>
+         <hash>d95357940197683f7737c7c9fe580a8b90094aac34ad5c97a0f30a1304e787f7</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

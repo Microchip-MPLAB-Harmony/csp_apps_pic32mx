@@ -68,15 +68,16 @@
 // *****************************************************************************
 // *****************************************************************************
 
-typedef enum
-{
+
     /* CMP1 Output */
-    CMP1_OUTPUT_STATUS = _CMSTAT_C1OUT_MASK,
+    #define CMP1_OUTPUT_STATUS  _CMSTAT_C1OUT_MASK
 
     /* CMP2 Output */
-    CMP2_OUTPUT_STATUS = _CMSTAT_C2OUT_MASK,
+    #define CMP2_OUTPUT_STATUS  _CMSTAT_C2OUT_MASK
 
-} CMP_STATUS_SOURCE;
+
+
+typedef uint32_t CMP_STATUS_SOURCE;
 
 typedef void (*CMP_CALLBACK) (uintptr_t context);
 
@@ -96,7 +97,7 @@ typedef struct
 
 void CMP_Initialize(void);
 
-bool CMP_StatusGet(CMP_STATUS_SOURCE source);
+bool CMP_StatusGet(CMP_STATUS_SOURCE ch_status);
 
 void CMP_1_CompareEnable(void);
 
