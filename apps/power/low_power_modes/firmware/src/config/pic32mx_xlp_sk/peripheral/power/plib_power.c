@@ -59,7 +59,7 @@
 // *****************************************************************************
 void POWER_Initialize( void )
 {
-    /* unlock system */
+    /* Unlock system */
     SYSKEY = 0x00000000;
     SYSKEY = 0xAA996655;
     SYSKEY = 0x556699AA;
@@ -67,6 +67,7 @@ void POWER_Initialize( void )
     DSCON = 0x3100;
     DSCON = 0x3100;
 
+    /* Lock system */
     SYSKEY = 0;
 }
 void POWER_LowPowerModeEnter (POWER_LOW_POWER_MODE mode)
@@ -78,7 +79,7 @@ void POWER_LowPowerModeEnter (POWER_LOW_POWER_MODE mode)
 
     switch(mode)
     {
-        case LOW_POWER_IDLE_MODE: 
+        case LOW_POWER_IDLE_MODE:
                         OSCCONCLR = _OSCCON_SLPEN_MASK;
                         break;
         case LOW_POWER_SLEEP_MODE:
@@ -92,47 +93,128 @@ void POWER_LowPowerModeEnter (POWER_LOW_POWER_MODE mode)
                         DSCONbits.DSEN = 1;
                         DSCONbits.DSEN = 1;
                         break;
-        default: 
+        default:
                         return;
     }
 
+    /* Lock system */
     SYSKEY = 0x0;
 
     /* enter into selected low power mode */
     asm volatile("wait");
 }
 
-POWER_WAKEUP_SOURCE POWER_WakeupSourceGet( void )
+POWER_DS_WAKEUP_SOURCE POWER_DS_WakeupSourceGet( void )
 {
-    return (POWER_WAKEUP_SOURCE)(DSWAKE);
+    return (POWER_DS_WAKEUP_SOURCE)(DSWAKE);
 }
 
-void POWER_ReleaseGPIO(void)
-{
-    /* unlock system */
-    SYSKEY = 0x00000000;
-    SYSKEY = 0xAA996655;
-    SYSKEY = 0x556699AA;
-
-    DSCONbits.RELEASE = 0;
-    DSCONbits.RELEASE = 0;
-
-    SYSKEY = 0;
-}
-
-void POWER_WakeupSourceClear( POWER_WAKEUP_SOURCE wakeupSource )
-{
-    DSWAKE &= ~wakeupSource;
-}
-
-void POWER_DSGPR_Write(POWER_DSGPR gprNumb, uint32_t gprValue)
+void POWER_DS_ReleaseGPIO(void)
 {
     /* Unlock system */
     SYSKEY = 0x00000000;
     SYSKEY = 0xAA996655;
     SYSKEY = 0x556699AA;
 
-    if (gprNumb == POWER_DSGPR0)
+    DSCONbits.RELEASE = 0;
+    DSCONbits.RELEASE = 0;
+
+    /* Lock system */
+    SYSKEY = 0;
+}
+
+void POWER_DS_WakeupSourceClear( POWER_DS_WAKEUP_SOURCE wakeupSource )
+{
+    DSWAKE &= ~wakeupSource;
+}
+
+void POWER_DS_GPR_Enable(void)
+{
+    /* Unlock system */
+    SYSKEY = 0x00000000;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+
+    DSCONbits.DSGPREN = 1;
+    DSCONbits.DSGPREN = 1;
+
+    /* Lock system */
+    SYSKEY = 0x00000000;
+}
+void POWER_DS_GPR_Disable(void)
+{
+    /* Unlock system */
+    SYSKEY = 0x00000000;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+
+    DSCONbits.DSGPREN = 0;
+    DSCONbits.DSGPREN = 0;
+
+    /* Lock system */
+    SYSKEY = 0x00000000;
+}
+void POWER_DS_RTCC_Enable(void)
+{
+    /* Unlock system */
+    SYSKEY = 0x00000000;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+
+    DSCONbits.RTCDIS = 0;
+    DSCONbits.RTCDIS = 0;
+
+    /* Lock system */
+    SYSKEY = 0x00000000;
+}
+void POWER_DS_RTCC_Disable(void)
+{
+    /* Unlock system */
+    SYSKEY = 0x00000000;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+
+    DSCONbits.RTCDIS = 1;
+    DSCONbits.RTCDIS = 1;
+
+    /* Lock system */
+    SYSKEY = 0x00000000;
+}
+void POWER_DS_RTCC_WakeupEnable(void)
+{
+    /* Unlock system */
+    SYSKEY = 0x00000000;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+
+    DSCONbits.RTCCWDIS = 0;
+    DSCONbits.RTCCWDIS = 0;
+
+    /* Lock system */
+    SYSKEY = 0x00000000;
+}
+void POWER_DS_RTCC_WakeupDisable(void)
+{
+    /* Unlock system */
+    SYSKEY = 0x00000000;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+
+    DSCONbits.RTCCWDIS = 1;
+    DSCONbits.RTCCWDIS = 1;
+
+    /* Lock system */
+    SYSKEY = 0x00000000;
+}
+
+void POWER_DS_GPR_Write(POWER_DS_GPR gprNumb, uint32_t gprValue)
+{
+    /* Unlock system */
+    SYSKEY = 0x00000000;
+    SYSKEY = 0xAA996655;
+    SYSKEY = 0x556699AA;
+
+    if (gprNumb == POWER_DS_GPR0)
     {
         DSGPR0 = gprValue;
         DSGPR0 = gprValue;
@@ -147,9 +229,9 @@ void POWER_DSGPR_Write(POWER_DSGPR gprNumb, uint32_t gprValue)
     SYSKEY = 0x00000000;
 }
 
-uint32_t POWER_DSGPR_Read(POWER_DSGPR gprNumb)
+uint32_t POWER_DS_GPR_Read(POWER_DS_GPR gprNumb)
 {
-    if (gprNumb == POWER_DSGPR0)
+    if (gprNumb == POWER_DS_GPR0)
     {
         return DSGPR0;
     }
