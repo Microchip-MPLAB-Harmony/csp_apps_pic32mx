@@ -6,13 +6,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 99DB74296DF9943C474F4F03A700C790
-- generatedChecksum: 0DD521DEA63D27A4C017D51FEBEF7C9F
+- generatedChecksum: 6B1DC004E8AC429499DC9EB103CAF7AD
   logicalPath: config/pic32mx_eth_sk2
   name: initialization.c
   physicalPath: ''
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 0DD521DEA63D27A4C017D51FEBEF7C9F
+  userChecksum: 6B1DC004E8AC429499DC9EB103CAF7AD
 - generatedChecksum: 4B6A778CF4449A8EC938F5D4D0917E56
   logicalPath: config/pic32mx_eth_sk2
   name: interrupts.c
@@ -55,13 +55,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 1AC456B0726951BD0DC4E0EBA03E03DB
-- generatedChecksum: 7806B30ECAE0D18D08CD583D8775530D
+- generatedChecksum: 71352EF41F6688AD8408E42970B50B66
   logicalPath: config/pic32mx_eth_sk2/stdio
   name: xc32_monitor.c
   physicalPath: stdio
   security: NON_SECURE
   type: SOURCE
-  userChecksum: 7806B30ECAE0D18D08CD583D8775530D
+  userChecksum: 71352EF41F6688AD8408E42970B50B66
 - generatedChecksum: 51A015EFF5D4B72E5657B2D05B8032F2
   logicalPath: config/pic32mx_eth_sk2
   name: definitions.h

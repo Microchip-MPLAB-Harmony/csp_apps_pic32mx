@@ -51,10 +51,6 @@ children:
         attributes: {id: text}
         children:
         - {type: Value, value: Warning!!! Error 17.647%}
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
   - type: KeyValueSet
     attributes: {id: CAN_OPMODE}
     children:
