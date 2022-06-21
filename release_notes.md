@@ -8,6 +8,37 @@ nav_order: 99
 
 # Microchip MPLAB® Harmony 3 Release Notes
 
+## Harmony 3 peripheral library application examples for PIC32MX family  v3.3.0
+
+### Development kit and demo application support
+
+Following table provides number of peripheral library examples available for different development kits.
+
+| Development Kits  | MPLAB X applications |
+|:-----------------:|:-------------------:|
+| [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) | 27 |
+| [PIC32MX274 XLP Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/DM320105) | 21 |
+| [PIC32MX1/2/5 Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/dm320100) | 3 |
+| [PIC32 Ethernet Starter Kit](https://www.microchip.com/DevelopmentTools/ProductDetails/PartNO/DM320004) | 9 |
+| [PIC32MX Starter Kit](https://www.microchip.com/Developmenttools/ProductDetails/DM320001) | 8 |
+| [MPLAB Starter Kit for PIC32MX1XX/2XX](https://www.microchip.com/Developmenttools/ProductDetails/DM320013) | 1 |
+| [PIC32 USB Starter Kit III](https://www.microchip.com/Developmenttools/ProductDetails/dm320003-3) | 1 |
+
+### New Features
+
+- None
+
+### Known Issues
+
+- None
+
+### Development Tools
+
+- [MPLAB® X IDE v6.00](https://www.microchip.com/mplab/mplab-x-ide)
+- MPLAB® X IDE plug-ins:
+  - MPLAB® Code Configurator (MCC) v5.1.9
+- [MPLAB® XC32 C/C++ Compiler v4.10](https://www.microchip.com/mplab/compilers)
+
 ## Harmony 3 peripheral library application examples for PIC32MX family  v3.2.0
 
 ### Development kit and demo application support
