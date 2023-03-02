@@ -50,7 +50,9 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
 
-
+#define SWITCH_PRESSED_STATE        0   // Active LOW switch
+#define LED_On()                        LED_Set()
+#define LED_Off()                       LED_Clear()
 // *****************************************************************************
 // *****************************************************************************
 // Section: Main Entry Point
@@ -64,8 +66,16 @@ int main ( void )
 
     while ( true )
     {
-        /* Maintain state machines of all polled MPLAB Harmony modules. */
-        SYS_Tasks ( );
+        if(SWITCH_Get() == SWITCH_PRESSED_STATE)
+        {
+            /* Turn ON LED */
+            LED_On();
+        }
+        else
+        {
+            /* Turn OFF LED */
+            LED_Off();
+        }
     }
 
     /* Execution should not come here during normal operation */
