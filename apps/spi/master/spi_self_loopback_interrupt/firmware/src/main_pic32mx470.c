@@ -61,7 +61,7 @@ uint8_t rxData[sizeof(txData)];
 volatile bool transferStatus=false;
 
 /* This function will be called by SPI PLIB when transfer is completed */
-void SPI1_Callback(uintptr_t context )
+void SPI2_Callback(uintptr_t context )
 {
     transferStatus = true;
 }
@@ -78,10 +78,10 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     /* Register callback function   */
-    SPI1_CallbackRegister(SPI1_Callback, 0);
+    SPI2_CallbackRegister(SPI2_Callback, 0);
 
     /* SPI Write Read */
-    SPI1_WriteRead(&txData, sizeof(txData), &rxData, sizeof(rxData));
+    SPI2_WriteRead(&txData, sizeof(txData), &rxData, sizeof(rxData));
 
     while(1)
     {

@@ -120,7 +120,7 @@ int main ( void )
         switch (state)
         {
             case APP_STATE_INITIALIZE:
-                SPI1_CallbackRegister(SPIEventHandler, (uintptr_t) 0); 
+                SPI2_CallbackRegister(SPIEventHandler, (uintptr_t) 0); 
                 state = APP_STATE_WRITE_DATA;
                 break;          
             
@@ -141,7 +141,7 @@ int main ( void )
                 txData[2] = APP_MEM_ADDR;
                 memcpy(&txData[3], APP_TEST_DATA, APP_TEST_DATA_SIZE);
                 APP_SLAVE_CS_Clear();  
-                SPI1_WriteRead(txData, (3 + APP_TEST_DATA_SIZE), NULL, 0);
+                SPI2_WriteRead(txData, (3 + APP_TEST_DATA_SIZE), NULL, 0);
                 state = APP_STATE_TRANSFER_COMPLETE_WAIT;
                 nextState = APP_STATE_SEND_READ_DATA_CMD;                
                 break;
@@ -152,14 +152,14 @@ int main ( void )
                 txData[2] = APP_MEM_ADDR;
                 txData[3] = APP_TEST_DATA_SIZE;                
                 APP_SLAVE_CS_Clear(); 
-                SPI1_WriteRead(txData, 4, NULL, 0);   
+                SPI2_WriteRead(txData, 4, NULL, 0);   
                 state = APP_STATE_TRANSFER_COMPLETE_WAIT;
                 nextState = APP_STATE_READ_DATA;
                 break;
                 
             case APP_STATE_READ_DATA:
                 APP_SLAVE_CS_Clear();
-                SPI1_WriteRead(NULL, 0, rxData, APP_TEST_DATA_SIZE);
+                SPI2_WriteRead(NULL, 0, rxData, APP_TEST_DATA_SIZE);
                 state = APP_STATE_TRANSFER_COMPLETE_WAIT;
                 nextState = APP_STATE_VERIFY;
                 break;

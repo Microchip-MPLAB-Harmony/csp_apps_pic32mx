@@ -51,12 +51,12 @@ The following table shows the target hardware for the application projects.
 ### Setting up [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103)
 
 - To run this demo two [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103) are required. One will be progammed as SPI master and other will be programmed as SPI slave.
-- Connect Pin 3, 4, 5, 6 of mikroBus header J5 on SPI master to Pin 3, 4, 6, 5 respectively of mikroBus header J5 on SPI slave
+- Connect Pin 3, 4, 5, 6 of mikroBus header J10 on SPI master to Pin 3, 4, 6, 5 respectively of mikroBus header J10 on SPI slave
     - Pin 3 - SPI Chip Select
     - Pin 4 - SCK
     - Pin 5 - SDI
     - Pin 6 - SDO
-- Connect Pin 1 of mikroBus header J5 on SPI master to Pin 1 of mikroBus header J5 on SPI slave. Pin 1 (RB4) is configured as GPIO and serves as the slave busy pin.
+- Connect Pin 1 of mikroBus header J10 on SPI master to Pin 1 of mikroBus header J10 on SPI slave. Pin 1 (RB4) is configured as GPIO and serves as the slave busy pin.
 - Connect mini USB cable to the 'Debug USB' connector(J3) on the board to the computer
 - *Note: Ensure that the series resistors on the mikroBUS headers are of value 0 Ohms*
 

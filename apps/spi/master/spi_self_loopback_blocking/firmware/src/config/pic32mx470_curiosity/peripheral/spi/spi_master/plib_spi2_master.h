@@ -5,10 +5,10 @@
     Microchip Technology Inc.
 
   File Name:
-    plib_spi1_master.h
+    plib_spi2_master.h
 
   Summary:
-    SPI1 Master PLIB Header File
+    SPI2 Master PLIB Header File
 
   Description:
     This file has prototype of all the interfaces provided for particular
@@ -39,8 +39,8 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef PLIB_SPI1_MASTER_H
-#define PLIB_SPI1_MASTER_H
+#ifndef PLIB_SPI2_MASTER_H
+#define PLIB_SPI2_MASTER_H
 
 #include "device.h"
 #include "plib_spi_master_common.h"
@@ -53,19 +53,19 @@
 #endif
 
 
-/****************************** SPI1 Interface *********************************/
+/****************************** SPI2 Interface *********************************/
 
-void SPI1_Initialize ( void );
+void SPI2_Initialize ( void );
 
-bool SPI1_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, size_t rxSize);
+bool SPI2_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, size_t rxSize);
 
-bool SPI1_Write(void* pTransmitData, size_t txSize);
+bool SPI2_Write(void* pTransmitData, size_t txSize);
 
-bool SPI1_Read(void* pReceiveData, size_t rxSize);
+bool SPI2_Read(void* pReceiveData, size_t rxSize);
 
-bool SPI1_TransferSetup (SPI_TRANSFER_SETUP *setup, uint32_t spiSourceClock);
+bool SPI2_TransferSetup (SPI_TRANSFER_SETUP *setup, uint32_t spiSourceClock);
 
-bool SPI1_IsTransmitterBusy (void);
+bool SPI2_IsTransmitterBusy (void);
 
 
 /* Provide C++ Compatibility */
@@ -75,4 +75,4 @@ bool SPI1_IsTransmitterBusy (void);
 
 #endif
 
-#endif // PLIB_SPI1_MASTER_H
+#endif // PLIB_SPI2_MASTER_H

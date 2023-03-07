@@ -5,10 +5,10 @@
     Microchip Technology Inc.
 
   File Name:
-    plib_spi1_slave.h
+    plib_spi2_master.h
 
   Summary:
-    SPI1 Slave PLIB Header File
+    SPI2 Master PLIB Header File
 
   Description:
     This file has prototype of all the interfaces provided for particular
@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 /*******************************************************************************
-* Copyright (C) 2019-2020 Microchip Technology Inc. and its subsidiaries.
+* Copyright (C) 2018-2019 Microchip Technology Inc. and its subsidiaries.
 *
 * Subject to your compliance with these terms, you may use Microchip software
 * and any derivatives exclusively with Microchip products. It is your
@@ -39,11 +39,11 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef PLIB_SPI1_SLAVE_H
-#define PLIB_SPI1_SLAVE_H
+#ifndef PLIB_SPI2_MASTER_H
+#define PLIB_SPI2_MASTER_H
 
 #include "device.h"
-#include "plib_spi_slave_common.h"
+#include "plib_spi_master_common.h"
 
 /* Provide C++ Compatibility */
 #ifdef __cplusplus
@@ -53,18 +53,23 @@
 #endif
 
 
-/****************************** SPI1 Interface *********************************/
+/****************************** SPI2 Interface *********************************/
 
-void SPI1_Initialize (void);
-size_t SPI1_Read(void* pRdBuffer, size_t size);
-size_t SPI1_Write(void* pWrBuffer, size_t size );
-size_t SPI1_ReadCountGet(void);
-size_t SPI1_ReadBufferSizeGet(void);
-size_t SPI1_WriteBufferSizeGet(void);
-void SPI1_CallbackRegister(SPI_SLAVE_CALLBACK callBack, uintptr_t context );
-SPI_SLAVE_ERROR SPI1_ErrorGet(void);
-bool SPI1_IsBusy(void);
-void SPI1_Ready(void);
+void SPI2_Initialize ( void );
+
+bool SPI2_WriteRead (void* pTransmitData, size_t txSize, void* pReceiveData, size_t rxSize);
+
+bool SPI2_Write(void* pTransmitData, size_t txSize);
+
+bool SPI2_Read(void* pReceiveData, size_t rxSize);
+
+bool SPI2_TransferSetup (SPI_TRANSFER_SETUP *setup, uint32_t spiSourceClock);
+
+bool SPI2_IsTransmitterBusy (void);
+
+bool SPI2_IsBusy(void);
+
+void SPI2_CallbackRegister(SPI_CALLBACK callback, uintptr_t context);
 
 /* Provide C++ Compatibility */
 #ifdef __cplusplus
@@ -73,4 +78,4 @@ void SPI1_Ready(void);
 
 #endif
 
-#endif // PLIB_SPI1_SLAVE_H
+#endif // PLIB_SPI2_MASTER_H

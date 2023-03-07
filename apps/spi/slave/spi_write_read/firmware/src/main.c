@@ -159,9 +159,9 @@ void delay(uint32_t count)
 
 void SPIEventHandler(uintptr_t context )
 {
-    if (SPI1_ErrorGet() == SPI_SLAVE_ERROR_NONE)
+    if (SPI2_ErrorGet() == SPI_SLAVE_ERROR_NONE)
     {
-        appData.nBytesRead = SPI1_Read(APP_RxData, SPI1_ReadCountGet()); 
+        appData.nBytesRead = SPI2_Read(APP_RxData, SPI2_ReadCountGet()); 
 
         switch(APP_RxData[0])
         {            
@@ -183,7 +183,7 @@ void SPIEventHandler(uintptr_t context )
                 if ((appData.memAddr + appData.nBytesReadRequest) <= APP_TX_BUFFER_SIZE)
                 {
                     memcpy(APP_TxData, &APP_MemoryBuffer[appData.memAddr], appData.nBytesReadRequest);
-                    SPI1_Write(APP_TxData, appData.nBytesReadRequest);
+                    SPI2_Write(APP_TxData, appData.nBytesReadRequest);
                 }            
                 break;
         } 
@@ -191,7 +191,7 @@ void SPIEventHandler(uintptr_t context )
         if (appData.status.busy == 0)
         {
             /* Indicate to SPI Master that slave is ready for data transfer */
-            SPI1_Ready();
+            SPI2_Ready();
         }
     }       
 }
@@ -210,7 +210,7 @@ int main ( void )
         {
             case APP_STATE_INITIALIZE:
                   
-                SPI1_CallbackRegister(SPIEventHandler, (uintptr_t) 0);  
+                SPI2_CallbackRegister(SPIEventHandler, (uintptr_t) 0);  
                 
                 /* Wait for instructions from SPI master */
                 appData.state = APP_STATE_IDLE;   
@@ -231,7 +231,7 @@ int main ( void )
                 appData.status.busy = 0;
                 
                 /* Indicate to SPI Master that slave is ready for data transfer */
-                SPI1_Ready();
+                SPI2_Ready();
                 
                 appData.state = APP_STATE_IDLE; 
                                 

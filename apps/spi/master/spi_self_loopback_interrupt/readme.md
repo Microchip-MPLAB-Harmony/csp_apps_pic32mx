@@ -42,7 +42,7 @@ The following table shows the target hardware for the application projects.
 
 ### Setting up [Curiosity PIC32MX470 Development Board](https://www.microchip.com/Developmenttools/ProductDetails/dm320103)
 
-- Use a jumper wire to short pin MOSI and pin MISO of the J5 connector
+- Use a jumper wire to short pin MOSI and pin MISO of the J10 connector
 - Connect mini USB cable to the 'Debug USB' connector(J3) on the board to the computer
 - *Note: Ensure that the series resistors on the mikroBUS headers are of value 0 Ohms*
 

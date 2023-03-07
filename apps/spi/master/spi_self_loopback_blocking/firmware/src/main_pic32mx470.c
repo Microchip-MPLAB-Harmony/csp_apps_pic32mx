@@ -70,7 +70,7 @@ int main ( void )
     SYS_Initialize ( NULL );
 
     /* SPI Write Read */
-    SPI1_WriteRead(&txData, sizeof(txData), &rxData, sizeof(rxData));
+    SPI2_WriteRead(&txData, sizeof(txData), &rxData, sizeof(rxData));
 
     /* Compare received data with the transmitted data */
     if ((memcmp(txData, rxData, sizeof(txData)) == 0))
