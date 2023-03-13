@@ -30,7 +30,7 @@ To run the application, two evaluation kits will be required - one acting as the
 
 ## Downloading and building the application
 
-To download or clone this application from Github, go to the [top level of the repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_pic32mz_w1) and click
+To download or clone this application from Github, go to the [top level of the repository](https://github.com/Microchip-MPLAB-Harmony/csp_apps_pic32mx) and click
 
 ![clone](../../../../docs/images/clone.png)
 
