@@ -69,14 +69,14 @@
 
 /* Input String for Software CRC                : 123456789 
  * Input String Padded for DMA non Direct Seed  : 1234567890000 */
-const uint8_t srcBuffer[DMA_TRANSFER_SIZE] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', 0, 0, 0, 0};
+static const uint8_t srcBuffer[DMA_TRANSFER_SIZE] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', 0, 0, 0, 0};
 
-uint8_t CACHE_ALIGN  dstBuffer[DMA_TRANSFER_SIZE] = {0};
+static uint8_t CACHE_ALIGN  dstBuffer[DMA_TRANSFER_SIZE] = {0};
 
-uint32_t CACHE_ALIGN reverse_table[256] = {0};
+static uint32_t CACHE_ALIGN reverse_table[256] = {0};
 
-volatile bool completeStatus = false;
-volatile bool errorStatus = false;
+volatile static bool completeStatus = false;
+volatile static bool errorStatus = false;
 
 void APP_Callback(DMAC_TRANSFER_EVENT status, uintptr_t context)
 {

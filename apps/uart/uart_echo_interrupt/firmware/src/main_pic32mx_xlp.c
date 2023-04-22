@@ -57,15 +57,15 @@
 #define LED_Off()                       LED1_Set()
 #define LED_Toggle()                    LED1_Toggle()
 
-char messageStart[] = "****  UART echo demo: Non-blocking Transfer with the interrupt  ****\r\n\
+static char messageStart[] = "****  UART echo demo: Non-blocking Transfer with the interrupt  ****\r\n\
 **** Type 10 characters. The received characters are echoed back, and the LED is toggled ****\r\n";
-char receiveBuffer[RX_BUFFER_SIZE] = {};
-char echoBuffer[RX_BUFFER_SIZE + 4] = {};
-char messageError[] = "**** UART error occurred ****\r\n";
+static char receiveBuffer[RX_BUFFER_SIZE] = {};
+static char echoBuffer[RX_BUFFER_SIZE + 4] = {};
+static char messageError[] = "**** UART error occurred ****\r\n";
 
-bool errorStatus = false;
-bool writeStatus = false;
-bool readStatus = false;
+static bool errorStatus = false;
+static bool writeStatus = false;
+static bool readStatus = false;
 
 void APP_WriteCallback(uintptr_t context)
 {

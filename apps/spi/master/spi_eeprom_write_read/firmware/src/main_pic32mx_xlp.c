@@ -85,10 +85,10 @@ typedef enum
 /* Global variables */
 
 // EEPROM CMD (1) + EEPROM ADDR (3) + EEPROM_DATA_LEN
-uint8_t  txData[(4 + EEPROM_DATA_LEN)];
-uint8_t  rxData[(4 + EEPROM_DATA_LEN)];
-volatile bool isTransferDone = false;
-APP_STATES state = APP_STATE_INITIALIZE;
+static uint8_t  txData[(4 + EEPROM_DATA_LEN)];
+static uint8_t  rxData[(4 + EEPROM_DATA_LEN)];
+volatile static bool isTransferDone = false;
+static APP_STATES state = APP_STATE_INITIALIZE;
 
 /* This function will be called by SPI PLIB when transfer is completed */
 void SPIEventHandler(uintptr_t context )

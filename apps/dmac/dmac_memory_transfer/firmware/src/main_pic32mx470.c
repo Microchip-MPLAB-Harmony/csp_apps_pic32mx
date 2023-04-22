@@ -60,10 +60,10 @@
 
 #define TRANSFER_SIZE 1024
 
-char __attribute__((coherent)) srcBuffer[TRANSFER_SIZE] = {};
-char __attribute__((coherent)) dstBuffer1[TRANSFER_SIZE] = {};
-volatile bool completeStatus = false;
-volatile bool errorStatus = false;
+static char __attribute__((coherent)) srcBuffer[TRANSFER_SIZE] = {};
+static char __attribute__((coherent)) dstBuffer1[TRANSFER_SIZE] = {};
+volatile static bool completeStatus = false;
+volatile static bool errorStatus = false;
 
 void APP_Callback(DMAC_TRANSFER_EVENT status, uintptr_t context)
 {

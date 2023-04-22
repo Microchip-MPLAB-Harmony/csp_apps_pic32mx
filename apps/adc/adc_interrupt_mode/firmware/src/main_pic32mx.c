@@ -55,9 +55,9 @@
 #define ADC_VREF                (3.3f)
 #define ADC_MAX_COUNT           (1023U)
 
-uint16_t adc_count;
-float input_voltage;
-volatile bool result_ready = false;
+static uint16_t adc_count;
+static float input_voltage;
+volatile static bool result_ready = false;
 
 // *****************************************************************************
 // *****************************************************************************

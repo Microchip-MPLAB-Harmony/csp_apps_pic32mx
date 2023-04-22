@@ -50,7 +50,7 @@
 #include <stdlib.h>                     // Defines EXIT_FAILURE
 #include "definitions.h"                // SYS function prototypes
 
-volatile bool switch_pressed = false;
+volatile static bool switch_pressed = false;
 
 void switch_handler( CN_PIN pin, uintptr_t context )
 {

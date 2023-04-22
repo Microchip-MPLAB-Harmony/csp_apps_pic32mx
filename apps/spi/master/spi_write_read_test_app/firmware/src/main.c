@@ -90,11 +90,11 @@ typedef enum
 #define LED_On()                            LED_Set()
 #define LED_Off()                           LED_Clear()
 
-uint8_t rxData[APP_RX_BUFFER_SIZE];
-uint8_t txData[APP_TX_BUFFER_SIZE];
-APP_STATES state = APP_STATE_INITIALIZE;
-APP_STATES nextState;
-volatile bool isTransferDone = false;
+static uint8_t rxData[APP_RX_BUFFER_SIZE];
+static uint8_t txData[APP_TX_BUFFER_SIZE];
+static APP_STATES state = APP_STATE_INITIALIZE;
+static APP_STATES nextState;
+volatile static bool isTransferDone = false;
 
 void SPIEventHandler(uintptr_t context )
 {

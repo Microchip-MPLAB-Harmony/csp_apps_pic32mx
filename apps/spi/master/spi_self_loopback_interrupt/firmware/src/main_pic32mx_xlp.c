@@ -56,9 +56,9 @@
 #define LED_Off()                       RED_LED_Set()
 
 /* Global variables */
-uint8_t txData[]  = "SELF LOOPBACK DEMO FOR SPI!";
-uint8_t rxData[sizeof(txData)];
-volatile bool transferStatus=false;
+static uint8_t txData[]  = "SELF LOOPBACK DEMO FOR SPI!";
+static uint8_t rxData[sizeof(txData)];
+volatile static bool transferStatus=false;
 
 /* This function will be called by SPI PLIB when transfer is completed */
 void SPI1_Callback(uintptr_t context )

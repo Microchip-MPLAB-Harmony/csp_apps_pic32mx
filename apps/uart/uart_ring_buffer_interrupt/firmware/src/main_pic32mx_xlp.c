@@ -52,11 +52,11 @@
 #include <stdio.h>
 #include "definitions.h"                // SYS function prototypes
 
-uint8_t txBuffer[50];
-uint8_t rxBuffer[10];
-volatile uint32_t nBytesRead = 0;
-volatile bool txThresholdEventReceived = false;
-volatile bool rxThresholdEventReceived = false;
+static uint8_t txBuffer[50];
+static uint8_t rxBuffer[10];
+volatile static uint32_t nBytesRead = 0;
+volatile static bool txThresholdEventReceived = false;
+volatile static bool rxThresholdEventReceived = false;
 
 // *****************************************************************************
 // *****************************************************************************

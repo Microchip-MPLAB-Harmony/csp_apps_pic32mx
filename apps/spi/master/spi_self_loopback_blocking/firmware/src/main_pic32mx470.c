@@ -61,8 +61,8 @@
 #define LED_On()                        LED1_Set()
 #define LED_Off()                       LED1_Clear()
 
-uint8_t txData[]  = "SELF LOOPBACK DEMO FOR SPI!";
-uint8_t rxData[sizeof(txData)];
+static uint8_t txData[]  = "SELF LOOPBACK DEMO FOR SPI!";
+static uint8_t rxData[sizeof(txData)];
 
 int main ( void )
 {

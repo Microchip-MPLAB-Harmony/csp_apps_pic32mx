@@ -54,7 +54,7 @@
 #include "stdio.h"
 #include <string.h>
 
-volatile bool rtcc_alarm = false;
+volatile static bool rtcc_alarm = false;
 
 void RTCC_Callback( uintptr_t context)
 {
