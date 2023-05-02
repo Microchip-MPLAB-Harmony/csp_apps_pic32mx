@@ -70,5 +70,6 @@ void CVR_Stop (void)
 /* Function to update CVREF Value */
 void CVR_UpdateValue (uint8_t value)
 {
-	CVRCONbits.CVR = (value & _CVRCON_CVR_MASK);
+    uint8_t Xvalue = (value & (uint8_t)_CVRCON_CVR_MASK);
+	CVRCONbits.CVR = Xvalue;
 }
