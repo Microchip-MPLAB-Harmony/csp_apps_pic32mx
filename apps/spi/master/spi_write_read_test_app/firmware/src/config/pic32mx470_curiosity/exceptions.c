@@ -11,7 +11,7 @@
   Description:
     This file redefines the default _weak_  exception handler with a more debug
     friendly one. If an unexpected exception occurs the code will stop in a
-    while(1) loop.  The debugger can be halted and two variables exception_code 
+    while(1) loop.  The debugger can be halted and two variables exception_code
     and exception_address can be examined to determine the cause and address
     where the exception occurred.
  *******************************************************************************/
@@ -112,7 +112,7 @@ static uint32_t  exception_code;
     Refer to the XC32 User's Guide for additional information.
  */
 
-void __attribute__((noreturn)) _general_exception_handler ( void )
+void __attribute__((noreturn, weak)) _general_exception_handler ( void )
 {
     /* Mask off the ExcCode Field from the Cause Register
     Refer to the MIPs Software User's manual */
@@ -139,7 +139,7 @@ void __attribute__((noreturn)) _general_exception_handler ( void )
     Refer to the XC32 User's Guide for additional information.
  */
 
-void __attribute__((noreturn)) _bootstrap_exception_handler(void)
+void __attribute__((noreturn, weak)) _bootstrap_exception_handler(void)
 {
     /* Mask off the ExcCode Field from the Cause Register
     Refer to the MIPs Software User's manual */
