@@ -50,6 +50,7 @@
 #include <string.h>
 #include "sys/kmem.h"
 #include "plib_nvm.h"
+#include "interrupts.h"
 
 /* ************************************************************************** */
 /* ************************************************************************** */
@@ -82,6 +83,14 @@ typedef enum
 #define NVM_INTERRUPT_ENABLE_MASK   0x1000000
 #define NVM_INTERRUPT_FLAG_MASK     0x1000000
 
+typedef struct
+{
+    NVM_CALLBACK CallbackFunc;
+    uintptr_t Context;
+}nvmCallbackObjType;
+
+volatile static nvmCallbackObjType nvmCallbackObj;
+
 /* ************************************************************************** */
 /* ************************************************************************** */
 // Section: Local Functions                                                   */
@@ -94,31 +103,29 @@ typedef enum
 // *****************************************************************************
 // *****************************************************************************
 
-NVM_CALLBACK nvmCallbackFunc;
-
-uintptr_t nvmContext;
-
 void NVM_CallbackRegister( NVM_CALLBACK callback, uintptr_t context )
 {
     /* Register callback function */
-    nvmCallbackFunc    = callback;
-    nvmContext         = context;
+    nvmCallbackObj.CallbackFunc    = callback;
+    nvmCallbackObj.Context         = context;
 }
 
-void NVM_InterruptHandler( void )
+void __attribute__((used)) NVM_InterruptHandler( void )
 {
     IFS1CLR = NVM_INTERRUPT_FLAG_MASK;
 
-    if(nvmCallbackFunc != NULL)
+    if(nvmCallbackObj.CallbackFunc != NULL)
     {
-        nvmCallbackFunc(nvmContext);
+        uintptr_t context = nvmCallbackObj.Context;
+        nvmCallbackObj.CallbackFunc(context);
     }
 }
 
 static void NVM_StartOperationAtAddress( uint32_t address,  NVM_OPERATION_MODE operation )
 {
     volatile uint32_t processorStatus;
-    unsigned long mTime;
+    uint32_t mTime;
+    const uint32_t delta = ((80000000U / 2U / 1000000U) * 6U);
 
     processorStatus = __builtin_disable_interrupts();
 
@@ -135,16 +142,15 @@ static void NVM_StartOperationAtAddress( uint32_t address,  NVM_OPERATION_MODE o
     NVMCONSET = _NVMCON_WREN_MASK;
 
     mTime = _CP0_GET_COUNT();
-    mTime += ((80000000 / 2 / 1000000) * 6);
-    while ((signed long)(mTime - _CP0_GET_COUNT()) > 0)
+    while (( _CP0_GET_COUNT() - mTime) < delta)
     {
         Nop();
     }
 
     // Write the unlock key sequence
     NVMKEY = 0x0;
-    NVMKEY = NVM_UNLOCK_KEY1;
-    NVMKEY = NVM_UNLOCK_KEY2;
+    NVMKEY = (uint32_t)NVM_UNLOCK_KEY1;
+    NVMKEY = (uint32_t)NVM_UNLOCK_KEY2;
 
     // Start the operation
     NVMCONSET = _NVMCON_WR_MASK;
@@ -167,11 +173,11 @@ void NVM_Initialize( void )
 
 bool NVM_Read( uint32_t *data, uint32_t length, const uint32_t address )
 {
-    memcpy((void *)data, (void *)KVA0_TO_KVA1(address), length);
+    /* MISRA C-2012 Rule 11.6 violated 1 time below. Deviation record ID - H3_MISRAC_2012_R_11_6_DR_1*/
+    (void)memcpy(data, (uint32_t*)KVA0_TO_KVA1(address), length);
 
     return true;
 }
-
 bool NVM_WordWrite( uint32_t data, uint32_t address )
 {
     NVMDATA = (uint32_t )data;
@@ -199,8 +205,9 @@ bool NVM_PageErase( uint32_t address )
 
 NVM_ERROR NVM_ErrorGet( void )
 {
+    uint32_t varErrorGet = NVMCON & (_NVMCON_LVDERR_MASK | _NVMCON_WRERR_MASK);
     // mask for WRERR and LVDERR bits
-    return (NVMCON & (_NVMCON_LVDERR_MASK | _NVMCON_WRERR_MASK));
+    return (NVM_ERROR)(varErrorGet);
 }
 
 bool NVM_IsBusy( void )
