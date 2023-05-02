@@ -1,4 +1,4 @@
-<config configName="pic32mx_xlp_sk" projectName="tmr1_timer_mode_pic32mx_xlp_sk" configVersion="1.1" device="PIC32MX274F256D" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
+<config configName="pic32mx_xlp_sk" projectName="tmr1_timer_mode_pic32mx_xlp_sk" configVersion="1.1" device="PIC32MX274F256D" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.0">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -15,7 +15,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.3.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -917,23 +917,23 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\evic\plib_evic.c</file>
-         <hash>c75182ee1b23b007128beee009dc07ddda15a49290ffa94c9b5aed7a8453a471</hash>
+         <hash>0a29338cee19796fd3ee15d18343d3e4deb59eb9865d923e0549b60611fbe314</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\exceptions.c</file>
-         <hash>bacd9060af8add5471ec3170808fe766dbd651e25104b5ecc8a7ebc02935e727</hash>
+         <hash>51869a2069933bd13284df52f5f993f4e8b83ae6097dda36c4b1fc6e818df86d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\clk\plib_clk.h</file>
-         <hash>aeb73e24e5a518024b1c3f7dce953a5cbacead08f55e80ae465fc8d2e522e477</hash>
+         <hash>35384f2e13e59b7190bf77f6996baf3ea2377ec42df94979a6f793326def5255</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\evic\plib_evic.h</file>
-         <hash>b19ba6bf5938560495c6b4b05595b1b12a66170c53e4f3fa4c05ff139cc211f3</hash>
+         <hash>799334df9a885a482a32077e238a3c74bfdcad46058e8e7ba2b8a61a05164344</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\clk\plib_clk.c</file>
-         <hash>0d811fdfa19f05867cdca2f0dbe398e33542ea6c6c11dbd7ff28c0f7678ab8df</hash>
+         <hash>06789c99ab20ffd9b60682e6015ebf2d2f73794506e2cd77c9c80f5b21fad411</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\p32MX274F256D.ld</file>
@@ -945,35 +945,35 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\toolchain_specifics.h</file>
-         <hash>9dfc75809b6eb23cee342231de51f6b382f8f7eabf8a939539cf44c0da32acbc</hash>
+         <hash>38b3e0e3652463c4c84dc445fd0af062ddf1e36ce2aefeae250f3f0c4fef5685</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\tmr1\plib_tmr1.c</file>
-         <hash>46a6f86eee27e762d0d24af888d51bc4c746ce30a5edd1218a7721ad11aa68dd</hash>
+         <hash>4ec5160fb3d14f1dc8ed20125e7d9fd224941e4ccb887db84b8e2385fd27e270</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\gpio\plib_gpio.h</file>
-         <hash>ef70da16f72587e7b4c7a7f7e0c9c599f6444de5e9e0e09e3acda4bbafe22202</hash>
+         <hash>da4a9e844b4ea9eac04af47686472bef15c0359d0d84e3ba9ad94506990f614c</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\gpio\plib_gpio.c</file>
-         <hash>cd4529301bacb11d77c15b518faa3b81ed5e9823e891e729ba9edb3caba52b59</hash>
+         <hash>ca9c9800b72fcd5770faff3316e12454dfa75d70895b72cfa58ded501464db7a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\definitions.h</file>
-         <hash>c2b81c854815952bbeca3b4a9bccb12d7f7bd4b3ed4a36e40d94be535fe59e5e</hash>
+         <hash>a95a20a3b985c7dc71bf7f98f2a4456a7d8e73ee1d8ef9ae1625c28a2fc477bd</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\interrupts.c</file>
-         <hash>2dd1f308cdde42f871e3d5d86cacf0be3b971b12d16fb6477d7bd081ca875c1f</hash>
+         <hash>624cba7b0d35d29ed0305ad4807dd312190c71a10e77a781eeaa82169a72287f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\initialization.c</file>
-         <hash>6e0745e7fc360d360c660d4bc5c367ef275eb70da33ec84bbb0c3eca43193b5b</hash>
+         <hash>e0a730154c724bbbd901151adf709fc89b254d93e34c4fd121d293135b1e3a16</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\interrupts.h</file>
-         <hash>91abdb8d191ae865fc6082f30783c3d6cca8aa8d5aca823a7fb2cc65e3a57d24</hash>
+         <hash>d3d3bf6ca4d7e0f35e42cf5147573de11ac380250b5dbfac428b37caf01f1780</hash>
       </entry>
       <entry>
          <file>..\src\main.c</file>
@@ -981,7 +981,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\tmr1\plib_tmr1.h</file>
-         <hash>b28749c5aeabe65f99fb625e1d171fcc0979f5b85f0ff072a6fb610d66236832</hash>
+         <hash>3e1ae49682c4b1b0f0d329f2b76d9e9f9a2a32bb42f25049a897e05c85270626</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\device.h</file>
