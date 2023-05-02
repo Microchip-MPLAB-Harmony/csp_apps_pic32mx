@@ -1,4 +1,4 @@
-<config configName="pic32mx_eth_sk2" projectName="coretimer_periodic_timeout_pic32mx_eth_sk2" configVersion="1.1" device="PIC32MX795F512L" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
+<config configName="pic32mx_eth_sk2" projectName="coretimer_periodic_timeout_pic32mx_eth_sk2" configVersion="1.1" device="PIC32MX795F512L" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.0">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -15,7 +15,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.3.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -854,23 +854,23 @@
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\toolchain_specifics.h</file>
-         <hash>9dfc75809b6eb23cee342231de51f6b382f8f7eabf8a939539cf44c0da32acbc</hash>
+         <hash>38b3e0e3652463c4c84dc445fd0af062ddf1e36ce2aefeae250f3f0c4fef5685</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\gpio\plib_gpio.c</file>
-         <hash>87d3095bbc7a9dbbe9b0db57fe5de56738f4d867644be213172a1db7b1444d08</hash>
+         <hash>ea1948173efbb0902aab1b4657c69086330c6c427652a8dc3150c54db4f2defa</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\gpio\plib_gpio.h</file>
-         <hash>85f2ca7c9862ad003fa064426ef57659d23e7d40e7cf6f84e991ab765eba2dab</hash>
+         <hash>9fae410a42d60ef02b948e199e17b27f61cf7651dd3eebb8e534b017181c26bc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\interrupts.c</file>
-         <hash>ed2190d689a24663ca094e4e7d88fbc08844c760158e362c000139b964b96867</hash>
+         <hash>c73d2018cc6daf62eeb63c09052a712f91fe35355b930ea111b69c83dadc4ed5</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\coretimer\plib_coretimer.h</file>
-         <hash>8eeba489d6c9e21a55e145a870f4e29ec92df387fdb1459d80753cde880d403b</hash>
+         <hash>7b83410a00e58a75ec95e4eb29b80e68491ffc0e1728e658810f041973371c1c</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\p32MX795F512L.ld</file>
@@ -878,11 +878,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\clk\plib_clk.c</file>
-         <hash>90f3a456c779488a1a9eea5389aaa6af43a939be5dc133b647bf113a488fa28d</hash>
+         <hash>e8cbfd286346bacd3b737435c07e34ff8723c2e98af3a99f742dbb1f69622ce0</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\exceptions.c</file>
-         <hash>bacd9060af8add5471ec3170808fe766dbd651e25104b5ecc8a7ebc02935e727</hash>
+         <hash>51869a2069933bd13284df52f5f993f4e8b83ae6097dda36c4b1fc6e818df86d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\device.h</file>
@@ -890,31 +890,31 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\definitions.h</file>
-         <hash>41902756e2c169dfd63ec4097cd4f4a35dc04e433ef4ef8a7007e9def9f2dfcf</hash>
+         <hash>dee485dabcf729f5a5a50b0261118b620371afff964ee770f3b441d7e32486c7</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\initialization.c</file>
-         <hash>5e73c8f83ee17984b8340712d469dd9d46c6642674d3fb9cb211b5abeeb30c7a</hash>
+         <hash>98449a78a463a8fbdd9ba03e9d94ee8deaaf579c2467390a853393ca97db7d43</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\evic\plib_evic.c</file>
-         <hash>3a22034912d931bbdffb897f29c522cbc0d2dde5f11de68d6da977ac4601f4f1</hash>
+         <hash>8a466a89840a02c52289a868411088e4bb25de5be93f8f5c32959a9ac0b91e3b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\interrupts.h</file>
-         <hash>91abdb8d191ae865fc6082f30783c3d6cca8aa8d5aca823a7fb2cc65e3a57d24</hash>
+         <hash>beb8f3876d2c3744c2eb83874c95d08490d09221cbb913508c2773be7396e128</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\coretimer\plib_coretimer.c</file>
-         <hash>9d6acf01226eb43c1db60b4b6fba498114ee1980a8693a3acfc41326583ba8e1</hash>
+         <hash>b94670443f50120747ee844a4ea7c5f1aa5ade95cd485887bb887497fd730b2f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\clk\plib_clk.h</file>
-         <hash>aeb73e24e5a518024b1c3f7dce953a5cbacead08f55e80ae465fc8d2e522e477</hash>
+         <hash>35384f2e13e59b7190bf77f6996baf3ea2377ec42df94979a6f793326def5255</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\evic\plib_evic.h</file>
-         <hash>2f73c4ff4e1e5afdf9132140e231fd6c55b1825c54a71805faad0eedeca27433</hash>
+         <hash>db5e3889a7644e7053a032c08f7767258021260cc857660fc0c8cb77f9d17182</hash>
       </entry>
       <entry>
          <file>..\src\main.c</file>
