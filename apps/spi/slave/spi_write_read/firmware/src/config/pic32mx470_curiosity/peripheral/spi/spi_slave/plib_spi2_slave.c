@@ -41,6 +41,7 @@
 #include "plib_spi2_slave.h"
 #include "peripheral/gpio/plib_gpio.h"
 #include <string.h>
+#include "interrupts.h"
 // *****************************************************************************
 // *****************************************************************************
 // Section: SPI2 Slave Implementation
@@ -53,12 +54,12 @@
 #define SPI2_READ_BUFFER_SIZE            256
 #define SPI2_WRITE_BUFFER_SIZE           256
 
-static uint8_t SPI2_ReadBuffer[SPI2_READ_BUFFER_SIZE];
-static uint8_t SPI2_WriteBuffer[SPI2_WRITE_BUFFER_SIZE];
+volatile static uint8_t SPI2_ReadBuffer[SPI2_READ_BUFFER_SIZE];
+volatile static uint8_t SPI2_WriteBuffer[SPI2_WRITE_BUFFER_SIZE];
 
 
 /* Global object to save SPI Exchange related data */
-static SPI_SLAVE_OBJECT spi2Obj;
+volatile static SPI_SLAVE_OBJECT spi2Obj;
 
 #define SPI2_CON_CKP                        (0UL << _SPI2CON_CKP_POSITION)
 #define SPI2_CON_CKE                        (1UL << _SPI2CON_CKE_POSITION)
@@ -80,6 +81,17 @@ static SPI_SLAVE_OBJECT spi2Obj;
 
 /* Forward declarations */
 static void SPI2_CS_Handler(GPIO_PIN pin, uintptr_t context);
+
+static void mem_copy(volatile void* pDst, volatile void* pSrc, uint32_t nBytes)
+{
+    volatile uint8_t* pSource = (volatile uint8_t*)pSrc;
+    volatile uint8_t* pDest = (volatile uint8_t*)pDst;
+
+    for (uint32_t i = 0U; i < nBytes; i++)
+    {
+        pDest[i] = pSource[i];
+    }
+}
 
 void SPI2_Initialize ( void )
 {
@@ -105,7 +117,7 @@ void SPI2_Initialize ( void )
     MSTEN = 0
     CKP = 0
     CKE = 1
-    MODE<32,16> = 0
+    MODE< 32,16 > = 0
     ENHBUF = 1
     */
 
@@ -127,7 +139,7 @@ void SPI2_Initialize ( void )
     GPIO_PinWrite((GPIO_PIN)SPI2_BUSY_PIN, 0);
 
     /* Register callback and enable notifications on Chip Select logic level change */
-    GPIO_PinInterruptCallbackRegister(SPI2_CS_PIN, SPI2_CS_Handler, (uintptr_t)NULL);
+    (void)GPIO_PinInterruptCallbackRegister(SPI2_CS_PIN, SPI2_CS_Handler, 0U);
     GPIO_PinInterruptEnable(SPI2_CS_PIN);
 
     /* Enable SPI2 RX and Error Interrupts. TX interrupt will be enabled when a SPI write is submitted. */
@@ -149,7 +161,7 @@ size_t SPI2_Read(void* pRdBuffer, size_t size)
         rdSize = rdInIndex;
     }
 
-   (void) memcpy(pRdBuffer, SPI2_ReadBuffer, rdSize);
+   (void) mem_copy(pRdBuffer, SPI2_ReadBuffer, rdSize);
 
     return rdSize;
 }
@@ -158,6 +170,7 @@ size_t SPI2_Read(void* pRdBuffer, size_t size)
 size_t SPI2_Write(void* pWrBuffer, size_t size )
 {
     size_t wrSize = size;
+    size_t wrOutIndex = 0;
 
     SPI2_DISABLE_TX_INT();
 
@@ -166,17 +179,18 @@ size_t SPI2_Write(void* pWrBuffer, size_t size )
         wrSize = SPI2_WRITE_BUFFER_SIZE;
     }
 
-    (void) memcpy(SPI2_WriteBuffer, pWrBuffer, wrSize);
+    (void) mem_copy(SPI2_WriteBuffer, pWrBuffer, wrSize);
 
     spi2Obj.nWrBytes = wrSize;
-    spi2Obj.wrOutIndex = 0;
 
     /* Fill up the FIFO as long as there are empty elements */
-    while ((!(SPI2STAT & _SPI2STAT_SPITBF_MASK)) && (spi2Obj.wrOutIndex < spi2Obj.nWrBytes))
+    while ((!(SPI2STAT & _SPI2STAT_SPITBF_MASK)) && (wrOutIndex < wrSize))
     {
-        SPI2BUF = SPI2_WriteBuffer[spi2Obj.wrOutIndex];
-		spi2Obj.wrOutIndex++;
+        SPI2BUF = SPI2_WriteBuffer[wrOutIndex];
+        wrOutIndex++;
     }
+
+    spi2Obj.wrOutIndex = wrOutIndex;
 
     /* Enable TX interrupt */
     SPI2_ENABLE_TX_INT();
@@ -230,7 +244,7 @@ SPI_SLAVE_ERROR SPI2_ErrorGet(void)
     return errorStatus;
 }
 
-static void SPI2_CS_Handler(GPIO_PIN pin, uintptr_t context)
+static void __attribute__((used)) SPI2_CS_Handler(GPIO_PIN pin, uintptr_t context)
 {
     bool activeState = false;
 
@@ -246,7 +260,9 @@ static void SPI2_CS_Handler(GPIO_PIN pin, uintptr_t context)
     {
         /* Give application callback only if RX interrupt is not preempted and RX interrupt is not pending to be serviced */
 
-        if ((spi2Obj.rxInterruptActive == false) && ((IFS1 & _IFS1_SPI2RXIF_MASK) == 0))
+        bool rxInterruptActive = spi2Obj.rxInterruptActive;
+
+        if (((IFS1 & _IFS1_SPI2RXIF_MASK) == 0) && (rxInterruptActive == false))
         {
             /* CS is de-asserted */
             spi2Obj.transferIsBusy = false;
@@ -256,7 +272,9 @@ static void SPI2_CS_Handler(GPIO_PIN pin, uintptr_t context)
 
             if(spi2Obj.callback != NULL)
             {
-                spi2Obj.callback(spi2Obj.context);
+                uintptr_t context_val = spi2Obj.context;
+
+                spi2Obj.callback(context_val);
             }
 
             /* Clear the read index. Application must read out the data by calling SPI2_Read API in the callback */
@@ -272,7 +290,7 @@ static void SPI2_CS_Handler(GPIO_PIN pin, uintptr_t context)
     }
 }
 
-static void SPI2_FAULT_InterruptHandler (void)
+static void __attribute__((used)) SPI2_FAULT_InterruptHandler (void)
 {
     spi2Obj.errorStatus =(SPI2STAT & _SPI2STAT_SPIROV_MASK);
 
@@ -282,42 +300,51 @@ static void SPI2_FAULT_InterruptHandler (void)
     SPI2_CLEAR_ERR_INT_FLAG();
 }
 
-static void SPI2_TX_InterruptHandler (void)
+static void __attribute__((used)) SPI2_TX_InterruptHandler (void)
 {
+    size_t wrOutIndex = spi2Obj.wrOutIndex;
+    size_t nWrBytes = spi2Obj.nWrBytes;
+
     /* Fill up the FIFO as long as there are empty elements */
-    while ((!(SPI2STAT & _SPI2STAT_SPITBF_MASK)) && (spi2Obj.wrOutIndex < spi2Obj.nWrBytes))
+    while ((!(SPI2STAT & _SPI2STAT_SPITBF_MASK)) && (wrOutIndex < nWrBytes))
     {
-        SPI2BUF = SPI2_WriteBuffer[spi2Obj.wrOutIndex];
-		spi2Obj.wrOutIndex++;
+        SPI2BUF = SPI2_WriteBuffer[wrOutIndex];
+        wrOutIndex++;
     }
+
+    spi2Obj.wrOutIndex = wrOutIndex;
 
     /* Clear the transmit interrupt flag */
     SPI2_CLEAR_TX_INT_FLAG();
 
-    if (spi2Obj.wrOutIndex == spi2Obj.nWrBytes)
+    if (spi2Obj.wrOutIndex == nWrBytes)
     {
         /* Nothing to transmit. Disable transmit interrupt. The last byte sent by the master will be shifted out automatically*/
         SPI2_DISABLE_TX_INT();
     }
 }
 
-static void SPI2_RX_InterruptHandler (void)
+static void __attribute__((used)) SPI2_RX_InterruptHandler (void)
 {
     uint32_t receivedData = 0;
 
     spi2Obj.rxInterruptActive = true;
+
+    size_t rdInIndex = spi2Obj.rdInIndex;
 
     while (!(SPI2STAT & _SPI2STAT_SPIRBE_MASK))
     {
         /* Receive buffer is not empty. Read the received data. */
         receivedData = SPI2BUF;
 
-        if (spi2Obj.rdInIndex < SPI2_READ_BUFFER_SIZE)
+        if (rdInIndex < SPI2_READ_BUFFER_SIZE)
         {
-            SPI2_ReadBuffer[spi2Obj.rdInIndex] = (uint8_t)receivedData;
-			spi2Obj.rdInIndex++;
+            SPI2_ReadBuffer[rdInIndex] = (uint8_t)receivedData;
+            rdInIndex++;
         }
     }
+
+    spi2Obj.rdInIndex = rdInIndex;
 
     /* Clear the receive interrupt flag */
     SPI2_CLEAR_RX_INT_FLAG();
@@ -337,7 +364,9 @@ static void SPI2_RX_InterruptHandler (void)
 
         if(spi2Obj.callback != NULL)
         {
-            spi2Obj.callback(spi2Obj.context);
+            uintptr_t context = spi2Obj.context;
+
+            spi2Obj.callback(context);
         }
 
         /* Clear the read index. Application must read out the data by calling SPI2_Read API in the callback */
@@ -345,19 +374,23 @@ static void SPI2_RX_InterruptHandler (void)
     }
 }
 
-void SPI_2_InterruptHandler (void)
+void __attribute__((used)) SPI_2_InterruptHandler(void)
 {
-    if ((IFS1 & _IFS1_SPI2EIF_MASK) && (IEC1 & _IEC1_SPI2EIE_MASK))
+    bool tmp;
+    tmp = ((IEC1 & _IEC1_SPI2EIE_MASK) != 0U);
+    if(((IFS1 & _IFS1_SPI2EIF_MASK) != 0U) && tmp)
     {
         /* Call error interrupt handler */
         SPI2_FAULT_InterruptHandler();
     }
-    if ((IFS1 & _IFS1_SPI2RXIF_MASK) && (IEC1 & _IEC1_SPI2RXIE_MASK))
+    tmp = ((IEC1 & _IEC1_SPI2RXIE_MASK) != 0U);
+    if(((IFS1 & _IFS1_SPI2RXIF_MASK) != 0U) && tmp)
     {
         /* RX interrupt is enabled and RX buffer is not empty */
         SPI2_RX_InterruptHandler();
     }
-    if ((IFS1 & _IFS1_SPI2TXIF_MASK) && (IEC1 & _IEC1_SPI2TXIE_MASK))
+    tmp = ((IEC1 & _IEC1_SPI2TXIE_MASK) != 0U);
+    if(((IFS1 & _IFS1_SPI2TXIF_MASK) != 0U) && tmp)
     {
         /* TX interrupt is enabled and TX buffer is empty */
         SPI2_TX_InterruptHandler();
