@@ -44,10 +44,10 @@
 #include <stdbool.h>
 
 #ifdef __cplusplus // Provide C++ Compatibility
-	extern "C" {
+    extern "C" {
 #endif
 
-#define CORE_TIMER_FREQUENCY    36000000
+#define CORE_TIMER_FREQUENCY    (36000000U)
 
 #define CORE_TIMER_INTERRUPT_PERIOD_VALUE    0x36ee80
 #define CORE_TIMER_INTERRUPT_PERIOD_IN_US     100000
@@ -58,7 +58,7 @@ typedef struct
 {
     CORETIMER_CALLBACK  callback;
     uintptr_t           context;
-    volatile uint32_t   tickCounter;
+    uint32_t            tickCounter;
     uint32_t            period;
 } CORETIMER_OBJECT ;
 

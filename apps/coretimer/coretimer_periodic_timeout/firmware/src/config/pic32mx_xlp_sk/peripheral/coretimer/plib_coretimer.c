@@ -40,9 +40,10 @@
 
 #include "device.h"
 #include "peripheral/coretimer/plib_coretimer.h"
+#include "interrupts.h"
 
-CORETIMER_OBJECT coreTmr;
-void CORETIMER_Initialize()
+volatile static CORETIMER_OBJECT coreTmr;
+void CORETIMER_Initialize(void)
 {
     // Disable Timer by setting Disable Count (DC) bit
     _CP0_SET_CAUSE(_CP0_GET_CAUSE() | _CP0_CAUSE_DC_MASK);
@@ -57,9 +58,9 @@ void CORETIMER_CallbackSet ( CORETIMER_CALLBACK callback, uintptr_t context )
 }
 void CORETIMER_PeriodSet ( uint32_t period )
 {
-    coreTmr.period=period;
+    coreTmr.period = period;
 }
-void CORETIMER_Start()
+void CORETIMER_Start(void)
 {
     // Disable Timer by setting Disable Count (DC) bit
     _CP0_SET_CAUSE(_CP0_GET_CAUSE() | _CP0_CAUSE_DC_MASK);
@@ -73,7 +74,7 @@ void CORETIMER_Start()
     // Enable Interrupt
     IEC0SET=0x1;
 }
-void CORETIMER_Stop()
+void CORETIMER_Stop( void )
 {
     // Disable Timer by setting Disable Count (DC) bit
     _CP0_SET_CAUSE(_CP0_GET_CAUSE() | _CP0_CAUSE_DC_MASK);
@@ -84,25 +85,30 @@ uint32_t CORETIMER_FrequencyGet ( void )
 {
     return (CORE_TIMER_FREQUENCY);
 }
-void CORE_TIMER_InterruptHandler (void)
+void __attribute__((used)) CORE_TIMER_InterruptHandler (void)
 {
     uint32_t count, newCompare;
     uint32_t status = IFS0bits.CTIF;
     IFS0CLR = 0x1;
     // Start Critical Section
-    __builtin_disable_interrupts();
+    (void) __builtin_disable_interrupts();
     count=_CP0_GET_COUNT();
     newCompare=_CP0_GET_COMPARE() + coreTmr.period;
-    if (count<newCompare-50)
+    if (50U < newCompare-count)
+    {
         _CP0_SET_COMPARE(newCompare);
+    }
     else
-        _CP0_SET_COMPARE(count+50);
+    {
+        _CP0_SET_COMPARE(count+50U);
+    }
     // End Critical Section
-    __builtin_enable_interrupts();
+    (void) __builtin_enable_interrupts();
     coreTmr.tickCounter++;
     if(coreTmr.callback != NULL)
     {
-        coreTmr.callback(status, coreTmr.context);
+        uintptr_t context = coreTmr.context;
+        coreTmr.callback(status, context);
     }
 }
 
@@ -113,11 +119,13 @@ void CORETIMER_DelayMs ( uint32_t delay_ms)
     uint32_t startCount, endCount;
 
     /* Calculate the end count for the given delay */
-    endCount=(CORE_TIMER_FREQUENCY/1000)*delay_ms;
+    endCount=(CORE_TIMER_FREQUENCY / 1000U) * delay_ms;
 
     startCount=_CP0_GET_COUNT();
-    while((_CP0_GET_COUNT()-startCount)<endCount);
-
+    while((_CP0_GET_COUNT() - startCount) < endCount)
+    {
+        /* Wait for compare match */
+    }
 }
 
 void CORETIMER_DelayUs ( uint32_t delay_us)
@@ -125,10 +133,12 @@ void CORETIMER_DelayUs ( uint32_t delay_us)
     uint32_t startCount, endCount;
 
     /* Calculate the end count for the given delay */
-    endCount=(CORE_TIMER_FREQUENCY/1000000)*delay_us;
+    endCount=(CORE_TIMER_FREQUENCY / 1000000U) * delay_us;
 
     startCount=_CP0_GET_COUNT();
-    while((_CP0_GET_COUNT()-startCount)<endCount);
-
+    while((_CP0_GET_COUNT() - startCount) < endCount)
+    {
+        /* Wait for compare match */
+    }
 }
 

@@ -1,4 +1,4 @@
-<config configName="pic32mx_xlp_sk" projectName="coretimer_periodic_timeout_pic32mx_xlp_sk" configVersion="1.1" device="PIC32MX274F256D" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
+<config configName="pic32mx_xlp_sk" projectName="coretimer_periodic_timeout_pic32mx_xlp_sk" configVersion="1.1" device="PIC32MX274F256D" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.0">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -15,7 +15,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.3.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -495,23 +495,23 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\evic\plib_evic.c</file>
-         <hash>a5d52977fef47568f0e974e1b7e08a18bbc71996008b0c9f393fa878530ca537</hash>
+         <hash>c8bad7207d90f2c47e6852d9fb3429c71fc58e926e14f3a57ac8e9c82749b925</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\exceptions.c</file>
-         <hash>bacd9060af8add5471ec3170808fe766dbd651e25104b5ecc8a7ebc02935e727</hash>
+         <hash>51869a2069933bd13284df52f5f993f4e8b83ae6097dda36c4b1fc6e818df86d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\clk\plib_clk.h</file>
-         <hash>aeb73e24e5a518024b1c3f7dce953a5cbacead08f55e80ae465fc8d2e522e477</hash>
+         <hash>35384f2e13e59b7190bf77f6996baf3ea2377ec42df94979a6f793326def5255</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\evic\plib_evic.h</file>
-         <hash>b19ba6bf5938560495c6b4b05595b1b12a66170c53e4f3fa4c05ff139cc211f3</hash>
+         <hash>799334df9a885a482a32077e238a3c74bfdcad46058e8e7ba2b8a61a05164344</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\clk\plib_clk.c</file>
-         <hash>b18fe3a93a4eec79ec40113e53d894190a875275b35504a4196de051b49c21ec</hash>
+         <hash>4df3a467fa5ebc7180cd835bf262728b1f9a5dcfa581922f0c6d2ad04061f600</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\p32MX274F256D.ld</file>
@@ -519,35 +519,35 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\toolchain_specifics.h</file>
-         <hash>9dfc75809b6eb23cee342231de51f6b382f8f7eabf8a939539cf44c0da32acbc</hash>
+         <hash>38b3e0e3652463c4c84dc445fd0af062ddf1e36ce2aefeae250f3f0c4fef5685</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\gpio\plib_gpio.h</file>
-         <hash>005b8781a8657b03836d94297e747a467bac447b6440c14320a82e4ddcde0d58</hash>
+         <hash>14199f9c3d4441ef614eec52c6e85df99aaf98650036cb9a58aa4f0b3eb97962</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\gpio\plib_gpio.c</file>
-         <hash>cd4529301bacb11d77c15b518faa3b81ed5e9823e891e729ba9edb3caba52b59</hash>
+         <hash>ca9c9800b72fcd5770faff3316e12454dfa75d70895b72cfa58ded501464db7a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\definitions.h</file>
-         <hash>fd5753fa7deaa7e6acadc7d80a2d2df3b35a1c25ff6a414a13198920d74937dc</hash>
+         <hash>3ac154bbe5301435c03b775723f470e2c6ae152157ec22575ebe2ce23a76da88</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\interrupts.c</file>
-         <hash>ed2190d689a24663ca094e4e7d88fbc08844c760158e362c000139b964b96867</hash>
+         <hash>c73d2018cc6daf62eeb63c09052a712f91fe35355b930ea111b69c83dadc4ed5</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\coretimer\plib_coretimer.c</file>
-         <hash>9d6acf01226eb43c1db60b4b6fba498114ee1980a8693a3acfc41326583ba8e1</hash>
+         <hash>b94670443f50120747ee844a4ea7c5f1aa5ade95cd485887bb887497fd730b2f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\initialization.c</file>
-         <hash>12b64b533150e47bc55dab494636ba33f03421cd9a80055a164a3ec8e2a1694f</hash>
+         <hash>d050a40618105bba97fd8ca4797756fab48d6cdf09a35c995a4cb6158bc4cab8</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\interrupts.h</file>
-         <hash>91abdb8d191ae865fc6082f30783c3d6cca8aa8d5aca823a7fb2cc65e3a57d24</hash>
+         <hash>beb8f3876d2c3744c2eb83874c95d08490d09221cbb913508c2773be7396e128</hash>
       </entry>
       <entry>
          <file>..\src\main.c</file>
@@ -555,7 +555,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\peripheral\coretimer\plib_coretimer.h</file>
-         <hash>7ca6a28997b44397c971570107674f9bd095d5c7e046b6189ea8a270447a55c1</hash>
+         <hash>4ced2f4bb6c433cd9ce9df3231ca9d84637431fb91fb7a57b84eabf0c71a9118</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_xlp_sk\device.h</file>
