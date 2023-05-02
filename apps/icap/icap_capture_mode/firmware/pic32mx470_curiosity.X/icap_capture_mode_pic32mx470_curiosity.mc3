@@ -1,4 +1,4 @@
-<config configName="pic32mx470_curiosity" projectName="icap_capture_mode_pic32mx470_curiosity" configVersion="1.1" device="PIC32MX470F512H" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
+<config configName="pic32mx470_curiosity" projectName="icap_capture_mode_pic32mx470_curiosity" configVersion="1.1" device="PIC32MX470F512H" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.0">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -31,7 +31,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.3.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -1286,11 +1286,11 @@
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
          <file>..\src\config\pic32mx470_curiosity\stdio\xc32_monitor.c</file>
-         <hash>0686d176910c03a71788eee4ae3b99492c26e6e03a4724c6a49fa76c0b2e6c3f</hash>
+         <hash>34c7efa285dd6778faf01a0097bf7bebc131e7a8a0ed97bb737ff3e0a39895d2</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\gpio\plib_gpio.c</file>
-         <hash>c91723956f9dfed05ed95c84e110e1b458f976039d04d127b47771a200b12a22</hash>
+         <hash>65a2354f00d2118afbbc2f61f55d681a5df58a74acb502d36ea7036f63c8d37b</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\ocmp\plib_ocmp_common.h</file>
@@ -1298,23 +1298,23 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\gpio\plib_gpio.h</file>
-         <hash>e7d3944b3642d1fb86161f19d9b3d92ece04853e86fb6ac7c171a1934c532b89</hash>
+         <hash>a56f49aa8799ec088531e790cfd1ba241f40e1c67c8ff4e3fae2e12cc86e3dd2</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\evic\plib_evic.h</file>
-         <hash>ba6aa89118f11cdda7abe88b65c0dffa5e2bde61bd9710cfacbf5b82aeca02f8</hash>
+         <hash>e583d61209911805b20188f532f6c5075500408e9f75de59324804b7203f1997</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\definitions.h</file>
-         <hash>a7d1fbfc04f94b772a17cd80c1693985a63d4bd45c3f1415063e7d7786151ae8</hash>
+         <hash>ef92d5493e954280aad4bb2abb4f3f76a214de82b46e1e2c44406bb186560245</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\exceptions.c</file>
-         <hash>bacd9060af8add5471ec3170808fe766dbd651e25104b5ecc8a7ebc02935e727</hash>
+         <hash>51869a2069933bd13284df52f5f993f4e8b83ae6097dda36c4b1fc6e818df86d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\uart\plib_uart1.c</file>
-         <hash>b43048e9bfc0af561156e43bef9d5ce4028b294c98eb6e1001cf6ce00c63a624</hash>
+         <hash>32dac8716858b7b68fdad8098aefcd60b1d58a5dfb27dc21a9e082d4a8b48326</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\p32MX470F512H.ld</file>
@@ -1326,31 +1326,31 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\tmr\plib_tmr2.h</file>
-         <hash>fd4e85edc7fc07350b177f5216fcb6bc6b58e13910587e546515c5a365d8125c</hash>
+         <hash>5858cb74642e69a4ddc20b0441662d2e9ca6839d54c2a71cf81dd35ace34b5da</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\tmr\plib_tmr2.c</file>
-         <hash>db1d26f315f3e502bd812276d0e35a8b5878ee9b655cd82d4a9e19aa47cca2ce</hash>
+         <hash>0d1fcc574efb0a57ff3ff9dce6415c062760c09a356c6314a1ae66f1ebb0c715</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\initialization.c</file>
-         <hash>92714892830d2586d6efdf8abc5608c2d93197867fb988b0f29dedf7e220e196</hash>
+         <hash>bae669b6100060f5ec7549019746554774ca986c432a163d75ae9fcbb1606e4f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\clk\plib_clk.c</file>
-         <hash>680cb93753a6812774b9b1c912cb721e325cfc1c9157a4b394efc0552bf140ef</hash>
+         <hash>651793f6493b8216af296ce051bf607c4d60d25f5b9db9b806cf475eb267d4dc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\ocmp\plib_ocmp3.h</file>
-         <hash>0d9f923bf2c9b1399a575027c9f6fa478006081166dd5b185fa248f4f3b2b6a5</hash>
+         <hash>fd32049186f979d2a6d28e11c62d8153ea77be6fc489fe2a9e19193578d00bdc</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\uart\plib_uart_common.h</file>
-         <hash>c218c6173a59f6dff90ca776b4bf86cc2a856fa7e3272fb08dd42921ef56b24b</hash>
+         <hash>b87295faadae4157d5880e22970f89094f2b51e1866930040a90ba49c6b29797</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\ocmp\plib_ocmp3.c</file>
-         <hash>23a825ab5ca2507f9cd355215e67e37e55c4a59a9df28c9991617ceb81deaa4d</hash>
+         <hash>331bd317dbf81ca811051cfb489e9d2822f98bfe8e43087573b6594e33164b20</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\device.h</file>
@@ -1358,7 +1358,7 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\icap\plib_icap1.h</file>
-         <hash>888d30580f058b60986bc1d67f417b5a2be30f7426fc4ee3ae87d3be860aaa18</hash>
+         <hash>a8eed9fc80a08c51c1a9811eb36c84ca1fd1fae4a73e26795157869b8991a137</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\tmr\plib_tmr_common.h</file>
@@ -1370,19 +1370,19 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\evic\plib_evic.c</file>
-         <hash>23711bc9f29b171e2ce58404ded7cc8e8516eb6829086742682e529185de5989</hash>
+         <hash>9f7449415a719bfe60947c2bdb3144245cfc400cf06861ccbfe6df6b81f4fb20</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\icap\plib_icap1.c</file>
-         <hash>bc99621398c041998ae0aa94c3cdf0c467a3256b5ea57ec0ee8c7c7836d49d1f</hash>
+         <hash>b133438611c58cfbe6a4f88b2779be9768395b353fda9edb7630aaab4a6ca473</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\interrupts.h</file>
-         <hash>91abdb8d191ae865fc6082f30783c3d6cca8aa8d5aca823a7fb2cc65e3a57d24</hash>
+         <hash>759cce8ff415eadadd85a74232a5023d73e8859a4556ef4beb93c2cfd4b8d8ef</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\peripheral\clk\plib_clk.h</file>
-         <hash>aeb73e24e5a518024b1c3f7dce953a5cbacead08f55e80ae465fc8d2e522e477</hash>
+         <hash>35384f2e13e59b7190bf77f6996baf3ea2377ec42df94979a6f793326def5255</hash>
       </entry>
       <entry>
          <file>..\src\main.c</file>
@@ -1390,11 +1390,11 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\toolchain_specifics.h</file>
-         <hash>9dfc75809b6eb23cee342231de51f6b382f8f7eabf8a939539cf44c0da32acbc</hash>
+         <hash>38b3e0e3652463c4c84dc445fd0af062ddf1e36ce2aefeae250f3f0c4fef5685</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx470_curiosity\interrupts.c</file>
-         <hash>c4b2818c8d0b82aa3b6750e6e76774bca9e79013ce179d970f65fc17a2cd0282</hash>
+         <hash>2e652de08e7708cd02c0f19dd45f4362a2f5db25030692022a1c8f3e487291c5</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

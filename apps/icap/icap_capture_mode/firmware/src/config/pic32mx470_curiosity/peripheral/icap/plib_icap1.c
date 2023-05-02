@@ -38,6 +38,7 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 #include "plib_icap1.h"
+#include "interrupts.h"
 
 // *****************************************************************************
 
@@ -85,13 +86,13 @@ uint16_t ICAP1_CaptureBufferRead (void)
 bool ICAP1_CaptureStatusGet (void)
 {
     bool status = false;
-    status = ((IC1CON >> ICAP_STATUS_BUFNOTEMPTY) & 0x1);
+    status = (((IC1CON >> ICAP_STATUS_BUFNOTEMPTY) & 0x1U) != 0U);
     return status;
 }
 
 bool ICAP1_ErrorStatusGet (void)
 {
     bool status = false;
-    status = ((IC1CON >> ICAP_STATUS_OVERFLOW) & 0x1);
+    status = (((IC1CON >> ICAP_STATUS_OVERFLOW) & 0x1U) != 0U);
     return status;
 }
