@@ -86,12 +86,12 @@ void CLK_Initialize( void )
 {
 
     /* Code for fuse settings can be found in "initialization.c" */
-    
+
 
     /* unlock system for clock configuration */
-    SYSKEY = 0x00000000;
-    SYSKEY = 0xAA996655;
-    SYSKEY = 0x556699AA;
+    SYSKEY = 0x00000000U;
+    SYSKEY = 0xAA996655U;
+    SYSKEY = 0x556699AAU;
 
 
     /* Set up Reference Clock */
@@ -99,18 +99,18 @@ void CLK_Initialize( void )
     /* RODIV = 9 */
     REFO1CON = 0x90000;
     /* Enable Reference Oscillator (ON bit) and Enable its Output (OE bit) */
-    REFO1CONSET = 0x00001000 | 0x00008000;
+    REFO1CONSET = 0x00001000U | 0x00008000U;
 
 
     /* Lock system since done with clock configuration */
-    SYSKEY = 0x33333333;
+    SYSKEY = 0x33333333U;
 
 
     /* Peripheral Module Disable Configuration */
-    PMD1 = 0x101101;
-    PMD2 = 0x7;
-    PMD3 = 0x1f001f;
-    PMD4 = 0x1f;
-    PMD5 = 0x1030303;
-    PMD6 = 0x10001;
+    PMD1 = 0x101101U;
+    PMD2 = 0x7U;
+    PMD3 = 0x1f001fU;
+    PMD4 = 0x1fU;
+    PMD5 = 0x1030303U;
+    PMD6 = 0x10001U;
 }
