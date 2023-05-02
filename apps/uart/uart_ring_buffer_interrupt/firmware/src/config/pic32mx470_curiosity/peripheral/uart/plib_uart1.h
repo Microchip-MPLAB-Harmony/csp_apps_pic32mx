@@ -71,6 +71,10 @@ bool UART1_SerialSetup( UART_SERIAL_SETUP *setup, uint32_t srcClkFreq );
 
 UART_ERROR UART1_ErrorGet( void );
 
+bool UART1_AutoBaudQuery( void );
+
+void UART1_AutoBaudSet( bool enable );
+
 size_t UART1_Write(uint8_t* pWrBuffer, const size_t size );
 
 size_t UART1_WriteCountGet(void);
