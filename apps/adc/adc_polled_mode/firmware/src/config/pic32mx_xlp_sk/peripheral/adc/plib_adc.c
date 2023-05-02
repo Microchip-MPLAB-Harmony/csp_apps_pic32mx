@@ -41,6 +41,7 @@
 // DOM-IGNORE-END
 #include "device.h"
 #include "plib_adc.h"
+#include "interrupts.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -84,27 +85,27 @@ void ADC_ConversionStart(void)
 
 void ADC_InputSelect(ADC_MUX muxType, ADC_INPUT_POSITIVE positiveInput, ADC_INPUT_NEGATIVE negativeInput)
 {
-	if (muxType == ADC_MUX_B)
-	{
-    	AD1CHSbits.CH0SB = positiveInput;
-        AD1CHSbits.CH0NB = negativeInput;
-	}
-	else
-	{
-    	AD1CHSbits.CH0SA = positiveInput;
-        AD1CHSbits.CH0NA = negativeInput;
-	}
+    if (muxType == ADC_MUX_B)
+    {
+        AD1CHSbits.CH0SB = (uint8_t)positiveInput;
+        AD1CHSbits.CH0NB = (uint8_t)negativeInput;
+    }
+    else
+    {
+        AD1CHSbits.CH0SA = (uint8_t)positiveInput;
+        AD1CHSbits.CH0NA = (uint8_t)negativeInput;
+    }
 }
 
 void ADC_InputScanSelect(ADC_INPUTS_SCAN scanInputs)
 {
-    AD1CSSL = scanInputs;
+    AD1CSSL = (uint32_t)scanInputs;
 }
 
 /*Check if conversion result is available */
 bool ADC_ResultIsReady(void)
 {
-    return AD1CON1bits.DONE;
+    return ((AD1CON1bits.DONE) != 0U);
 }
 
 
