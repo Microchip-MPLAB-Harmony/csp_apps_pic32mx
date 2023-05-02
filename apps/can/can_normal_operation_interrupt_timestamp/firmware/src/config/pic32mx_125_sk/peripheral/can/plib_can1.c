@@ -50,6 +50,7 @@
 // *****************************************************************************
 #include <sys/kmem.h>
 #include "plib_can1.h"
+#include "interrupts.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -57,35 +58,50 @@
 // *****************************************************************************
 // *****************************************************************************
 /* Number of configured FIFO */
-#define CAN_NUM_OF_FIFO             2
+#define CAN_NUM_OF_FIFO              (2U)
 /* Maximum number of CAN Message buffers in each FIFO */
-#define CAN_FIFO_MESSAGE_BUFFER_MAX 32
+#define CAN_FIFO_MESSAGE_BUFFER_MAX  (32U)
 
-#define CAN_CONFIGURATION_MODE      0x4
-#define CAN_OPERATION_MODE          0x0
-#define CAN_NUM_OF_FILTER           1
+#define CAN_CONFIGURATION_MODE       (0x4UL)
+#define CAN_OPERATION_MODE           (0x0UL)
+#define CAN_NUM_OF_FILTER            (1U)
 /* FIFO Offset in word (4 bytes) */
-#define CAN_FIFO_OFFSET             0x10
+#define CAN_FIFO_OFFSET              (0x10U)
 /* Filter Offset in word (4 bytes) */
-#define CAN_FILTER_OFFSET           0x4
+#define CAN_FILTER_OFFSET            (0x4U)
 /* Acceptance Mask Offset in word (4 bytes) */
-#define CAN_ACCEPTANCE_MASK_OFFSET  0x4
-#define CAN_MESSAGE_RAM_CONFIG_SIZE 2
-#define CAN_MSG_IDE_MASK            0x10000000
-#define CAN_MSG_SID_MASK            0x7FF
-#define CAN_MSG_TIMESTAMP_MASK      0xFFFF0000
-#define CAN_MSG_EID_MASK            0x1FFFFFFF
-#define CAN_MSG_DLC_MASK            0xF
-#define CAN_MSG_RTR_MASK            0x200
-#define CAN_MSG_SRR_MASK            0x20000000
+#define CAN_ACCEPTANCE_MASK_OFFSET   (0x4U)
+#define CAN_MESSAGE_RAM_CONFIG_SIZE (2U)
+#define CAN_MSG_IDE_MASK            (0x10000000U)
+#define CAN_MSG_SID_MASK            (0x7FFU)
+#define CAN_MSG_TIMESTAMP_MASK      (0xFFFF0000U)
+#define CAN_MSG_EID_MASK            (0x1FFFFFFFU)
+#define CAN_MSG_DLC_MASK            (0xFU)
+#define CAN_MSG_RTR_MASK            (0x200U)
+#define CAN_MSG_SRR_MASK            (0x20000000U)
 
-static CAN_OBJ can1Obj;
-static CAN_RX_MSG can1RxMsg[CAN_NUM_OF_FIFO][CAN_FIFO_MESSAGE_BUFFER_MAX];
-static CAN_CALLBACK_OBJ can1CallbackObj[CAN_NUM_OF_FIFO];
-static CAN_CALLBACK_OBJ can1ErrorCallbackObj;
-static uint32_t can1MsgIndex[CAN_NUM_OF_FIFO];
+volatile static CAN_OBJ can1Obj;
+volatile static CAN_RX_MSG can1RxMsg[CAN_NUM_OF_FIFO][CAN_FIFO_MESSAGE_BUFFER_MAX];
+volatile static CAN_CALLBACK_OBJ can1CallbackObj[CAN_NUM_OF_FIFO];
+volatile static CAN_CALLBACK_OBJ can1ErrorCallbackObj;
+volatile static uint32_t can1MsgIndex[CAN_NUM_OF_FIFO];
 static CAN_TX_RX_MSG_BUFFER __attribute__((coherent, aligned(32))) can_message_buffer[CAN_MESSAGE_RAM_CONFIG_SIZE];
 
+/******************************************************************************
+Local Functions
+******************************************************************************/
+static inline void CAN1_ZeroInitialize(volatile void* pData, size_t dataSize)
+{
+    volatile uint8_t* data = (volatile uint8_t*)pData;
+    for (uint32_t index = 0; index < dataSize; index++)
+    {
+        data[index] = 0U;
+    }
+}
+
+/* MISRAC 2012 deviation block start */
+/* MISRA C-2012 Rule 11.6 deviated 3 times. Deviation record ID -  H3_MISRAC_2012_R_11_6_DR_1 */
+/* MISRA C-2012 Rule 5.1 deviated 1 time. Deviation record ID -  H3_MISRAC_2012_R_5_1_DR_1 */
 // *****************************************************************************
 // *****************************************************************************
 // CAN1 PLib Interface Routines
@@ -114,45 +130,51 @@ void CAN1_Initialize(void)
 
     /* Switch the CAN module to Configuration mode. Wait until the switch is complete */
     C1CON = (C1CON & ~_C1CON_REQOP_MASK) | ((CAN_CONFIGURATION_MODE << _C1CON_REQOP_POSITION) & _C1CON_REQOP_MASK);
-    while(((C1CON & _C1CON_OPMOD_MASK) >> _C1CON_OPMOD_POSITION) != CAN_CONFIGURATION_MODE);
+    while(((C1CON & _C1CON_OPMOD_MASK) >> _C1CON_OPMOD_POSITION) != CAN_CONFIGURATION_MODE)
+    {
+         /* Do Nothing */
+    }
 
     /* Set the Bitrate to 500 Kbps */
-    C1CFG = ((3 << _C1CFG_BRP_POSITION) & _C1CFG_BRP_MASK)
-                            | ((2 << _C1CFG_SJW_POSITION) & _C1CFG_SJW_MASK)
-                            | ((2 << _C1CFG_SEG2PH_POSITION) & _C1CFG_SEG2PH_MASK)
-                            | ((6 << _C1CFG_SEG1PH_POSITION) & _C1CFG_SEG1PH_MASK)
-                            | ((0 << _C1CFG_PRSEG_POSITION) & _C1CFG_PRSEG_MASK)
+    C1CFG = ((3UL << _C1CFG_BRP_POSITION) & _C1CFG_BRP_MASK)
+                            | ((2UL << _C1CFG_SJW_POSITION) & _C1CFG_SJW_MASK)
+                            | ((2UL << _C1CFG_SEG2PH_POSITION) & _C1CFG_SEG2PH_MASK)
+                            | ((6UL << _C1CFG_SEG1PH_POSITION) & _C1CFG_SEG1PH_MASK)
+                            | ((0UL << _C1CFG_PRSEG_POSITION) & _C1CFG_PRSEG_MASK)
                             | _C1CFG_SEG2PHTS_MASK;
 
     /* Set FIFO base address for all message buffers */
     C1FIFOBA = (uint32_t)KVA_TO_PA(can_message_buffer);
 
     /* Configure CAN FIFOs */
-    C1FIFOCON0 = (((1 - 1) << _C1FIFOCON0_FSIZE_POSITION) & _C1FIFOCON0_FSIZE_MASK) | _C1FIFOCON0_TXEN_MASK | ((0x0 << _C1FIFOCON0_TXPRI_POSITION) & _C1FIFOCON0_TXPRI_MASK) | ((0x0 << _C1FIFOCON0_RTREN_POSITION) & _C1FIFOCON0_RTREN_MASK);
-    C1FIFOCON1 = (((1 - 1) << _C1FIFOCON1_FSIZE_POSITION) & _C1FIFOCON1_FSIZE_MASK);
+    C1FIFOCON0 = (((1UL - 1UL) << _C1FIFOCON0_FSIZE_POSITION) & _C1FIFOCON0_FSIZE_MASK) | _C1FIFOCON0_TXEN_MASK | ((0x0UL << _C1FIFOCON0_TXPRI_POSITION) & _C1FIFOCON0_TXPRI_MASK) | ((0x0UL << _C1FIFOCON0_RTREN_POSITION) & _C1FIFOCON0_RTREN_MASK);
+    C1FIFOCON1 = (((1UL - 1UL) << _C1FIFOCON1_FSIZE_POSITION) & _C1FIFOCON1_FSIZE_MASK);
 
     /* Configure CAN Filters */
-    C1RXF0 = (0 & CAN_MSG_SID_MASK) << _C1RXF0_SID_POSITION;
-    C1FLTCON0SET = ((0x1 << _C1FLTCON0_FSEL0_POSITION) & _C1FLTCON0_FSEL0_MASK)
-                                                         | ((0x0 << _C1FLTCON0_MSEL0_POSITION) & _C1FLTCON0_MSEL0_MASK)| _C1FLTCON0_FLTEN0_MASK;
+    C1RXF0 = (0UL & CAN_MSG_SID_MASK) << _C1RXF0_SID_POSITION;
+    C1FLTCON0SET = ((0x1UL << _C1FLTCON0_FSEL0_POSITION) & _C1FLTCON0_FSEL0_MASK)
+                                                         | ((0x0UL << _C1FLTCON0_MSEL0_POSITION) & _C1FLTCON0_MSEL0_MASK)| _C1FLTCON0_FLTEN0_MASK;
 
     /* Configure CAN Acceptance Filter Masks */
-    C1RXM0 = (0 & CAN_MSG_SID_MASK) << _C1RXM0_SID_POSITION;
+    C1RXM0 = (0UL & CAN_MSG_SID_MASK) << _C1RXM0_SID_POSITION;
 
     /* Enable Timestamp */
     C1CONSET = _C1CON_CANCAP_MASK;
-    C1TMR = 0 & _C1TMR_CANTSPRE_MASK;
+    C1TMR = 0U & _C1TMR_CANTSPRE_MASK;
 
     /* Set Interrupts */
     IEC2SET = _IEC2_CAN1IE_MASK;
     C1INTSET = _C1INT_SERRIE_MASK | _C1INT_CERRIE_MASK | _C1INT_IVRIE_MASK;
 
     /* Initialize the CAN PLib Object */
-    memset((void *)can1RxMsg, 0x00, sizeof(can1RxMsg));
+    CAN1_ZeroInitialize((void *)can1RxMsg, sizeof(can1RxMsg));
 
     /* Switch the CAN module to CAN_OPERATION_MODE. Wait until the switch is complete */
     C1CON = (C1CON & ~_C1CON_REQOP_MASK) | ((CAN_OPERATION_MODE << _C1CON_REQOP_POSITION) & _C1CON_REQOP_MASK);
-    while(((C1CON & _C1CON_OPMOD_MASK) >> _C1CON_OPMOD_POSITION) != CAN_OPERATION_MODE);
+    while(((C1CON & _C1CON_OPMOD_MASK) >> _C1CON_OPMOD_POSITION) != CAN_OPERATION_MODE)
+    {
+        /* Do Nothing */
+    }
 }
 
 // *****************************************************************************
@@ -183,7 +205,7 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, uint8_t fi
     uint8_t count = 0;
     bool status = false;
 
-    if ((fifoNum > (CAN_NUM_OF_FIFO - 1)) || (data == NULL))
+    if ((fifoNum > (CAN_NUM_OF_FIFO - 1U)) || (data == NULL))
     {
         return status;
     }
@@ -197,12 +219,12 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, uint8_t fi
         if (id > CAN_MSG_SID_MASK)
         {
             txMessage->msgSID = (id & CAN_MSG_EID_MASK) >> 18;
-            txMessage->msgEID = ((id & 0x3FFFF) << 10) | CAN_MSG_IDE_MASK;
+            txMessage->msgEID = ((id & 0x3FFFFUL) << 10) | CAN_MSG_IDE_MASK | CAN_MSG_SRR_MASK;
         }
         else
         {
             txMessage->msgSID = id;
-            txMessage->msgEID = 0;
+            txMessage->msgEID = 0U;
         }
 
         if (msgAttr == CAN_MSG_TX_REMOTE_FRAME)
@@ -211,9 +233,9 @@ bool CAN1_MessageTransmit(uint32_t id, uint8_t length, uint8_t* data, uint8_t fi
         }
         else
         {
-            if (length > 8)
+            if (length > 8U)
             {
-                length = 8;
+                length = 8U;
             }
             txMessage->msgEID |= length;
 
@@ -265,17 +287,17 @@ bool CAN1_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t 
     uint8_t msgIndex = 0;
     uint8_t fifoSize = 0;
 
-    if ((fifoNum > (CAN_NUM_OF_FIFO - 1)) || (data == NULL) || (length == NULL) || (id == NULL))
+    if ((fifoNum > (CAN_NUM_OF_FIFO - 1U)) || (data == NULL) || (length == NULL) || (id == NULL))
     {
         return status;
     }
 
-    fifoSize = (*(volatile uint32_t *)(&C1FIFOCON0 + (fifoNum * CAN_FIFO_OFFSET)) & _C1FIFOCON0_FSIZE_MASK) >> _C1FIFOCON0_FSIZE_POSITION;
-    for (msgIndex = 0; msgIndex <= fifoSize; msgIndex++)
+    fifoSize = (uint8_t)((*(volatile uint32_t *)(&C1FIFOCON0 + (fifoNum * CAN_FIFO_OFFSET)) & _C1FIFOCON0_FSIZE_MASK) >> _C1FIFOCON0_FSIZE_POSITION);
+    for (msgIndex = 0U; msgIndex <= fifoSize; msgIndex++)
     {
-        if ((can1MsgIndex[fifoNum] & (1UL << (msgIndex & 0x1F))) == 0)
+        if ((can1MsgIndex[fifoNum] & (1UL << (msgIndex & 0x1FU))) == 0U)
         {
-            can1MsgIndex[fifoNum] |= (1UL << (msgIndex & 0x1F));
+            can1MsgIndex[fifoNum] |= (1UL << (msgIndex & 0x1FU));
             break;
         }
     }
@@ -314,7 +336,7 @@ bool CAN1_MessageReceive(uint32_t *id, uint8_t *length, uint8_t *data, uint16_t 
 */
 void CAN1_MessageAbort(uint8_t fifoNum)
 {
-    if (fifoNum > (CAN_NUM_OF_FIFO - 1))
+    if (fifoNum > (CAN_NUM_OF_FIFO - 1U))
     {
         return;
     }
@@ -346,8 +368,7 @@ void CAN1_MessageAcceptanceFilterSet(uint8_t filterNum, uint32_t id)
     if (filterNum < CAN_NUM_OF_FILTER)
     {
         filterRegIndex = filterNum >> 2;
-        filterEnableBit = (filterNum % 4 == 0)? _C1FLTCON0_FLTEN0_MASK : 1 << ((((filterNum % 4) + 1) * 8) - 1);
-
+        filterEnableBit = _C1FLTCON0_FLTEN0_MASK;
         *(volatile uint32_t *)(&C1FLTCON0CLR + (filterRegIndex * CAN_FILTER_OFFSET)) = filterEnableBit;
 
         if (id > CAN_MSG_SID_MASK)
@@ -386,10 +407,10 @@ uint32_t CAN1_MessageAcceptanceFilterGet(uint8_t filterNum)
 
     if (filterNum < CAN_NUM_OF_FILTER)
     {
-        if (*(volatile uint32_t *)(&C1RXF0 + (filterNum * CAN_FILTER_OFFSET)) & _C1RXF0_EXID_MASK)
+        if ((*(volatile uint32_t *)(&C1RXF0 + (filterNum * CAN_FILTER_OFFSET)) & _C1RXF0_EXID_MASK) != 0U)
         {
-            id = (*(volatile uint32_t *)(&C1RXF0 + (filterNum * CAN_FILTER_OFFSET)) & _C1RXF0_EID_MASK)
-               | ((*(volatile uint32_t *)(&C1RXF0 + (filterNum * CAN_FILTER_OFFSET)) & _C1RXF0_SID_MASK) >> 3);
+            id = (*(volatile uint32_t *)(&C1RXF0 + (filterNum * CAN_FILTER_OFFSET)) & _C1RXF0_EID_MASK);
+            id = id | ((*(volatile uint32_t *)(&C1RXF0 + (filterNum * CAN_FILTER_OFFSET)) & _C1RXF0_SID_MASK) >> 3);
         }
         else
         {
@@ -420,7 +441,10 @@ void CAN1_MessageAcceptanceFilterMaskSet(uint8_t acceptanceFilterMaskNum, uint32
 {
     /* Switch the CAN module to Configuration mode. Wait until the switch is complete */
     C1CON = (C1CON & ~_C1CON_REQOP_MASK) | ((CAN_CONFIGURATION_MODE << _C1CON_REQOP_POSITION) & _C1CON_REQOP_MASK);
-    while(((C1CON & _C1CON_OPMOD_MASK) >> _C1CON_OPMOD_POSITION) != CAN_CONFIGURATION_MODE);
+    while(((C1CON & _C1CON_OPMOD_MASK) >> _C1CON_OPMOD_POSITION) != CAN_CONFIGURATION_MODE)
+    {
+        /* Do Nothing */
+    }
 
     if (id > CAN_MSG_SID_MASK)
     {
@@ -434,7 +458,10 @@ void CAN1_MessageAcceptanceFilterMaskSet(uint8_t acceptanceFilterMaskNum, uint32
 
     /* Switch the CAN module to CAN_OPERATION_MODE. Wait until the switch is complete */
     C1CON = (C1CON & ~_C1CON_REQOP_MASK) | ((CAN_OPERATION_MODE << _C1CON_REQOP_POSITION) & _C1CON_REQOP_MASK);
-    while(((C1CON & _C1CON_OPMOD_MASK) >> _C1CON_OPMOD_POSITION) != CAN_OPERATION_MODE);
+    while(((C1CON & _C1CON_OPMOD_MASK) >> _C1CON_OPMOD_POSITION) != CAN_OPERATION_MODE)
+    {
+       /* Do Nothing */
+    }
 }
 
 // *****************************************************************************
@@ -457,10 +484,10 @@ uint32_t CAN1_MessageAcceptanceFilterMaskGet(uint8_t acceptanceFilterMaskNum)
 {
     uint32_t id = 0;
 
-    if (*(volatile uint32_t *)(&C1RXM0 + (acceptanceFilterMaskNum * CAN_ACCEPTANCE_MASK_OFFSET)) & _C1RXM0_MIDE_MASK)
+    if ((*(volatile uint32_t *)(&C1RXM0 + (acceptanceFilterMaskNum * CAN_ACCEPTANCE_MASK_OFFSET)) & _C1RXM0_MIDE_MASK) != 0U)
     {
-        id = (*(volatile uint32_t *)(&C1RXM0 + (acceptanceFilterMaskNum * CAN_ACCEPTANCE_MASK_OFFSET)) & _C1RXM0_EID_MASK)
-           | ((*(volatile uint32_t *)(&C1RXM0 + (acceptanceFilterMaskNum * CAN_ACCEPTANCE_MASK_OFFSET)) & _C1RXM0_SID_MASK) >> 3);
+        id = (*(volatile uint32_t *)(&C1RXM0 + (acceptanceFilterMaskNum * CAN_ACCEPTANCE_MASK_OFFSET)) & _C1RXM0_EID_MASK);
+        id = id | ((*(volatile uint32_t *)(&C1RXM0 + (acceptanceFilterMaskNum * CAN_ACCEPTANCE_MASK_OFFSET)) & _C1RXM0_SID_MASK) >> 3);
     }
     else
     {
@@ -533,11 +560,11 @@ void CAN1_ErrorCountGet(uint8_t *txErrorCount, uint8_t *rxErrorCount)
 */
 bool CAN1_InterruptGet(uint8_t fifoNum, CAN_FIFO_INTERRUPT_FLAG_MASK fifoInterruptFlagMask)
 {
-    if (fifoNum > (CAN_NUM_OF_FIFO - 1))
+    if (fifoNum > (CAN_NUM_OF_FIFO - 1U))
     {
         return false;
     }
-    return ((*(volatile uint32_t *)(&C1FIFOINT0 + (fifoNum * CAN_FIFO_OFFSET)) & fifoInterruptFlagMask) != 0x0);
+    return ((*(volatile uint32_t *)(&C1FIFOINT0 + (fifoNum * CAN_FIFO_OFFSET)) & fifoInterruptFlagMask) != 0x0U);
 }
 
 // *****************************************************************************
@@ -599,17 +626,17 @@ bool CAN1_AutoRTRResponseSet(uint32_t id, uint8_t length, uint8_t* data, uint8_t
         if (id > CAN_MSG_SID_MASK)
         {
             txMessage->msgSID = (id & CAN_MSG_EID_MASK) >> 18;
-            txMessage->msgEID = ((id & 0x3FFFF) << 10) | CAN_MSG_IDE_MASK;
+            txMessage->msgEID = ((id & 0x3FFFFUL) << 10) | CAN_MSG_IDE_MASK | CAN_MSG_SRR_MASK;
         }
         else
         {
             txMessage->msgSID = id;
-            txMessage->msgEID = 0;
+            txMessage->msgEID = 0U;
         }
 
-        if (length > 8)
+        if (length > 8U)
         {
-            length = 8;
+            length = 8U;
         }
         txMessage->msgEID |= length;
 
@@ -625,6 +652,93 @@ bool CAN1_AutoRTRResponseSet(uint32_t id, uint8_t length, uint8_t* data, uint8_t
 
         C1INTSET = _C1INT_TBIE_MASK;
 
+        status = true;
+    }
+    return status;
+}
+
+bool CAN1_BitTimingCalculationGet(CAN_BIT_TIMING_SETUP *setup, CAN_BIT_TIMING *bitTiming)
+{
+    bool status = false;
+    uint32_t numOfTimeQuanta;
+    uint8_t phase1;
+    float temp1;
+    float temp2;
+
+    if ((setup != NULL) && (bitTiming != NULL))
+    {
+        if (setup->nominalBitTimingSet == true)
+        {
+            numOfTimeQuanta = CAN1_CLOCK_FREQUENCY / (setup->nominalBitRate * (2U * ((uint32_t)setup->nominalPrescaler + 1U)));
+            if ((numOfTimeQuanta >= 8U) && (numOfTimeQuanta <= 25U))
+            {
+                if (setup->nominalSamplePoint < 50.0f)
+                {
+                    setup->nominalSamplePoint = 50.0f;
+                }
+                temp1 = (float)numOfTimeQuanta;
+                temp2 = (temp1 * setup->nominalSamplePoint) / 100.0f;
+                phase1 = (uint8_t)temp2;
+                bitTiming->nominalBitTiming.phase2Segment = (uint8_t)(numOfTimeQuanta - phase1 - 1U);
+                /* The propagation segment time is equal to twice the sum of the signal's propagation time on the bus line,
+                   the receiver delay and the output driver delay */
+                temp2 = (((float)numOfTimeQuanta * ((float)setup->nominalBitRate / 1000.0f) * (float)setup->nominalPropagTime) / 1000000.0f);
+                bitTiming->nominalBitTiming.propagationSegment = ((uint8_t)temp2 - 1U);
+                bitTiming->nominalBitTiming.phase1Segment = phase1 - (bitTiming->nominalBitTiming.propagationSegment + 1U) - 2U;
+                if ((bitTiming->nominalBitTiming.phase2Segment + 1U) > 4U)
+                {
+                    bitTiming->nominalBitTiming.sjw = 3U;
+                }
+                else
+                {
+                    bitTiming->nominalBitTiming.sjw = bitTiming->nominalBitTiming.phase2Segment;
+                }
+                bitTiming->nominalBitTiming.Prescaler = setup->nominalPrescaler;
+                bitTiming->nominalBitTimingSet = true;
+                status = true;
+            }
+            else
+            {
+                bitTiming->nominalBitTimingSet = false;
+            }
+        }
+    }
+
+    return status;
+}
+
+bool CAN1_BitTimingSet(CAN_BIT_TIMING *bitTiming)
+{
+    bool status = false;
+
+    if ((bitTiming->nominalBitTimingSet == true)
+    && (bitTiming->nominalBitTiming.phase1Segment <= 0x7U)
+    && (bitTiming->nominalBitTiming.phase2Segment <= 0x7U)
+    && (bitTiming->nominalBitTiming.propagationSegment <= 0x7U)
+    && ((bitTiming->nominalBitTiming.Prescaler >= 0x1U) && (bitTiming->nominalBitTiming.Prescaler <= 0x3FU))
+    && (bitTiming->nominalBitTiming.sjw <= 0x3U))
+    {
+        /* Switch the CAN module to Configuration mode. Wait until the switch is complete */
+        C1CON = (C1CON & ~_C1CON_REQOP_MASK) | ((CAN_CONFIGURATION_MODE << _C1CON_REQOP_POSITION) & _C1CON_REQOP_MASK);
+        while(((C1CON & _C1CON_OPMOD_MASK) >> _C1CON_OPMOD_POSITION) != CAN_CONFIGURATION_MODE)
+        {
+             /* Do Nothing */
+        }
+
+        /* Set the Bitrate */
+        C1CFG = (((uint32_t)bitTiming->nominalBitTiming.Prescaler << _C1CFG_BRP_POSITION) & _C1CFG_BRP_MASK)
+                                | (((uint32_t)bitTiming->nominalBitTiming.sjw << _C1CFG_SJW_POSITION) & _C1CFG_SJW_MASK)
+                                | (((uint32_t)bitTiming->nominalBitTiming.phase2Segment << _C1CFG_SEG2PH_POSITION) & _C1CFG_SEG2PH_MASK)
+                                | (((uint32_t)bitTiming->nominalBitTiming.phase1Segment << _C1CFG_SEG1PH_POSITION) & _C1CFG_SEG1PH_MASK)
+                                | (((uint32_t)bitTiming->nominalBitTiming.propagationSegment << _C1CFG_PRSEG_POSITION) & _C1CFG_PRSEG_MASK)
+                                | _C1CFG_SEG2PHTS_MASK;
+
+        /* Switch the CAN module to CAN_OPERATION_MODE. Wait until the switch is complete */
+        C1CON = (C1CON & ~_C1CON_REQOP_MASK) | ((CAN_OPERATION_MODE << _C1CON_REQOP_POSITION) & _C1CON_REQOP_MASK);
+        while(((C1CON & _C1CON_OPMOD_MASK) >> _C1CON_OPMOD_POSITION) != CAN_OPERATION_MODE)
+        {
+            /* Do Nothing */
+        }
         status = true;
     }
     return status;
@@ -655,13 +769,12 @@ bool CAN1_AutoRTRResponseSet(uint32_t id, uint8_t length, uint8_t* data, uint8_t
 */
 void CAN1_CallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle, uint8_t fifoNum)
 {
-    if (callback == NULL)
+    if (callback != NULL)
     {
-        return;
+        can1CallbackObj[fifoNum].callback = callback;
+        can1CallbackObj[fifoNum].context = contextHandle;
     }
-
-    can1CallbackObj[fifoNum].callback = callback;
-    can1CallbackObj[fifoNum].context = contextHandle;
+    return;
 }
 
 // *****************************************************************************
@@ -687,18 +800,17 @@ void CAN1_CallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle, uint8
 */
 void CAN1_ErrorCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle)
 {
-    if (callback == NULL)
+    if (callback != NULL)
     {
-        return;
+        can1ErrorCallbackObj.callback = callback;
+        can1ErrorCallbackObj.context = contextHandle;
     }
-
-    can1ErrorCallbackObj.callback = callback;
-    can1ErrorCallbackObj.context = contextHandle;
+    return;
 }
 
 // *****************************************************************************
 /* Function:
-    void CAN1_InterruptHandler(void)
+    void __attribute__((used)) CAN1_InterruptHandler(void)
 
    Summary:
     CAN1 Peripheral Interrupt Handler.
@@ -721,7 +833,7 @@ void CAN1_ErrorCallbackRegister(CAN_CALLBACK callback, uintptr_t contextHandle)
     instance interrupt is enabled. If peripheral instance's interrupt is not
     enabled user need to call it from the main while loop of the application.
 */
-void CAN1_InterruptHandler(void)
+void __attribute__((used)) CAN1_InterruptHandler(void)
 {
     uint8_t  msgIndex = 0;
     uint8_t  fifoNum = 0;
@@ -729,10 +841,12 @@ void CAN1_InterruptHandler(void)
     uint8_t  count = 0;
     CAN_TX_RX_MSG_BUFFER *rxMessage = NULL;
     uint32_t interruptStatus = 0;
+    /* Additional temporary variable used to prevent MISRA violations (Rule 13.x) */
+    uintptr_t context;
 
     interruptStatus = C1INT;
     /* Check if error occurred */
-    if (interruptStatus & (_C1INT_SERRIF_MASK | _C1INT_CERRIF_MASK | _C1INT_IVRIF_MASK))
+    if ((interruptStatus & (_C1INT_SERRIF_MASK | _C1INT_CERRIF_MASK | _C1INT_IVRIF_MASK)) != 0U)
     {
         C1INTCLR = _C1INT_SERRIE_MASK | _C1INT_CERRIE_MASK | _C1INT_IVRIE_MASK
                  | _C1INT_SERRIF_MASK | _C1INT_CERRIF_MASK | _C1INT_IVRIF_MASK;
@@ -751,23 +865,24 @@ void CAN1_InterruptHandler(void)
         /* Client must call CAN1_ErrorGet and CAN1_ErrorCountGet functions to get errors */
         if (can1ErrorCallbackObj.callback != NULL)
         {
-            can1ErrorCallbackObj.callback(can1ErrorCallbackObj.context);
+            context = can1ErrorCallbackObj.context;
+            can1ErrorCallbackObj.callback(context);
         }
     }
     else
     {
-        can1Obj.errorStatus = 0;
-        if (C1INT & _C1INT_RBIF_MASK)
+        can1Obj.errorStatus = 0U;
+        if ((C1INT & _C1INT_RBIF_MASK) != 0U)
         {
-            fifoNum = (uint8_t)C1VEC & _C1VEC_ICODE_MASK;
+            fifoNum = (uint8_t)C1VEC & (uint8_t)_C1VEC_ICODE_MASK;
             if (fifoNum < CAN_NUM_OF_FIFO)
             {
-                fifoSize = (*(volatile uint32_t *)(&C1FIFOCON0 + (fifoNum * CAN_FIFO_OFFSET)) & _C1FIFOCON0_FSIZE_MASK) >> _C1FIFOCON0_FSIZE_POSITION;
-                for (msgIndex = 0; msgIndex <= fifoSize; msgIndex++)
+                fifoSize = (uint8_t)((*(volatile uint32_t *)(&C1FIFOCON0 + (fifoNum * CAN_FIFO_OFFSET)) & _C1FIFOCON0_FSIZE_MASK) >> _C1FIFOCON0_FSIZE_POSITION);
+                for (msgIndex = 0U; msgIndex <= fifoSize; msgIndex++)
                 {
-                    if ((can1MsgIndex[fifoNum] & (1 << (msgIndex & 0x1F))) == (1 << (msgIndex & 0x1F)))
+                    if ((can1MsgIndex[fifoNum] & (1UL << (msgIndex & 0x1FU))) == (1UL << (msgIndex & 0x1FU)))
                     {
-                        can1MsgIndex[fifoNum] &= ~(1 << (msgIndex & 0x1F));
+                        can1MsgIndex[fifoNum] &= ~(1UL << (msgIndex & 0x1FU));
                         break;
                     }
                 }
@@ -775,10 +890,10 @@ void CAN1_InterruptHandler(void)
                 rxMessage = (CAN_TX_RX_MSG_BUFFER *)PA_TO_KVA1(*(volatile uint32_t *)(&C1FIFOUA0 + (fifoNum * CAN_FIFO_OFFSET)));
 
                 /* Check if it's a extended message type */
-                if (rxMessage->msgEID & CAN_MSG_IDE_MASK)
+                if ((rxMessage->msgEID & CAN_MSG_IDE_MASK) != 0U)
                 {
                     *can1RxMsg[fifoNum][msgIndex].id = ((rxMessage->msgSID & CAN_MSG_SID_MASK) << 18) | ((rxMessage->msgEID >> 10) & _C1RXM0_EID_MASK);
-                    if (rxMessage->msgEID & CAN_MSG_RTR_MASK)
+                    if ((rxMessage->msgEID & CAN_MSG_RTR_MASK) != 0U)
                     {
                         *can1RxMsg[fifoNum][msgIndex].msgAttr = CAN_MSG_RX_REMOTE_FRAME;
                     }
@@ -790,7 +905,7 @@ void CAN1_InterruptHandler(void)
                 else
                 {
                     *can1RxMsg[fifoNum][msgIndex].id = rxMessage->msgSID & CAN_MSG_SID_MASK;
-                    if (rxMessage->msgEID & CAN_MSG_SRR_MASK)
+                    if ((rxMessage->msgEID & CAN_MSG_SRR_MASK) != 0U)
                     {
                         *can1RxMsg[fifoNum][msgIndex].msgAttr = CAN_MSG_RX_REMOTE_FRAME;
                     }
@@ -800,7 +915,7 @@ void CAN1_InterruptHandler(void)
                     }
                 }
 
-                *can1RxMsg[fifoNum][msgIndex].size = rxMessage->msgEID & CAN_MSG_DLC_MASK;
+                *can1RxMsg[fifoNum][msgIndex].size = (uint8_t)(rxMessage->msgEID & CAN_MSG_DLC_MASK);
 
                 /* Copy the data into the payload */
                 while (count < *can1RxMsg[fifoNum][msgIndex].size)
@@ -810,14 +925,14 @@ void CAN1_InterruptHandler(void)
 
                 if (can1RxMsg[fifoNum][msgIndex].timestamp != NULL)
                 {
-                    *can1RxMsg[fifoNum][msgIndex].timestamp = (rxMessage->msgSID & CAN_MSG_TIMESTAMP_MASK) >> 16;
+                    *can1RxMsg[fifoNum][msgIndex].timestamp = (uint16_t)((rxMessage->msgSID & CAN_MSG_TIMESTAMP_MASK) >> 16);
                 }
 
                 /* Message processing is done, update the message buffer pointer. */
                 *(volatile uint32_t *)(&C1FIFOCON0SET + (fifoNum * CAN_FIFO_OFFSET)) = _C1FIFOCON0_UINC_MASK;
 
                 if (((*(volatile uint32_t *)(&C1FIFOINT0 + (fifoNum * CAN_FIFO_OFFSET)) & _C1FIFOINT0_RXNEMPTYIF_MASK) != _C1FIFOINT0_RXNEMPTYIF_MASK) ||
-                    (can1MsgIndex[fifoNum] == 0))
+                    (can1MsgIndex[fifoNum] == 0U))
                 {
                     *(volatile uint32_t *)(&C1FIFOINT0CLR + (fifoNum * CAN_FIFO_OFFSET)) = _C1FIFOINT0_RXNEMPTYIE_MASK;
                 }
@@ -826,12 +941,13 @@ void CAN1_InterruptHandler(void)
 
             if (can1CallbackObj[fifoNum].callback != NULL)
             {
-                can1CallbackObj[fifoNum].callback(can1CallbackObj[fifoNum].context);
+                context = can1CallbackObj[fifoNum].context;
+                can1CallbackObj[fifoNum].callback(context);
             }
         }
-        if (C1INT & _C1INT_TBIF_MASK)
+        if ((C1INT & _C1INT_TBIF_MASK) != 0U)
         {
-            fifoNum = (uint8_t)C1VEC & _C1VEC_ICODE_MASK;
+            fifoNum = (uint8_t)(C1VEC & _C1VEC_ICODE_MASK);
             if (fifoNum < CAN_NUM_OF_FIFO)
             {
                 *(volatile uint32_t *)(&C1FIFOINT0CLR + (fifoNum * CAN_FIFO_OFFSET)) = _C1FIFOINT0_TXEMPTYIE_MASK;
@@ -841,8 +957,10 @@ void CAN1_InterruptHandler(void)
 
             if (can1CallbackObj[fifoNum].callback != NULL)
             {
-                can1CallbackObj[fifoNum].callback(can1CallbackObj[fifoNum].context);
+                context = can1CallbackObj[fifoNum].context;
+                can1CallbackObj[fifoNum].callback(context);
             }
         }
     }
 }
+/* MISRAC 2012 deviation block end */
