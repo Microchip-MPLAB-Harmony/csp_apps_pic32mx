@@ -217,7 +217,7 @@
 
 #define    INT_SOURCE_DMA3    (_DMA3_IRQ)
 
-  /* MISRAC 2012 deviation block end */
+    /* MISRAC 2012 deviation block end */
 typedef uint32_t INT_SOURCE;
 
 
