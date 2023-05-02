@@ -86,14 +86,14 @@ void CLK_Initialize( void )
 {
 
     /* Code for fuse settings can be found in "initialization.c" */
-    
+
 
 
     /* Peripheral Module Disable Configuration */
-    PMD1 = 0x101101;
-    PMD2 = 0x7;
-    PMD3 = 0x18001f;
-    PMD4 = 0x1d;
-    PMD5 = 0x1030303;
-    PMD6 = 0x10001;
+    PMD1 = 0x101101U;
+    PMD2 = 0x7U;
+    PMD3 = 0x18001fU;
+    PMD4 = 0x1dU;
+    PMD5 = 0x1030303U;
+    PMD6 = 0x10001U;
 }

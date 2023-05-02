@@ -38,8 +38,8 @@
 * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
 *******************************************************************************/
 
-#ifndef _PLIB_OCMP3_H
-#define _PLIB_OCMP3_H
+#ifndef PLIB_OCMP3_H
+#define PLIB_OCMP3_H
 
 #include <stddef.h>
 #include <stdbool.h>
@@ -128,4 +128,4 @@ uint16_t OCMP3_CompareValueGet (void);
 #endif
 
 // DOM-IGNORE-END
-#endif // _PLIB_OCMP3_H
+#endif // PLIB_OCMP3_H
