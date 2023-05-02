@@ -41,6 +41,7 @@
 // DOM-IGNORE-END
 #include "device.h"
 #include "plib_adc.h"
+#include "interrupts.h"
 
 // *****************************************************************************
 // *****************************************************************************
@@ -49,7 +50,7 @@
 // *****************************************************************************
 
 /* Object to hold callback function and context */
-ADC_CALLBACK_OBJECT ADC_CallbackObj;
+volatile static ADC_CALLBACK_OBJECT ADC_CallbackObj;
 
 void ADC_Initialize(void)
 {
@@ -90,27 +91,27 @@ void ADC_ConversionStart(void)
 
 void ADC_InputSelect(ADC_MUX muxType, ADC_INPUT_POSITIVE positiveInput, ADC_INPUT_NEGATIVE negativeInput)
 {
-	if (muxType == ADC_MUX_B)
-	{
-    	AD1CHSbits.CH0SB = positiveInput;
-        AD1CHSbits.CH0NB = negativeInput;
-	}
-	else
-	{
-    	AD1CHSbits.CH0SA = positiveInput;
-        AD1CHSbits.CH0NA = negativeInput;
-	}
+    if (muxType == ADC_MUX_B)
+    {
+        AD1CHSbits.CH0SB = (uint8_t)positiveInput;
+        AD1CHSbits.CH0NB = (uint8_t)negativeInput;
+    }
+    else
+    {
+        AD1CHSbits.CH0SA = (uint8_t)positiveInput;
+        AD1CHSbits.CH0NA = (uint8_t)negativeInput;
+    }
 }
 
 void ADC_InputScanSelect(ADC_INPUTS_SCAN scanInputs)
 {
-    AD1CSSL = scanInputs;
+    AD1CSSL = (uint32_t)scanInputs;
 }
 
 /*Check if conversion result is available */
 bool ADC_ResultIsReady(void)
 {
-    return AD1CON1bits.DONE;
+    return ((AD1CON1bits.DONE) != 0U);
 }
 
 
@@ -126,12 +127,14 @@ void ADC_CallbackRegister(ADC_CALLBACK callback, uintptr_t context)
     ADC_CallbackObj.context = context;
 }
 
-void ADC_InterruptHandler(void)
+void __attribute__((used)) ADC_InterruptHandler(void)
 {
     IFS0CLR = _IFS0_AD1IF_MASK;
 
     if (ADC_CallbackObj.callback_fn != NULL)
     {
-        ADC_CallbackObj.callback_fn(ADC_CallbackObj.context);
+        uintptr_t context = ADC_CallbackObj.context;
+
+        ADC_CallbackObj.callback_fn(context);
     }
 }
