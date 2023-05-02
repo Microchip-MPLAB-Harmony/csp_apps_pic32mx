@@ -71,29 +71,28 @@
 // *****************************************************************************
 // *****************************************************************************
 
-typedef enum
-{
-    RCON_RESET_CAUSE_POR = _RCON_POR_MASK,
 
-    RCON_RESET_CAUSE_BOR = _RCON_BOR_MASK,
+#define RCON_RESET_CAUSE_POR  _RCON_POR_MASK
 
-    RCON_RESET_CAUSE_IDLE = _RCON_IDLE_MASK,
+#define RCON_RESET_CAUSE_BOR  _RCON_BOR_MASK
 
-    RCON_RESET_CAUSE_SLEEP = _RCON_SLEEP_MASK,
+#define RCON_RESET_CAUSE_IDLE  _RCON_IDLE_MASK
 
-    RCON_RESET_CAUSE_WDTO = _RCON_WDTO_MASK,
+#define RCON_RESET_CAUSE_SLEEP  _RCON_SLEEP_MASK
 
-    RCON_RESET_CAUSE_SWR = _RCON_SWR_MASK,
+#define RCON_RESET_CAUSE_WDTO  _RCON_WDTO_MASK
 
-    RCON_RESET_CAUSE_EXTR = _RCON_EXTR_MASK,
+#define RCON_RESET_CAUSE_SWR  _RCON_SWR_MASK
 
-    RCON_RESET_CAUSE_VREGS = _RCON_VREGS_MASK,
+#define RCON_RESET_CAUSE_EXTR  _RCON_EXTR_MASK
 
-    RCON_RESET_CAUSE_CMR = _RCON_CMR_MASK,
+#define RCON_RESET_CAUSE_VREGS  _RCON_VREGS_MASK
 
-    RCON_RESET_CAUSE_HVDR = _RCON_HVDR_MASK,
+#define RCON_RESET_CAUSE_CMR  _RCON_CMR_MASK
 
-} RCON_RESET_CAUSE;
+#define RCON_RESET_CAUSE_HVDR  _RCON_HVDR_MASK
+
+typedef uint32_t RCON_RESET_CAUSE;
 
 // *****************************************************************************
 // *****************************************************************************
