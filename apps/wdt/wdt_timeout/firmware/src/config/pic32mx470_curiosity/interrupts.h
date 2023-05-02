@@ -57,6 +57,9 @@
 // *****************************************************************************
 // *****************************************************************************
 
+void CORE_TIMER_InterruptHandler( void );
+void CHANGE_NOTICE_InterruptHandler( void );
+
 
 
 #endif // INTERRUPTS_H

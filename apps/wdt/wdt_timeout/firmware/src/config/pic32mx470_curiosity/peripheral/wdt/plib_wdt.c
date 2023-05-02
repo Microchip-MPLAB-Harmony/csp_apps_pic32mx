@@ -69,7 +69,7 @@ void WDT_Disable(void)
 
 bool WDT_IsEnabled( void )
 {
-    return((bool)WDTCONbits.ON);
+    return((WDTCONbits.ON) != 0U);
 }
 
 void WDT_WindowEnable( void )
@@ -86,7 +86,7 @@ void WDT_WindowDisable( void )
 
 bool WDT_IsWindowEnabled( void )
 {
-    return((bool)WDTCONbits.WDTWINEN);
+    return((WDTCONbits.WDTWINEN) != 0U);
 }
 
 void WDT_Clear( void )
