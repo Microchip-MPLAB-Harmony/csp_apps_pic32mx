@@ -1,4 +1,4 @@
-<config configName="pic32mx_eth_sk2" projectName="can_normal_operation_interrupt_timestamp_pic32mx_eth_sk2" configVersion="1.1" device="PIC32MX795F512L" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.4.3">
+<config configName="pic32mx_eth_sk2" projectName="can_normal_operation_interrupt_timestamp_pic32mx_eth_sk2" configVersion="1.1" device="PIC32MX795F512L" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.0">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
@@ -15,7 +15,7 @@
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
-      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.1.1"/>
+      <ILibraryFile class="com.microchip.mcc.core.library.BaseLibraryFile" libraryClass="com.microchip.mcc.harmony.Harmony3Library" version="1.3.1"/>
    </usedLibraries>
    <tokenMap class="java.util.TreeMap">
       <entry>
@@ -1006,23 +1006,23 @@
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\toolchain_specifics.h</file>
-         <hash>9dfc75809b6eb23cee342231de51f6b382f8f7eabf8a939539cf44c0da32acbc</hash>
+         <hash>38b3e0e3652463c4c84dc445fd0af062ddf1e36ce2aefeae250f3f0c4fef5685</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\gpio\plib_gpio.c</file>
-         <hash>bc85b3d63a9d089468e3b4e3121f6101947fede21c81e5b89fea78929feff769</hash>
+         <hash>39d4042484f807feb4b7e61f866610e9f8e616e03dc7f2c82b7cfa50aff95141</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\gpio\plib_gpio.h</file>
-         <hash>fa61ee48847391522c1745e57110436d4ff7b704853c890776f5b0a8f8931fae</hash>
+         <hash>e2681dca98c561887418b0f4435eca91140aed614bb8c9dc4dec3e5885ae4561</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\can\plib_can1.c</file>
-         <hash>e6ac94ad76e37578ca5c4100bc230d922d7d688421dd089eb4c76c6916c3086b</hash>
+         <hash>8cbfd61213f959353e62999add4dd59021da64145e09e94c7254e17ac3be3bdf</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\interrupts.c</file>
-         <hash>25d27255d269077bf07f62323afa351317f2e0540a964c242437d845cb2a3218</hash>
+         <hash>b3b839d389be6cf0ea0ec5020600ad869c4d202b31cd8a7d22a3ea2b7e65640a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\p32MX795F512L.ld</file>
@@ -1030,15 +1030,15 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\clk\plib_clk.c</file>
-         <hash>90f3a456c779488a1a9eea5389aaa6af43a939be5dc133b647bf113a488fa28d</hash>
+         <hash>e8cbfd286346bacd3b737435c07e34ff8723c2e98af3a99f742dbb1f69622ce0</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\exceptions.c</file>
-         <hash>bacd9060af8add5471ec3170808fe766dbd651e25104b5ecc8a7ebc02935e727</hash>
+         <hash>51869a2069933bd13284df52f5f993f4e8b83ae6097dda36c4b1fc6e818df86d</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\can\plib_can_common.h</file>
-         <hash>94676ea19a45f1291a1b6244d62d41e0d3ae1d8a21d8f3bd473527976392c694</hash>
+         <hash>efb2f6eb2247b2a709dffa2d046517af67cd5d5c167aa2815505cdf64445e379</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\device.h</file>
@@ -1046,15 +1046,15 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\definitions.h</file>
-         <hash>bd64b5150c07a0b8203fee4d9a283c085956e2566e481c5ed3200cb5dfdf2663</hash>
+         <hash>c7ec3a2080c1ba3bda1e2c44de9165f6c8fd3ed7400f21a78074890c235067e1</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\initialization.c</file>
-         <hash>ea27e5439205a9a254ea0bc454d443a29d5311eb56f8033206efaacd86aada04</hash>
+         <hash>954540f02fa20cd9cb6b76142589685a2614f3eeae4bd6e2897f3d65085e0f4f</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\evic\plib_evic.c</file>
-         <hash>b87a167efaa1664f695536d581b73e16eb2d2f70d8f149d474829721b5758f5c</hash>
+         <hash>3271a88269afc008188559df8c9cb72c0d7ca2204156a6fbc6fe15c488556244</hash>
       </entry>
       <entry>
          <file>..\src\main_pic32mx.c</file>
@@ -1062,19 +1062,19 @@
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\interrupts.h</file>
-         <hash>91abdb8d191ae865fc6082f30783c3d6cca8aa8d5aca823a7fb2cc65e3a57d24</hash>
+         <hash>59efb1c1c8240c1ea2f1ea17bc5e0f6b1406884e242a1022a6bf3557a365b98a</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\can\plib_can1.h</file>
-         <hash>3c51ea3ee2df14cfe3129f501c4b64226b472f15b8a204141f9e821b1275820a</hash>
+         <hash>e0b8e4e2aaaccaba497afcdd9c55a9e79761f18779c8568926832a5134b83434</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\clk\plib_clk.h</file>
-         <hash>aeb73e24e5a518024b1c3f7dce953a5cbacead08f55e80ae465fc8d2e522e477</hash>
+         <hash>35384f2e13e59b7190bf77f6996baf3ea2377ec42df94979a6f793326def5255</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\peripheral\evic\plib_evic.h</file>
-         <hash>2f73c4ff4e1e5afdf9132140e231fd6c55b1825c54a71805faad0eedeca27433</hash>
+         <hash>db5e3889a7644e7053a032c08f7767258021260cc857660fc0c8cb77f9d17182</hash>
       </entry>
       <entry>
          <file>..\src\config\pic32mx_eth_sk2\stdio\xc32_monitor.c</file>
