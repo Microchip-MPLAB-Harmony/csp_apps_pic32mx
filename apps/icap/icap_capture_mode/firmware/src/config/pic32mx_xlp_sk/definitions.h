@@ -50,8 +50,8 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include "peripheral/uart/plib_uart1.h"
-#include "peripheral/icap/plib_icap2.h"
 #include "peripheral/tmr/plib_tmr2.h"
+#include "peripheral/icap/plib_icap2.h"
 #include "peripheral/clk/plib_clk.h"
 #include "peripheral/gpio/plib_gpio.h"
 #include "peripheral/evic/plib_evic.h"
@@ -64,6 +64,12 @@ extern "C" {
 
 #endif
 // DOM-IGNORE-END
+
+/* Device Information */
+#define DEVICE_NAME			 "PIC32MX274F256D"
+#define DEVICE_ARCH			 "MIPS"
+#define DEVICE_FAMILY		 "PIC32MX1404"
+#define DEVICE_SERIES		 "PIC32MX"
 
 /* CPU clock frequency */
 #define CPU_CLOCK_FREQUENCY 72000000

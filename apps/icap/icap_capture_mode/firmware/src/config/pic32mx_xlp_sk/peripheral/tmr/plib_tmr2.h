@@ -46,6 +46,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include "device.h"
 #include "plib_tmr_common.h"
 
@@ -77,13 +78,16 @@ void TMR2_Start(void);
 
 void TMR2_Stop(void);
 
-void TMR2_PeriodSet(uint16_t);
+void TMR2_PeriodSet(uint16_t period);
 
 uint16_t TMR2_PeriodGet(void);
 
 uint16_t TMR2_CounterGet(void);
 
 uint32_t TMR2_FrequencyGet(void);
+
+
+bool TMR2_PeriodHasExpired(void);
 
 
 // DOM-IGNORE-BEGIN
